@@ -1,0 +1,920 @@
+[
+  {
+    "name": "Wardah Lightening Facial Wash",
+    "slug": "wardah-lightening-facial-wash",
+    "description": "A gentle daily cleanser that removes dirt, oil, and impurities while leaving skin feeling fresh and clean. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Facial Cleanser",
+    "category": "Skincare",
+    "lowestPrice": 18000,
+    "tags": ["Brightening", "Cleansing", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-7ra22-m5caybn3ebf2df.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-7ra22-m5caybn3ebf2df.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7ra15-m5caybs371zy3a.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7ra0s-m5caybz0wv4nd0.webp"
+    ],
+    "sizes": [
+      { "size": "50ml", "price": 18000, "stock": 15 },
+      { "size": "100ml", "price": 28000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Wardah Hydra Rose Petal Infused Toner",
+    "slug": "wardah-hydra-rose-petal-infused-toner",
+    "description": "A refreshing toner that preps skin after cleansing, removes leftover residue, and helps skin absorb the next steps in your routine. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Skincare Toner",
+    "category": "Skincare",
+    "lowestPrice": 45000,
+    "tags": ["Hydrating", "Toning", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-824hd-mpe7pdey6fwrfe.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-824hd-mpe7pdey6fwrfe.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-8224p-mgp9xvmb6sct6c.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-81ztq-mfdvvc4uqscpb4.webp"
+    ],
+    "sizes": [
+      { "size": "100ml", "price": 45000, "stock": 6 }
+    ]
+  },
+  {
+    "name": "Wardah UV Shield Aqua Fresh Essence SPF50",
+    "slug": "wardah-uv-shield-aqua-fresh-essence-spf50",
+    "description": "A daily sun care product designed for everyday use as the final step of your morning routine. Offers SPF50 sun protection to help shield skin from UV exposure. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Skincare Sunscreen",
+    "category": "Skincare",
+    "lowestPrice": 55000,
+    "tags": ["Sun Protection", "Sun Care", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-7rdy6-mdmyooalp6nwa6.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rdy6-mdmyooalp6nwa6.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rdye-mdmyooh9fg108e.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rdvz-mdmyooor5vkp30.webp"
+    ],
+    "sizes": [
+      { "size": "30ml", "price": 55000, "stock": 5 }
+    ]
+  },
+  {
+    "name": "Wardah C-Defense Serum",
+    "slug": "wardah-c-defense-serum",
+    "description": "A lightweight serum that delivers concentrated actives for targeted daily skincare. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Serum",
+    "category": "Skincare",
+    "lowestPrice": 60000,
+    "tags": ["Brightening", "Targeted Care", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-7rffi-m3ynf8i8a56w82.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rffi-m3ynf8i8a56w82.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rffi-m3ynf7sz9npzd1.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-822wt-mlob57asd24g2a.webp"
+    ],
+    "sizes": [
+      { "size": "50ml", "price": 60000, "stock": 25 },
+      { "size": "100ml", "price": 70000, "stock": 20 }
+    ]
+  },
+  {
+    "name": "Wardah Acnederm Acne Care Serum",
+    "slug": "wardah-acnederm-acne-care-serum",
+    "description": "A lightweight serum that delivers concentrated actives for targeted daily skincare. Helps care for acne-prone skin and reduce the look of breakouts.",
+    "excerpt": "Skincare Serum",
+    "category": "Skincare",
+    "lowestPrice": 55000,
+    "tags": ["Acne Care", "Targeted Care", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-8261x-mlhjz60bjls41a.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-8261x-mlhjz60bjls41a.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-82633-mlhjz7ctnpxgde.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8261i-mlhjz9pzxa1480.webp"
+    ],
+    "sizes": [
+      { "size": "15ml", "price": 55000, "stock": 12 },
+      { "size": "20ml", "price": 120000, "stock": 22 }
+    ]
+  },
+  {
+    "name": "Wardah Nature Daily Aloe Hydramild Gel",
+    "slug": "wardah-nature-daily-aloe-hydramild-gel",
+    "description": "A refreshing aloe-based gel that hydrates and helps calm skin. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Skincare Soothing Gel",
+    "category": "Skincare",
+    "lowestPrice": 30000,
+    "tags": ["Hydrating", "Soothing", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-8259v-mt852apr5hqff5.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-8259v-mt852apr5hqff5.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8258z-mt852aym4kqv2a.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-825aw-mt852b6s8z5se2.webp"
+    ],
+    "sizes": [
+      { "size": "100ml", "price": 30000, "stock": 19 }
+    ]
+  },
+  {
+    "name": "Wardah White Secret Pure Treatment Essence",
+    "slug": "wardah-white-secret-pure-treatment-essence",
+    "description": "A lightweight essence that adds a layer of hydration and helps skin absorb the rest of your skincare routine. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Essence",
+    "category": "Skincare",
+    "lowestPrice": 150000,
+    "tags": ["Brightening", "Hydrating", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-81zu3-miznj98gpziebc.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-81zu3-miznj98gpziebc.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-81zv6-miznj8t5728672.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-81ztm-miznj90m9mh1cf.webp"
+    ],
+    "sizes": [
+      { "size": "100ml", "price": 150000, "stock": 8 }
+    ]
+  },
+  {
+    "name": "Wardah Renew You Night Cream",
+    "slug": "wardah-renew-you-night-cream",
+    "description": "A nourishing night cream that supports your overnight routine, leaving skin feeling soft and comfortable by morning.",
+    "excerpt": "Skincare Night Cream",
+    "category": "Skincare",
+    "lowestPrice": 60000,
+    "tags": ["Night Care", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-8224x-mia0i3kdbqiwc8.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-8224x-mia0i3kdbqiwc8.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-8224v-mgog0kc9og0feb.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-8224r-mgog0kctp1cf4a.webp"
+    ],
+    "sizes": [
+      { "size": "15ml", "price": 60000, "stock": 13 },
+      { "size": "30ml", "price": 110000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Wardah Lightening Day Cream",
+    "slug": "wardah-lightening-day-cream",
+    "description": "A daily face cream that hydrates and keeps skin looking fresh and even throughout the day. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Day Cream",
+    "category": "Skincare",
+    "lowestPrice": 37000,
+    "tags": ["Brightening", "Daily Care", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-824gl-mf84ktvq9udpa2.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-824gl-mf84ktvq9udpa2.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-825ak-mr1adjivlv5u6a.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8259v-mr1adjhp1dkx1d.webp"
+    ],
+    "sizes": [
+      { "size": "20ml", "price": 37000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Wardah Lightening Night Cream",
+    "slug": "wardah-lightening-night-cream",
+    "description": "A nourishing night cream that supports your overnight routine, leaving skin feeling soft and comfortable by morning. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Night Cream",
+    "category": "Skincare",
+    "lowestPrice": 37000,
+    "tags": ["Brightening", "Night Care", "Skincare", "Wardah"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-824is-mf84h8zyu615ec.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-824is-mf84h8zyu615ec.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-81zte-mr1b23kwllheb9.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8259v-mr1adjhp1dkx1d.webp"
+    ],
+    "sizes": [
+      { "size": "20ml", "price": 37000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Emina Bright Stuff Face Wash",
+    "slug": "emina-bright-stuff-face-wash",
+    "description": "A gentle daily cleanser that removes dirt, oil, and impurities while leaving skin feeling fresh and clean. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Facial Cleanser",
+    "category": "Skincare",
+    "lowestPrice": 13000,
+    "tags": ["Brightening", "Cleansing", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-824hv-mdyef5t8bqpya4.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-824hv-mdyef5t8bqpya4.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-824gn-mdyef5tju2o17b.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-824j0-mdyef5tuzuo357.webp"
+    ],
+    "sizes": [
+      { "size": "50ml", "price": 13000, "stock": 19 },
+      { "size": "100ml", "price": 20000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Emina Bright Stuff Serum",
+    "slug": "emina-bright-stuff-serum",
+    "description": "A lightweight serum that delivers concentrated actives for targeted daily skincare. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Serum",
+    "category": "Skincare",
+    "lowestPrice": 45000,
+    "tags": ["Brightening", "Targeted Care", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-824hp-mprltfxhtgxs80.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-824hp-mprltfxhtgxs80.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-81ztq-mqfm0fmg6xot49.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rdws-mdb9pdun8u382f.webp"
+    ],
+    "sizes": [
+      { "size": "30ml", "price": 45000, "stock": 19 }
+    ]
+  },
+  {
+    "name": "Emina Moist in a Bottle",
+    "slug": "emina-moist-in-a-bottle",
+    "description": "A daily moisturizer that locks in hydration and keeps skin soft, smooth, and comfortable. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Skincare Moisturizer",
+    "category": "Skincare",
+    "lowestPrice": 22000,
+    "tags": ["Hydrating", "Moisturizing", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-81ztp-msozwsj5w9af33.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-81ztp-msozwsj5w9af33.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-81ztf-msv1oa3xgh6p1d.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-81zte-msv1oa3xni104c.webp"
+    ],
+    "sizes": [
+      { "size": "100ml", "price": 22000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Glow Me Vita Moisturizing Aloe Vera Gel",  
+    "slug": "glow-me-vita-moisturizing-aloe-vera-gel",
+    "description": "A refreshing aloe-based gel that hydrates and helps calm skin. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Skincare Soothing Gel",
+    "category": "Skincare",
+    "lowestPrice": 51000,
+    "tags": ["Hydrating", "Soothing", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-822wt-mnmhywzpd6o21d.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-822wt-mnmhywzpd6o21d.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-822wk-mnmhywzayv4141.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-822wm-mnmhywz2p2q01b.webp"
+    ],
+    "sizes": [
+      { "size": "30ml", "price": 51000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Emina Sun Battle SPF30",
+    "slug": "emina-sun-battle-spf30",
+    "description": "A daily sun care product designed for everyday use as the final step of your morning routine. Offers SPF30 sun protection to help shield skin from UV exposure.",
+    "excerpt": "Skincare Sunscreen",
+    "category": "Skincare",
+    "lowestPrice": 30000,
+    "tags": ["Sun Protection", "Sun Care", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/c0741309afa78e09669d88f2ef31b0cc.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/c0741309afa78e09669d88f2ef31b0cc.webp",
+      "https://down-id.img.susercontent.com/file/048193bc84ce7a239e3ff015f0553089.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7ras8-m0re19jauixoc2.webp"
+    ],
+    "sizes": [
+      { "size": "60ml", "price": 30000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Emina Skin Buddy Micellar Water",
+    "slug": "emina-skin-buddy-micellar-water",
+    "description": "A gentle micellar water that lifts away makeup, dirt, and excess oil in one easy step, leaving skin feeling fresh and clean.",
+    "excerpt": "Skincare Micellar Water",
+    "category": "Skincare",
+    "lowestPrice": 30000,
+    "tags": ["Cleansing", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-822ws-mngs39rpyozl88.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-822ws-mngs39rpyozl88.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7ra0s-mcfrg8g2mhg9fd.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7ra0g-mcfrg8g2nw0pc2.webp"
+    ],
+    "sizes": [
+      { "size": "100ml", "price": 30000, "stock": 6 }
+    ]
+  },
+  {
+    "name": "Emina Ms Pimple Acne Solution Gel",
+    "slug": "emina-ms-pimple-acne-solution-gel",
+    "description": "A spot-care gel that helps treat and prevent breakouts on acne-prone skin. Helps care for acne-prone skin and reduce the look of breakouts.",
+    "excerpt": "Skincare Acne Gel",
+    "category": "Skincare",
+    "lowestPrice": 25000,
+    "tags": ["Acne Care", "Spot Care", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mckh9j2eizp383.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7ra0r-mckh9j2eizp383.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rasl-m16oqub98bhh8d.webp",
+      "https://down-id.img.susercontent.com/file/id-11134201-23030-9ywr35w8jlov5d.webp"
+    ],
+    "sizes": [
+      { "size": "20ml", "price": 25000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Emina Bright Stuff Tone Up Cream",
+    "slug": "emina-bright-stuff-tone-up-cream",
+    "description": "A light face cream that helps even out the look of skin tone instantly while keeping skin comfortable. Helps brighten dull skin and support a more radiant, even-looking complexion.",
+    "excerpt": "Skincare Tone Up Cream",
+    "category": "Skincare",
+    "lowestPrice": 35000,
+    "tags": ["Brightening", "Tone Up", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-824h2-mpiz4v7pi3nm57.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-824h2-mpiz4v7pi3nm57.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8260o-mlhop1x2egaq54.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8260i-mlhop2i1n66n4d.webp"
+    ],
+    "sizes": [
+      { "size": "20ml", "price": 35000, "stock": 12 }
+    ]
+  },
+  {
+    "name": "Emina Face Toner",
+    "slug": "emina-face-toner",
+    "description": "A refreshing toner that preps skin after cleansing, removes leftover residue, and helps skin absorb the next steps in your routine.",
+    "excerpt": "Skincare Toner",
+    "category": "Skincare",
+    "lowestPrice": 25000,
+    "tags": ["Toning", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lyfy62pl4fzc1f.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lyfy62pl4fzc1f.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lyfy62pl08a080.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lyfy62pl31ewf7.webp"
+    ],
+    "sizes": [
+      { "size": "100ml", "price": 25000, "stock": 12 }
+    ]
+  },
+  {
+    "name": "Emina Eye Cream",
+    "slug": "emina-eye-cream",
+    "description": "A light eye cream that moisturizes the delicate skin around the eyes and keeps the area looking fresh and smooth.",
+    "excerpt": "Skincare Eye Cream",
+    "category": "Skincare",
+    "lowestPrice": 40000,
+    "tags": ["Eye Care", "Skincare", "Emina"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lyq0e88a51p75f.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lyq0e88a51p75f.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rdyv-ly5yqgows3jvb2.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rdy6-ly5yqgl0wdia7d.webp"
+    ],
+    "sizes": [
+      { "size": "10ml", "price": 40000, "stock": 6 }
+    ]
+  },
+  {
+    "name": "Scarlett Body Lotion Romansa",
+    "slug": "scarlett-body-lotion-romansa",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 75000,
+    "tags": ["Moisturizing", "Bodycare", "Scarlett"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-8224r-mgpzzhxnoqo876.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-8224r-mgpzzhxnoqo876.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98t-lybrv8zbzpazc3.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98z-lybrv8zc13vf47.webp"
+    ],
+    "sizes": [
+      { "size": "300ml", "price": 75000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Scarlett Shower Scrub Mango",
+    "slug": "scarlett-shower-scrub-mango",
+    "description": "A shower scrub that cleanses and gently exfoliates, leaving skin feeling smooth and fresh.",
+    "excerpt": "Bodycare Shower Scrub",
+    "category": "Bodycare",
+    "lowestPrice": 75000,
+    "tags": ["Exfoliating", "Bodycare", "Scarlett"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134201-7r98x-m049rw6r0losb6.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134201-7r98x-m049rw6r0losb6.webp",
+      "https://down-id.img.susercontent.com/file/id-11134201-7r98r-m049ryoddgb0a6.webp",
+      "https://down-id.img.susercontent.com/file/id-11134201-7r98t-m049rzm7zx3w53.webp"
+    ],
+    "sizes": [
+      { "size": "300ml", "price": 75000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Scarlett Body Scrub Coffee",
+    "slug": "scarlett-body-scrub-coffee",
+    "description": "An exfoliating body scrub that helps remove dull, dead skin cells for smoother-feeling skin.",
+    "excerpt": "Bodycare Body Scrub",
+    "category": "Bodycare",
+    "lowestPrice": 75000,
+    "tags": ["Exfoliating", "Bodycare", "Scarlett"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134201-7r98z-lwpfcdr9y1nwaa.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134201-7r98z-lwpfcdr9y1nwaa.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-823p6-mp5gc9p444jxa2.webp",
+      "https://down-id.img.susercontent.com/file/c8f5376ea93d977a3dcedba10494c648.webp"
+    ],
+    "sizes": [
+      { "size": "250ml", "price": 75000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Scarlett Body Lotion Jolly", 
+    "slug": "scarlett-body-lotion-jolly",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 75000,
+    "tags": ["Moisturizing", "Bodycare", "Scarlett"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7r990-lybrxbv6lotk64.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7r990-lybrxbv6lotk64.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lybrxbv6n3e068.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7r991-lybxlgxq4l9p03.webp"
+    ],
+    "sizes": [
+      { "size": "300ml", "price": 75000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Sunsilk Black Shine Shampoo",
+    "slug": "sunsilk-black-shine-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Helps keep hair looking shiny, dark, and healthy.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 22000,
+    "tags": ["Shiny Black Hair", "Cleansing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134201-8224s-mfxgctz7k6bt6e.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134201-8224s-mfxgctz7k6bt6e.webp",
+      "https://down-id.img.susercontent.com/file/id-11134201-8224y-mfxgcu5nn5s930.webp",
+      "https://down-id.img.susercontent.com/file/id-11134201-82252-mfxgcug9se8be2.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 22000, "stock": 25 },
+      { "size": "320ml", "price": 40000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Sunsilk Black Shine Conditioner",
+    "slug": "sunsilk-black-shine-conditioner",
+    "description": "A conditioner that softens and detangles hair, leaving it smooth and easy to style. Helps keep hair looking shiny, dark, and healthy.",
+    "excerpt": "Haircare Conditioner",
+    "category": "Haircare",
+    "lowestPrice": 28000,
+    "tags": ["Shiny Black Hair", "Smoothing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134275-8259f-msxsvv80ldkwe3.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134301-824jj-mf9k2rir61hme4.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-824hc-mf9k2rqltgy041.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-824i5-mf9k2rzi4b9pf6.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 28000, "stock": 15 }
+    ]
+  },
+  {
+    "name": "Sunsilk Soft & Smooth Shampoo",
+    "slug": "sunsilk-soft-and-smooth-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Leaves hair feeling soft, smooth, and easy to manage.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 22000,
+    "tags": ["Smooth Hair", "Cleansing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134201-7rbkc-m9ikht3l3yflb8.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134201-7rbkc-m9ikht3l3yflb8.webp",
+      "https://down-id.img.susercontent.com/file/ac7025ad888ccff901adc7fff84de4f1.webp",
+      "https://down-id.img.susercontent.com/file/89b44307b1dbdb7d3b7e58f1ff0fea4b.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 22000, "stock": 25 },
+      { "size": "320ml", "price": 40000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Sunsilk Soft & Smooth Conditioner",
+    "slug": "sunsilk-soft-and-smooth-conditioner",
+    "description": "A conditioner that softens and detangles hair, leaving it smooth and easy to style. Leaves hair feeling soft, smooth, and easy to manage.",
+    "excerpt": "Haircare Conditioner",
+    "category": "Haircare",
+    "lowestPrice": 28000,
+    "tags": ["Smooth Hair", "Smoothing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134301-824jj-mf9k2rir61hme4.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134301-824jj-mf9k2rir61hme4.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-824hc-mf9k2rqltgy041.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-824i5-mf9k2rzi4b9pf6.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 28000, "stock": 12 }
+    ]
+  },
+  {
+    "name": "Sunsilk Lusciously Thick & Long Shampoo",
+    "slug": "sunsilk-lusciously-thick-and-long-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Helps nourish hair for a thicker, longer, and healthy-looking result.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 22000,
+    "tags": ["Strong Hair", "Cleansing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134301-825ah-mrvh8ezptgxxe5.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134301-825ah-mrvh8ezptgxxe5.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-8259c-mrvh8f3j7c3qb9.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-825aw-mrvh8f99hslg13.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 22000, "stock": 19 },
+      { "size": "320ml", "price": 40000, "stock": 19 }
+    ]
+  },
+  {
+    "name": "Sunsilk Lusciously Thick & Long Conditioner",
+    "slug": "sunsilk-lusciously-thick-and-long-conditioner",
+    "description": "A conditioner that softens and detangles hair, leaving it smooth and easy to style. Helps nourish hair for a thicker, longer, and healthy-looking result.",
+    "excerpt": "Haircare Conditioner",
+    "category": "Haircare",
+    "lowestPrice": 28000,
+    "tags": ["Strong Hair", "Smoothing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134301-8259i-mrvh8g44i5frd2.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134301-8259i-mrvh8g44i5frd2.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-825b3-mrvh8gbavvno8e.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-825as-mrvh8gppy4g75b.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 28000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Sunsilk Anti Dandruff & Silky Shampoo ",
+    "slug": "sunsilk-anti-dandruff-&-silky-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Helps repair the look of damaged hair, leaving it smoother and stronger.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 24000,
+    "tags": ["Damage Repair", "Cleansing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-8262s-mlsrz9ddh43p94.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-8262s-mlsrz9ddh43p94.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8260e-mlsrz9paptlb1b.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-825zk-mlsrzadpaolha6.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 24000, "stock": 14 },
+      { "size": "320ml", "price": 43000, "stock": 14 }
+    ]
+  },
+  {
+    "name": "Sunsilk Silky Smooth Shampoo",
+    "slug": "sunsilk-silky-smooth-shampoo",
+    "description": "A conditioner that softens and detangles hair, leaving it smooth and easy to style. Helps repair the look of damaged hair, leaving it smoother and stronger.",
+    "excerpt": "Haircare Conditioner",
+    "category": "Haircare",
+    "lowestPrice": 28000,
+    "tags": ["Damage Repair", "Smoothing", "Haircare", "Sunsilk"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134275-8257y-msxsvvlcr4lm40.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134275-8257y-msxsvvlcr4lm40.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134275-8257z-msunt90sc3d50e.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134275-8258h-msunt91143ka8e.webp"
+    ],
+    "sizes": [
+      { "size": "160ml", "price": 28000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Tresemme Hair Fall Control Shampoo",
+    "slug": "tresemme-hair-fall-control-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Helps strengthen hair from the roots to reduce the appearance of hair fall.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 24000,
+    "tags": ["Hair Fall Care", "Cleansing", "Haircare", "Tresemme"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lwf77e6rc0grd4.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7r98q-lwf77e6rc0grd4.webp",
+      "https://down-id.img.susercontent.com/file/e930243a8991773038ef4ebf1086beb9.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7qukw-lfhm0bnrdhey71.webp"
+    ],
+    "sizes": [
+      { "size": "170ml", "price": 24000, "stock": 20 },
+      { "size": "340ml", "price": 43000, "stock": 20 }
+    ]
+  },
+  {
+    "name": "Tresemme Keratin Smooth Shampoo",
+    "slug": "tresemme-keratin-smooth-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Made to refresh hair and scalp and add volume, even under a hijab.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 41000,
+    "tags": ["Keratin Care", "Cleansing", "Haircare", "Tresemme"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134301-822wx-mo5a9ji9is5fcd.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134301-822wx-mo5a9ji9is5fcd.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-822z2-mo5a9jk2ss9130.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134301-822yn-mo5a9b916lmp68.webp"
+    ],
+    "sizes": [
+      { "size": "170ml", "price": 41000, "stock": 12 }
+    ]
+  },
+  {
+    "name": "Dove Intense Repair Shampoo",
+    "slug": "dove-intense-repair-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Helps repair the look of damaged hair, leaving it smoother and stronger.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 60000,
+    "tags": ["Damage Repair", "Cleansing", "Haircare", "Dove"],
+    "thumbnail": "https://assets.unileversolutions.com/v1/81937947.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+    "images": [
+      "https://assets.unileversolutions.com/v1/81937947.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81937915.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81937871.jpg?im=AspectCrop=(550,550);Resize=(550,550)"
+    ],
+    "sizes": [
+      { "size": "330ml", "price": 60000, "stock": 15 }
+    ]
+  },
+  {
+    "name": "Dove Intense Repair Conditioner",
+    "slug": "dove-intense-repair-conditioner",
+    "description": "A conditioner that softens and detangles hair, leaving it smooth and easy to style. Helps repair the look of damaged hair, leaving it smoother and stronger.",
+    "excerpt": "Haircare Conditioner",
+    "category": "Haircare",
+    "lowestPrice": 54000,
+    "tags": ["Damage Repair", "Smoothing", "Haircare", "Dove"],
+    "thumbnail": "https://assets.unileversolutions.com/v1/81459667.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+    "images": [
+      "https://assets.unileversolutions.com/v1/81459667.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81459658.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81459637.jpg?im=AspectCrop=(550,550);Resize=(550,550)"
+    ],
+    "sizes": [
+      { "size": "300ml", "price": 54000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Dove Hair Fall Rescue Shampoo",
+    "slug": "dove-hair-fall-rescue-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Helps strengthen hair from the roots to reduce the appearance of hair fall.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 60000,
+    "tags": ["Hair Fall Care", "Cleansing", "Haircare", "Dove"],
+    "thumbnail": "https://assets.unileversolutions.com/v1/81757830.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+    "images": [
+      "https://assets.unileversolutions.com/v1/81757830.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81757813.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81757790.jpg?im=AspectCrop=(550,550);Resize=(550,550)"
+    ],
+    "sizes": [
+      { "size": "330ml", "price": 60000, "stock": 19 },
+      { "size": "680ml", "price": 100000, "stock": 19 }
+    ]
+  },
+  {
+    "name": "Dove Hair Fall Rescue Conditioner",
+    "slug": "dove-hair-fall-rescue-conditioner",
+    "description": "A conditioner that softens and detangles hair, leaving it smooth and easy to style. Helps strengthen hair from the roots to reduce the appearance of hair fall.",
+    "excerpt": "Haircare Conditioner",
+    "category": "Haircare",
+    "lowestPrice": 70000,
+    "tags": ["Hair Fall Care", "Smoothing", "Haircare", "Dove"],
+    "thumbnail": "https://assets.unileversolutions.com/v1/81938983.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+    "images": [
+      "https://assets.unileversolutions.com/v1/81938983.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81938847.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/81938729.jpg?im=AspectCrop=(550,550);Resize=(550,550)"
+    ],
+    "sizes": [
+      { "size": "330ml", "price": 70000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Dove Hya Keratin Shine Shampoo",
+    "slug": "dove-hya-keratin-shine-shampoo",
+    "description": "A shampoo that cleanses hair and scalp while leaving hair feeling fresh and manageable. Leaves hair looking shiny and healthy every day.",
+    "excerpt": "Haircare Shampoo",
+    "category": "Haircare",
+    "lowestPrice": 65000,
+    "tags": ["Keratin Shine", "Cleansing", "Haircare", "Dove"],
+    "thumbnail": "https://assets.unileversolutions.com/v1/122744161.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+    "images": [
+      "https://assets.unileversolutions.com/v1/122744161.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/122744138.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/122744146.jpg?im=AspectCrop=(550,550);Resize=(550,550)"
+    ],
+    "sizes": [
+      { "size": "330ml", "price": 65000, "stock": 12 },
+      { "size": "650ml", "price": 90000, "stock": 12 }
+    ]
+  },
+  {
+    "name": "Dove Deeply Nourishing Body Wash",
+    "slug": "dove-deeply-nourishing-body-wash",
+    "description": "A creamy body wash that cleanses gently and leaves skin feeling soft and refreshed. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Bodycare Body Wash",
+    "category": "Bodycare",
+    "lowestPrice": 70000,
+    "tags": ["Hydrating", "Cleansing", "Bodycare", "Dove"],
+    "thumbnail": "https://assets.unileversolutions.com/v1/677102.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+    "images": [
+      "https://assets.unileversolutions.com/v1/677102.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/677101.jpg?im=AspectCrop=(550,550);Resize=(550,550)",
+      "https://assets.unileversolutions.com/v1/676875.jpg?im=AspectCrop=(550,550);Resize=(550,550)"
+    ],
+    "sizes": [
+      { "size": "200ml", "price": 70000, "stock": 25 },
+      { "size": "1000ml", "price": 95000, "stock": 20 }
+    ]
+  },
+  {
+    "name": "Vaseline Healthy Bright Gluta-Hya Dewy Radiance Serum-in-Lotion",
+    "slug": "vaseline-healthy-bright-gluta-hya-dewy-radiance-serum-in-lotion",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth. Helps brighten dull skin and support a more radiant, even-looking complexion. Leaves skin looking healthy, radiant, and glowing.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 55000,
+    "tags": ["Brightening", "Moisturizing", "Bodycare", "Vaseline"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134275-7rbkc-m99vmt828v816a.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134275-7rbkc-m99vmt828v816a.webp",
+      "https://down-id.img.susercontent.com/file/id-11134275-7rbkc-m99vmt7s9bm510.webp",
+      "https://down-id.img.susercontent.com/file/id-11134275-7rbkd-m99vmt8c9wqj42.webp"
+    ],
+    "sizes": [
+      { "size": "200ml", "price": 55000, "stock": 25 },
+      { "size": "330ml", "price": 80000, "stock": 12 }
+    ]
+  },
+  {
+    "name": "Vaseline Healthy Bright Gluta-Hya Flawless Glow Serum-in-Lotion",
+    "slug": "vaseline-healthy-bright-gluta-hya-flawless-glow-serum-in-lotion",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth. Helps brighten dull skin and support a more radiant, even-looking complexion. Leaves skin looking healthy, radiant, and glowing.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 65000,
+    "tags": ["Brightening", "Moisturizing", "Bodycare", "Vaseline"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-82612-mkvmzmudixoi62.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-82612-mkvmzmudixoi62.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8262h-mkvmzn6v93b6b9.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-8260v-mkvmzo3mguf8de.webp"
+    ],
+    "sizes": [
+      { "size": "200ml", "price": 65000, "stock": 15 },
+      { "size": "330ml", "price": 111000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Vaseline Healthy Bright Perfect 10 Body Lotion",
+    "slug": "vaseline-Healthy-Bright-perfect-10-body-lotion",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth. Enriched with cocoa butter to keep skin soft and nourished. Leaves skin looking healthy, radiant, and glowing.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 40000,
+    "tags": ["Healthy Bright", "Moisturizing", "Bodycare", "Vaseline"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7rbka-m8fys3si3mu66e.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbka-m8fys3si3mu66e.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbk9-m8fys3sic28ua6.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbk0-m8fytepfafwxf1.webp"
+    ],
+    "sizes": [
+      { "size": "200ml", "price": 40000, "stock": 20 },
+      { "size": "400ml", "price": 68000, "stock": 15 }
+    ]
+  },
+  {
+    "name": "Vaseline Hand Healthy Bright Body Lotion",
+    "slug": "vaseline-hand-healthy-bright-body-lotion",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth. Keeps skin hydrated, soft, and comfortable all day.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 42000,
+    "tags": ["Healthy Bright", "Moisturizing", "Bodycare", "Vaseline"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m8fwdjiy9edpf7.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbk8-m8fwdjiy9edpf7.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbkd-m8fwdjiyhtsde4.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbka-m8fwdjiyj8ct1e.webp"
+    ],
+    "sizes": [
+      { "size": "200ml", "price": 42000, "stock": 12 },
+      { "size": "400ml", "price": 71000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Vaseline Healthy Bright UV Extra Brightening Body Lotion",
+    "slug": "vaseline-healthy-bright-uv-extra-brightening-body-lotion",
+    "description": "A body lotion that moisturizes skin and leaves it feeling soft and smooth. Helps brighten dull skin and support a more radiant, even-looking complexion. Offers sun protection to help shield skin from UV exposure.",
+    "excerpt": "Bodycare Body Lotion",
+    "category": "Bodycare",
+    "lowestPrice": 45000,
+    "tags": ["Brightening", "Moisturizing", "Bodycare", "Vaseline"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-7rbk1-m8fyr2h0tu6p18.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbk1-m8fyr2h0tu6p18.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbkc-m8fyr2h0wnbl44.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-7rbk4-m8fyr2h0y1w112.webp"
+    ],
+    "sizes": [
+      { "size": "200ml", "price": 45000, "stock": 10 },
+      { "size": "400ml", "price": 77000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Pixy Two Way Cake Perfect Last",
+    "slug": "pixy-two-way-cake-perfect-last",
+    "description": "A two-way cake that can be used as a powder or a foundation for smooth, natural-looking coverage. Designed for long-lasting wear throughout the day.",
+    "excerpt": "Makeup Compact Powder",
+    "category": "Makeup",
+    "lowestPrice": 45000,
+    "tags": ["Long Lasting", "Face Makeup", "Makeup", "Pixy"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-822wp-mn9obr9ig4chcb.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-822wp-mn9obr9ig4chcb.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-822wo-mn9obr9iixhd3c.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-822wr-mn9tso3r7wn8d6.webp"
+    ],
+    "sizes": [
+      { "size": "9g", "price": 45000, "stock": 25 }
+    ]
+  },
+  {
+    "name": "Pixy Make It Glow Techno Fixed Matte Cushion",
+    "slug": "pixy-make-it-glow-techno-fixed-matte-cushion",
+    "description": "A cushion foundation that gives even, natural-looking coverage with a comfortable finish. Designed for long-lasting wear throughout the day. Delivers a comfortable matte finish.",
+    "excerpt": "Makeup Cushion Foundation",
+    "category": "Makeup",
+    "lowestPrice": 120000,
+    "tags": ["Long Lasting", "Face Makeup", "Makeup", "Pixy"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/sg-11134201-7rd3q-lud2ksrjnwdhc2.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rd3q-lud2ksrjnwdhc2.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rd5e-lud2ksqzophrcf.webp",
+      "https://down-id.img.susercontent.com/file/sg-11134201-7rd3r-lud2ksqzopuh13.webp"
+    ],
+    "sizes": [
+      { "size": "15g", "price": 120000, "stock": 15 }
+    ]
+  },
+  {
+    "name": "Pixy Make It Glow Techno Fixed Matte Primer",
+    "slug": "pixy-make-it-glow-techno-fixed-matte-primer",
+    "description": "A face primer that smooths the skin's surface and helps makeup go on evenly and last longer. Designed for long-lasting wear throughout the day. Delivers a comfortable matte finish.",
+    "excerpt": "Makeup Primer",
+    "category": "Makeup",
+    "lowestPrice": 80000,
+    "tags": ["Long Lasting", "Face Makeup", "Makeup", "Pixy"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/id-11134207-8224r-miel00m1h8uaba.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/id-11134207-8224r-miel00m1h8uaba.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-8224o-miekl3sbuj9ge2.webp",
+      "https://down-id.img.susercontent.com/file/id-11134207-8224r-miekl3sbvxtw7f.webp"
+    ],
+    "sizes": [
+      { "size": "Regular", "price": 80000, "stock": 10 }
+    ]
+  },
+  {
+    "name": "Pixy Make It Glow A Whole New Glow Highlighter",
+    "slug": "pixy-make-it-glow-a-whole-new-glow-highlighter",
+    "description": "A highlighter that adds a luminous touch to the high points of the face. Leaves skin looking healthy, radiant, and glowing.",
+    "excerpt": "Makeup Highlighter",
+    "category": "Makeup",
+    "lowestPrice": 100000,
+    "tags": ["Radiant Glow", "Face Makeup", "Makeup", "Pixy"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/f3430d09e075ab22f1ff20001e819dba.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/f3430d09e075ab22f1ff20001e819dba.webp",
+      "https://down-id.img.susercontent.com/file/d7ab4f2daf0c9d2dedb69c5d256de610.webp",
+      "https://down-id.img.susercontent.com/file/99e0bac73288e6f86ee4c0b3bb1f5b11.webp"
+    ],
+    "sizes": [
+      { "size": "Regular", "price": 100000, "stock": 6 }
+    ]
+  },
+  {
+    "name": "Pixy Stay Last Serum Foundation",
+    "slug": "pixy-stay-last-serum-foundation",
+    "description": "A foundation that evens out skin tone with comfortable, natural-looking coverage. Designed for long-lasting wear throughout the day.",
+    "excerpt": "Makeup Foundation",
+    "category": "Makeup",
+    "lowestPrice": 65000,
+    "tags": ["Long Lasting", "Face Makeup", "Makeup", "Pixy"],
+    "thumbnail": "https://down-id.img.susercontent.com/file/b870883154e5656735c7e6ae5e7fe3c3.webp",
+    "images": [
+      "https://down-id.img.susercontent.com/file/b870883154e5656735c7e6ae5e7fe3c3.webp",
+      "https://down-id.img.susercontent.com/file/51db93fef03ac4712a18d0bbea817419.webp",
+      "https://down-id.img.susercontent.com/file/b3a6143a63fa97cce748e9df3bc4814a.webp"
+    ],
+    "sizes": [
+      { "size": "17ml", "price": 65000, "stock": 12 }
+    ]
+  }
+]
