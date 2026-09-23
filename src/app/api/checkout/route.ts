@@ -33,18 +33,14 @@ export async function POST(req: Request) {
             data: result,
         })
     } catch (err: unknown) {
-        console.error('========== CHECKOUT ERROR ==========')
-    console.error(err)
-    console.error('====================================')
-
-    const error = err as Error
-
-    return NextResponse.json(
-        {
-            message: 'Checkout failed',
-            error: error.message || String(error),
-        },
-        { status: 500 }
-    )
+        const error = err as Error
+        console.error('Checkout Error:', error)
+        return NextResponse.json(
+            {
+                message: 'Checkout failed',
+                error: String(error.message || error),
+            },
+            { status: 500 }
+        )
     }
 }
