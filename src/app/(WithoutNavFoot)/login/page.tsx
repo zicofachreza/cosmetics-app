@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Eye, EyeOff } from 'lucide-react'
-import { useRouter } from 'next/navigation'
 
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -13,8 +12,6 @@ import { loginSchema, LoginForm } from '@/schemas/loginSchema'
 import { handleLogin } from './action'
 
 export default function LoginPage() {
-    const router = useRouter()
-
     const [showPassword, setShowPassword] = useState(false)
     const [serverError, setServerError] = useState('')
 
@@ -31,10 +28,7 @@ export default function LoginPage() {
 
         if (result?.error) {
             setServerError(result.error)
-            return
         }
-
-        router.refresh()
     }
 
     return (

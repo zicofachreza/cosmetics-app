@@ -3,11 +3,9 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { loginSchema } from '@/schemas/loginSchema'
+import UserModel from '@/models/user'
 
-export async function handleLogin(data: {
-    email: string
-    password: string
-}) {
+export async function handleLogin(data: { email: string; password: string }) {
     const parsed = loginSchema.safeParse(data)
 
     if (!parsed.success) {
@@ -16,33 +14,33 @@ export async function handleLogin(data: {
         }
     }
 
-    const response = await fetch(
-        `/api/login`,
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(parsed.data),
-        },
-    )
+    try {
+        const accessToken = await UserModel.loginUser(parsed.data)
 
-    const result = await response.json()
+        const cookieStore = await cookies()
 
-    if (!response.ok) {
+        cookieStore.set('Authorization', `Bearer ${accessToken}`, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            path: '/',
+        })
+    } catch (error) {
+        if (
+            error instanceof Error &&
+            error.message === 'Invalid email / password'
+        ) {
+            return {
+                error: 'Invalid email / password',
+            }
+        }
+
+        console.error('Login error:', error)
+
         return {
-            error: result.message,
+            error: 'Internal server error',
         }
     }
-
-    const cookieStore = await cookies()
-
-    cookieStore.set('Authorization', `Bearer ${result.accessToken}`, {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'strict',
-        path: '/',
-    })
 
     redirect('/')
 }
