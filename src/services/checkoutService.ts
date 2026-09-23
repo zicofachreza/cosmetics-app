@@ -89,9 +89,9 @@ export async function checkout(userId: string, shipping: ShippingInfo) {
         })),
 
         callbacks: {
-            finish: `/orders/success`,
-            error: `/orders/error`,
-            pending: `/orders/pending`,
+            finish: `${process.env.NEXT_PUBLIC_APP_URL}/orders/success`,
+            error: `${process.env.NEXT_PUBLIC_APP_URL}/orders/error`,
+            pending: `${process.env.NEXT_PUBLIC_APP_URL}/orders/pending`,
         },
     }
 
