@@ -201,7 +201,7 @@ export default function ProductPage() {
                         />
                     </div>
 
-                    <div className="flex items-center gap-4 cursor-pointer">
+                    <div className="flex items-center gap-4">
                         {/* CATEGORY */}
                         <div ref={categoryRef} className="relative">
                             <button
@@ -209,7 +209,7 @@ export default function ProductPage() {
                                     setOpenCategory(!openCategory)
                                     setOpenSort(false)
                                 }}
-                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm"
+                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {category === 'all' ? 'Categories' : category}
 
@@ -260,7 +260,7 @@ export default function ProductPage() {
                                     setOpenSort(!openSort)
                                     setOpenCategory(false)
                                 }}
-                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm"
+                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {sort === 'price_asc'
                                     ? 'Price: Low to High'
