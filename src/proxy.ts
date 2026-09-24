@@ -10,8 +10,7 @@ export async function proxy(request: NextRequest) {
         if (
             pathname.startsWith('/cart') ||
             pathname.startsWith('/orders') ||
-            pathname.startsWith('/checkout') ||
-            pathname.startsWith('/reports')
+            pathname.startsWith('/checkout')
         ) {
             return NextResponse.redirect(new URL('/login', request.url))
         }
@@ -22,7 +21,7 @@ export async function proxy(request: NextRequest) {
     const decoded = jwt.decode(token) as any
 
     // 🔥 ADMIN ONLY PAGE
-    if (pathname.startsWith('/reports')) {
+    if (pathname.startsWith('/admin/reports')) {
         if (decoded?.role !== 'admin') {
             return NextResponse.redirect(new URL('/', request.url))
         }
