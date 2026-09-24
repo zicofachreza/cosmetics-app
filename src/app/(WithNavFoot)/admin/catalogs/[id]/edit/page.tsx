@@ -1,6 +1,7 @@
 import ProductForm from '@/app/components/admin/ProductForm'
 import ProductModel from '@/models/product'
-import { notFound } from 'next/navigation'
+import { getUser } from '@/lib/auth'
+import { notFound, redirect } from 'next/navigation'
 import { TProduct } from '@/types/productType'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
@@ -13,6 +14,16 @@ interface Props {
 
 export default async function EditProductPage({ params }: Props) {
     const { id } = await params
+
+    const user = await getUser()
+
+    if (!user) {
+        redirect('/login')
+    }
+
+    if (user.role !== 'admin') {
+        redirect('/')
+    }
 
     const product = await ProductModel.findById(id)
 
