@@ -1,7 +1,7 @@
 import ProductForm from '@/app/components/admin/ProductForm'
+import ProductModel from '@/models/product'
 import { notFound } from 'next/navigation'
 import { TProduct } from '@/types/productType'
-import { headers } from 'next/headers'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
@@ -14,27 +14,13 @@ interface Props {
 export default async function EditProductPage({ params }: Props) {
     const { id } = await params
 
-    const res = await fetch(
-        `/api/admin/products/${id}`,
-        {
-            cache: 'no-store',
-            headers: {
-                Cookie: (await headers()).get('cookie') ?? '',
-            },
-        },
-    )
+    const product = await ProductModel.findById(id)
 
-    if (!res.ok) {
-        if (res.status === 404) {
-            notFound()
-        }
-
-        throw new Error('Failed to load product.')
+    if (!product) {
+        notFound()
     }
 
-    const result = await res.json()
-
-    const product: TProduct = result.data
+    const productData: TProduct = product
 
     return (
         <section className="py-20">
@@ -65,16 +51,16 @@ export default async function EditProductPage({ params }: Props) {
                     <ProductForm
                         mode="edit"
                         initialData={{
-                            _id: product._id.toString(),
-                            name: product.name,
-                            slug: product.slug,
-                            category: product.category,
-                            excerpt: product.excerpt,
-                            description: product.description,
-                            thumbnail: product.thumbnail,
-                            images: product.images,
-                            tags: product.tags,
-                            sizes: product.sizes,
+                            _id: productData._id.toString(),
+                            name: productData.name,
+                            slug: productData.slug,
+                            category: productData.category,
+                            excerpt: productData.excerpt,
+                            description: productData.description,
+                            thumbnail: productData.thumbnail,
+                            images: productData.images,
+                            tags: productData.tags,
+                            sizes: productData.sizes,
                         }}
                     />
                 </div>
