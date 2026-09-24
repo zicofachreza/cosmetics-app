@@ -179,11 +179,11 @@ export default function Footer() {
                             </li>
 
                             <li className="flex items-center gap-2">
-                                📞 +62 812 3456 7890
+                                📞 +62 856 4768 0739
                             </li>
 
                             <li className="flex items-center gap-2">
-                                📍 Purwokerto, Indonesia
+                                📍 Banyumas Regency, Indonesia
                             </li>
                         </ul>
 
