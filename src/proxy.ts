@@ -34,13 +34,17 @@ export async function proxy(request: NextRequest) {
     } | null
 
     // 🔥 ADMIN ONLY PAGE
-    if (pathname.startsWith('/admin/reports')) {
+    if (
+        pathname.startsWith('/admin/reports') ||
+        pathname.startsWith('/admin/orders') ||
+        pathname.startsWith('/admin/catalogs')
+    ) {
         if (decoded?.role !== 'admin') {
             return NextResponse.redirect(new URL('/', request.url))
         }
     }
 
-    // redirect login kalau sudah login
+    // redirect home kalau sudah login
     if (pathname.startsWith('/login')) {
         return NextResponse.redirect(new URL('/', request.url))
     }
