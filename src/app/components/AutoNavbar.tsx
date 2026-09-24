@@ -7,35 +7,52 @@ import UserMenu from './UserMenu'
 import { CartContext } from './CartContext'
 import { useUser } from './UserContext'
 
-export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
+type AutoNavbarProps = {
+    initialAuth: boolean
+}
+
+export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
     const [show, setShow] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
     const [authorized, setAuthorized] = useState(initialAuth)
+
     const { user, setUser } = useUser()
 
     const cartCtx = useContext(CartContext)
+
     const cartCount =
         cartCtx?.cart?.reduce((sum, item) => sum + item.quantity, 0) ?? 0
 
+    // =========================
+    // Navbar scroll behavior
+    // =========================
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY
-            setShow(!(currentScrollY > lastScrollY && currentScrollY > 80))
+
+            setShow(
+                !(currentScrollY > lastScrollY && currentScrollY > 80)
+            )
+
             setLastScrollY(currentScrollY)
         }
 
         window.addEventListener('scroll', handleScroll)
-        return () => window.removeEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
     }, [lastScrollY])
 
+    // =========================
+    // Get current user
+    // =========================
     useEffect(() => {
         if (!initialAuth) {
             setAuthorized(false)
             setUser(null)
             return
         }
-
-        let cancelled = false
 
         const fetchUser = async () => {
             try {
@@ -45,8 +62,6 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
                 })
 
                 const data = await res.json()
-
-                if (cancelled) return
 
                 if (res.ok && data.ok) {
                     setUser({
@@ -58,45 +73,69 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
 
                     setAuthorized(true)
                 } else {
-                    setAuthorized(false)
                     setUser(null)
+                    setAuthorized(false)
                 }
-            } catch (err) {
-                if (cancelled) return
+            } catch (error) {
+                console.error('Error fetching user:', error)
 
-                console.error('❌ Error fetching user:', err)
-                setAuthorized(false)
                 setUser(null)
+                setAuthorized(false)
             }
         }
 
         fetchUser()
-
-        return () => {
-            cancelled = true
-        }
     }, [initialAuth, setUser])
 
-    // 🔁 Dengarkan perubahan auth antar-tab
+    // =========================
+    // Sync authentication
+    // between browser tabs
+    // =========================
     useEffect(() => {
         const authChannel = new BroadcastChannel('auth-sync')
-        authChannel.onmessage = (e) => {
-            if (e.data === 'auth:login') {
-                setAuthorized(true)
-            } else if (e.data === 'auth:logout') {
+
+        authChannel.onmessage = (event) => {
+            if (event.data === 'auth:login') {
+                window.location.reload()
+            }
+
+            if (event.data === 'auth:logout') {
                 setAuthorized(false)
                 setUser(null)
             }
         }
-        return () => authChannel.close()
-    }, [])
 
+        return () => {
+            authChannel.close()
+        }
+    }, [setUser])
+
+    // =========================
+    // Logout
+    // =========================
     const handleLogout = async () => {
-        localStorage.removeItem('accessToken')
-        setAuthorized(false)
-        setUser(null)
-        window.dispatchEvent(new Event('auth:logout'))
-        new BroadcastChannel('auth-sync').postMessage('auth:logout')
+        try {
+            const res = await fetch('/api/logout', {
+                method: 'POST',
+                credentials: 'include',
+            })
+
+            if (!res.ok) {
+                console.error('Logout failed')
+                return
+            }
+
+            setAuthorized(false)
+            setUser(null)
+
+            const authChannel = new BroadcastChannel('auth-sync')
+            authChannel.postMessage('auth:logout')
+            authChannel.close()
+
+            window.location.href = '/'
+        } catch (error) {
+            console.error('Logout error:', error)
+        }
     }
 
     return (
@@ -120,6 +159,7 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
                         width={50}
                         height={50}
                     />
+
                     <span className="font-semibold text-lg text-pink-400">
                         Iyah Store
                     </span>
@@ -133,25 +173,30 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
                             className="relative hover:text-pink-500 transition group"
                         >
                             Products
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full"></span>
+
+                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
                         </Link>
                     </li>
+
                     <li>
                         <Link
                             href=""
                             className="relative hover:text-pink-500 transition group"
                         >
                             New Arrivals
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full"></span>
+
+                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
                         </Link>
                     </li>
+
                     <li>
                         <Link
                             href=""
                             className="relative hover:text-pink-500 transition group"
                         >
                             Sale
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full"></span>
+
+                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
                         </Link>
                     </li>
                 </ul>
@@ -176,6 +221,7 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
                             width={22}
                             height={22}
                         />
+
                         {cartCount > 0 && (
                             <span className="absolute -top-2 -right-2 bg-pink-400 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                                 {cartCount}
@@ -183,7 +229,7 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
                         )}
                     </Link>
 
-                    {/* Login */}
+                    {/* User / Login */}
                     {authorized ? (
                         <UserMenu
                             userName={user?.name ?? ''}

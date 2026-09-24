@@ -8,11 +8,20 @@ import { UserMenuProps } from '@/types/userType'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-export default function UserMenu({ userName, role, onLogout }: UserMenuProps) {
+export default function UserMenu({
+    userName,
+    role,
+    onLogout,
+}: UserMenuProps) {
     const [open, setOpen] = useState(false)
+
     const pathname = usePathname()
+
     const menuRef = useRef<HTMLDivElement>(null)
 
+    // =========================
+    // Close menu when clicking outside
+    // =========================
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -24,31 +33,54 @@ export default function UserMenu({ userName, role, onLogout }: UserMenuProps) {
         }
 
         document.addEventListener('mousedown', handleClickOutside)
-        return () =>
+
+        return () => {
             document.removeEventListener('mousedown', handleClickOutside)
+        }
     }, [])
 
     return (
         <div ref={menuRef} className="relative">
+            {/* User button */}
             <button
-                onClick={() => setOpen(!open)}
+                type="button"
+                onClick={() => setOpen((prev) => !prev)}
                 className="flex items-center gap-2 hover:underline focus:outline-none cursor-pointer"
             >
                 <span className="hidden sm:inline text-sm text-gray-700 font-medium">
                     Hi, {userName.split(' ')[0]}
                 </span>
-                <Image src="/user-icon.png" alt="User" width={24} height={24} />
+
+                <Image
+                    src="/user-icon.png"
+                    alt="User"
+                    width={24}
+                    height={24}
+                />
             </button>
 
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -10 }}
-                        transition={{ duration: 0.18, ease: 'easeOut' }}
+                        initial={{
+                            opacity: 0,
+                            y: -10,
+                        }}
+                        animate={{
+                            opacity: 1,
+                            y: 0,
+                        }}
+                        exit={{
+                            opacity: 0,
+                            y: -10,
+                        }}
+                        transition={{
+                            duration: 0.18,
+                            ease: 'easeOut',
+                        }}
                         className="absolute right-0 mt-2 w-44 bg-white shadow-xl border border-gray-100 rounded-2xl py-2 z-50"
                     >
+                        {/* USER MENU */}
                         {role !== 'admin' && (
                             <Link
                                 href="/orders"
@@ -63,13 +95,16 @@ export default function UserMenu({ userName, role, onLogout }: UserMenuProps) {
                             </Link>
                         )}
 
+                        {/* ADMIN MENU */}
                         {role === 'admin' && (
                             <>
                                 <Link
                                     href="/admin/catalogs"
                                     onClick={() => setOpen(false)}
                                     className={`block w-full px-4 py-2 text-sm font-medium transition-colors ${
-                                        pathname.startsWith('/admin/catalogs')
+                                        pathname.startsWith(
+                                            '/admin/catalogs'
+                                        )
                                             ? 'bg-gray-100'
                                             : 'text-gray-700 hover:bg-gray-100'
                                     }`}
@@ -103,6 +138,7 @@ export default function UserMenu({ userName, role, onLogout }: UserMenuProps) {
                             </>
                         )}
 
+                        {/* LOGOUT */}
                         <LogoutButton onLogout={onLogout} />
                     </motion.div>
                 )}
