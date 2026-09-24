@@ -10,7 +10,7 @@ export async function proxy(request: NextRequest) {
         if (
             pathname.startsWith('/admin/reports') ||
             pathname.startsWith('/admin/orders') ||
-            pathname.startsWith('/admin/catalog')
+            pathname.startsWith('/admin/catalogs')
         ) {
             return NextResponse.redirect(new URL('/', request.url))
         }
@@ -57,6 +57,6 @@ export const config = {
         '/checkout',
         '/admin/reports',
         '/admin/orders/:path*',
-        '/admin/catalog/:path*',
+        '/admin/catalogs/:path*',
     ],
 }
