@@ -26,6 +26,10 @@ async function authorizeAdmin() {
 
 export async function GET(request: Request) {
     try {
+        const auth = await authorizeAdmin()
+
+        if (auth.error) return auth.error
+        
         const { searchParams } = new URL(request.url)
 
         const page = Number(searchParams.get('page')) || 1
