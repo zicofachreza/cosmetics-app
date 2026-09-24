@@ -15,16 +15,6 @@ interface Props {
 export default async function EditProductPage({ params }: Props) {
     const { id } = await params
 
-    const user = await getUser()
-
-    if (!user) {
-        redirect('/login')
-    }
-
-    if (user.role !== 'admin') {
-        redirect('/')
-    }
-
     const product = await ProductModel.findById(id)
 
     if (!product) {
