@@ -35,9 +35,7 @@ export async function GET(
     try {
         const auth = await authorizeAdmin()
 
-        if (auth.error) {
-            return auth.error
-        }
+        if (auth.error) return auth.error
 
         const { id } = await params
 
@@ -227,9 +225,7 @@ export async function DELETE(
     try {
         const auth = await authorizeAdmin()
 
-        if (auth.error) {
-            return auth.error
-        }
+        if (auth.error) return auth.error
 
         const { id } = await params
 
