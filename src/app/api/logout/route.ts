@@ -5,7 +5,7 @@ export async function POST() {
 
     response.cookies.set('Authorization', '', {
         httpOnly: true,
-        secure: true,
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         path: '/',
         expires: new Date(0), // expire langsung

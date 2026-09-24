@@ -29,12 +29,24 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
     }, [lastScrollY])
 
     useEffect(() => {
-        if (!initialAuth) return
+        if (!initialAuth) {
+            setAuthorized(false)
+            setUser(null)
+            return
+        }
+
+        let cancelled = false
 
         const fetchUser = async () => {
             try {
-                const res = await fetch('/api/me', { credentials: 'include' })
+                const res = await fetch('/api/me', {
+                    credentials: 'include',
+                    cache: 'no-store',
+                })
+
                 const data = await res.json()
+
+                if (cancelled) return
 
                 if (res.ok && data.ok) {
                     setUser({
@@ -43,19 +55,27 @@ export default function AutoNavbar({ initialAuth }: { initialAuth: boolean }) {
                         email: data.email,
                         role: data.role,
                     })
+
                     setAuthorized(true)
                 } else {
-                    console.warn('⚠️ Unauthorized:', data.message)
                     setAuthorized(false)
+                    setUser(null)
                 }
             } catch (err) {
+                if (cancelled) return
+
                 console.error('❌ Error fetching user:', err)
                 setAuthorized(false)
+                setUser(null)
             }
         }
 
         fetchUser()
-    }, [initialAuth])
+
+        return () => {
+            cancelled = true
+        }
+    }, [initialAuth, setUser])
 
     // 🔁 Dengarkan perubahan auth antar-tab
     useEffect(() => {
