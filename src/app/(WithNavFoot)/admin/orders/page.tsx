@@ -26,6 +26,23 @@ export default function AdminOrdersPage() {
     const statusRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                statusRef.current &&
+                !statusRef.current.contains(event.target as Node)
+            ) {
+                setOpenStatus(false)
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside)
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [])
+
+    useEffect(() => {
         const timeout = setTimeout(() => {
             setSearch(searchInput)
             setPage(1)
@@ -146,7 +163,7 @@ export default function AdminOrdersPage() {
                         <div ref={statusRef} className="relative">
                             <button
                                 onClick={() => setOpenStatus(!openStatus)}
-                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm"
+                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {status === ''
                                     ? 'All Status'
@@ -181,7 +198,7 @@ export default function AdminOrdersPage() {
                                                 setPage(1)
                                                 setOpenStatus(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 status === ''
                                                     ? 'bg-gray-100'
                                                     : ''
@@ -196,7 +213,7 @@ export default function AdminOrdersPage() {
                                                 setPage(1)
                                                 setOpenStatus(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 status === 'paid'
                                                     ? 'bg-gray-100'
                                                     : ''
@@ -211,7 +228,7 @@ export default function AdminOrdersPage() {
                                                 setPage(1)
                                                 setOpenStatus(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 status === 'pending'
                                                     ? 'bg-gray-100'
                                                     : ''
@@ -226,7 +243,7 @@ export default function AdminOrdersPage() {
                                                 setPage(1)
                                                 setOpenStatus(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 status === 'failed'
                                                     ? 'bg-gray-100'
                                                     : ''
@@ -241,7 +258,7 @@ export default function AdminOrdersPage() {
                                                 setPage(1)
                                                 setOpenStatus(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 status === 'cancelled'
                                                     ? 'bg-gray-100'
                                                     : ''
