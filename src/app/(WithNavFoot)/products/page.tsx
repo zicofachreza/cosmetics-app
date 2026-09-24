@@ -228,7 +228,7 @@ export default function ProductPage() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -5 }}
                                         transition={{ duration: 0.15 }}
-                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50 cursor-pointer"
                                     >
                                         {[
                                             'all',
