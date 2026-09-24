@@ -290,7 +290,7 @@ export default function ProductPage() {
                                                 setSort('')
                                                 setOpenSort(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 sort === '' ? 'bg-gray-100' : ''
                                             }`}
                                         >
@@ -302,7 +302,7 @@ export default function ProductPage() {
                                                 setSort('price_asc')
                                                 setOpenSort(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 sort === 'price_asc'
                                                     ? 'bg-gray-100'
                                                     : ''
@@ -316,7 +316,7 @@ export default function ProductPage() {
                                                 setSort('price_desc')
                                                 setOpenSort(false)
                                             }}
-                                            className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                            className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
                                                 sort === 'price_desc'
                                                     ? 'bg-gray-100'
                                                     : ''
