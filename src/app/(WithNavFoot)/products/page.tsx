@@ -228,7 +228,7 @@ export default function ProductPage() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -5 }}
                                         transition={{ duration: 0.15 }}
-                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50 cursor-pointer"
+                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
                                         {[
                                             'all',
@@ -243,7 +243,7 @@ export default function ProductPage() {
                                                     setCategory(cat)
                                                     setOpenCategory(false)
                                                 }}
-                                                className={`block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${category === cat ? 'bg-gray-100' : ''}`}
+                                                className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${category === cat ? 'bg-gray-100' : ''}`}
                                             >
                                                 {cat === 'all' ? 'All' : cat}
                                             </button>
