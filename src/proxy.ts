@@ -8,6 +8,14 @@ export async function proxy(request: NextRequest) {
 
     if (!auth) {
         if (
+            pathname.startsWith('/admin/reports') ||
+            pathname.startsWith('/admin/orders') ||
+            pathname.startsWith('/admin/catalog')
+        ) {
+            return NextResponse.redirect(new URL('/', request.url))
+        }
+
+        if (
             pathname.startsWith('/cart') ||
             pathname.startsWith('/orders') ||
             pathname.startsWith('/checkout')
@@ -17,8 +25,13 @@ export async function proxy(request: NextRequest) {
         return NextResponse.next()
     }
 
-    const token = auth.value.split(' ')[1]
-    const decoded = jwt.decode(token) as any
+    const token = auth.value.startsWith('Bearer ')
+        ? auth.value.split(' ')[1]
+        : auth.value
+
+    const decoded = jwt.decode(token) as {
+        role?: string
+    } | null
 
     // 🔥 ADMIN ONLY PAGE
     if (pathname.startsWith('/admin/reports')) {
@@ -40,8 +53,10 @@ export const config = {
         '/products/:path*',
         '/login',
         '/cart',
-        '/orders',
+        '/orders/:path*',
         '/checkout',
         '/admin/reports',
+        '/admin/orders/:path*',
+        '/admin/catalog/:path*',
     ],
 }
