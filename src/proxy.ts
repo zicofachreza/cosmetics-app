@@ -42,6 +42,6 @@ export const config = {
         '/cart',
         '/orders',
         '/checkout',
-        '/reports',
+        '/admin/reports',
     ],
 }
