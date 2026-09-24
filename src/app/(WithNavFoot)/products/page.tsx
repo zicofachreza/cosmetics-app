@@ -201,7 +201,7 @@ export default function ProductPage() {
                         />
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 cursor-pointer">
                         {/* CATEGORY */}
                         <div ref={categoryRef} className="relative">
                             <button
