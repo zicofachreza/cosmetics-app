@@ -1,7 +1,6 @@
 import ProductForm from '@/app/components/admin/ProductForm'
 import ProductModel from '@/models/product'
-import { getUser } from '@/lib/auth'
-import { notFound, redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
 import { TProduct } from '@/types/productType'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'

@@ -1,16 +1,12 @@
 import { NextResponse } from 'next/server'
-import { getUserId } from '@/lib/auth'
 import OrderModel from '@/models/order'
+import { authorizeAdmin } from '@/lib/authorization'
 
 export async function GET(req: Request) {
     try {
-        const userId = await getUserId()
-        if (!userId) {
-            return NextResponse.json(
-                { message: 'Unauthorized' },
-                { status: 401 },
-            )
-        }
+        const auth = await authorizeAdmin()
+
+        if (auth.error) return auth.error
 
         const { searchParams } = new URL(req.url)
 

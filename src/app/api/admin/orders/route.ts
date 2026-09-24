@@ -1,24 +1,12 @@
 import { NextResponse } from 'next/server'
-import { getUser } from '@/lib/auth'
 import OrderModel from '@/models/order'
+import { authorizeAdmin } from '@/lib/authorization'
 
 export async function GET(req: Request) {
     try {
-        const user = await getUser()
+        const auth = await authorizeAdmin()
 
-        if (!user) {
-            return NextResponse.json(
-                { message: 'Unauthorized' },
-                { status: 401 }
-            )
-        }
-
-        if (user.role !== 'admin') {
-            return NextResponse.json(
-                { message: 'Forbidden' },
-                { status: 403 }
-            )
-        }
+        if (auth.error) return auth.error
 
         const { searchParams } = new URL(req.url)
 
@@ -47,7 +35,7 @@ export async function GET(req: Request) {
             },
             {
                 status: 500,
-            }
+            },
         )
     }
 }

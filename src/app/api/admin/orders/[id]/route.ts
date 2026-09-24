@@ -1,27 +1,15 @@
 import { NextResponse } from 'next/server'
-import { getUser } from '@/lib/auth'
 import OrderModel from '@/models/order'
+import { authorizeAdmin } from '@/lib/authorization'
 
 export async function GET(
     request: Request,
-    { params }: { params: Promise<{ id: string }> }
+    { params }: { params: Promise<{ id: string }> },
 ) {
     try {
-        const user = await getUser()
+        const auth = await authorizeAdmin()
 
-        if (!user) {
-            return NextResponse.json(
-                { message: 'Unauthorized' },
-                { status: 401 }
-            )
-        }
-
-        if (user.role !== 'admin') {
-            return NextResponse.json(
-                { message: 'Forbidden' },
-                { status: 403 }
-            )
-        }
+        if (auth.error) return auth.error
 
         const { id } = await params
 
@@ -30,7 +18,7 @@ export async function GET(
         if (!order) {
             return NextResponse.json(
                 { message: 'Order not found' },
-                { status: 404 }
+                { status: 404 },
             )
         }
 
@@ -48,7 +36,7 @@ export async function GET(
             },
             {
                 status: 500,
-            }
+            },
         )
     }
 }

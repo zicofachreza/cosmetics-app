@@ -1,35 +1,14 @@
 import { NextResponse } from 'next/server'
 import ProductModel from '@/models/product'
-import { getUser } from '@/lib/auth'
 import { ProductPayload } from '@/types/productType'
-
-async function authorizeAdmin() {
-    const user = await getUser()
-
-    if (!user) {
-        return {
-            error: NextResponse.json(
-                { message: 'Unauthorized' },
-                { status: 401 },
-            ),
-        }
-    }
-
-    if (user.role !== 'admin') {
-        return {
-            error: NextResponse.json({ message: 'Forbidden' }, { status: 403 }),
-        }
-    }
-
-    return { user }
-}
+import { authorizeAdmin } from '@/lib/authorization'
 
 export async function GET(request: Request) {
     try {
         const auth = await authorizeAdmin()
 
         if (auth.error) return auth.error
-        
+
         const { searchParams } = new URL(request.url)
 
         const page = Number(searchParams.get('page')) || 1
