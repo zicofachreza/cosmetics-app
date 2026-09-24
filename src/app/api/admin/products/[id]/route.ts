@@ -82,9 +82,7 @@ export async function PUT(
     try {
         const auth = await authorizeAdmin()
 
-        if (auth.error) {
-            return auth.error
-        }
+        if (auth.error) return auth.error
 
         const { id } = await params
 
