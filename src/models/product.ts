@@ -22,7 +22,7 @@ export default class ProductModel {
             query.category = category
         }
 
-        let sortOption: any = {}
+        let sortOption: any = { createdAt: -1 }
 
         if (sort === 'price_asc') {
             sortOption = { lowestPrice: 1 }
@@ -178,7 +178,7 @@ export default class ProductModel {
             lowestPrice: Math.min(...payload.sizes.map((item) => item.price)),
             createdAt: new Date(),
             updatedAt: new Date(),
-        }as any)
+        } as any)
 
         return result
     }
