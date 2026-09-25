@@ -23,6 +23,9 @@ export default function ProductPage() {
     const [openCategory, setOpenCategory] = useState(false)
     const [openSort, setOpenSort] = useState(false)
 
+    // Loading state untuk initial products
+    const [isLoading, setIsLoading] = useState<boolean>(true)
+
     const categoryRef = useRef<HTMLDivElement>(null)
     const sortRef = useRef<HTMLDivElement>(null)
 
@@ -59,8 +62,13 @@ export default function ProductPage() {
             params.append('page', page.toString())
             params.append('limit', limit.toString())
 
-            if (category !== 'all') params.append('category', category)
-            if (sort) params.append('sort', sort)
+            if (category !== 'all') {
+                params.append('category', category)
+            }
+
+            if (sort) {
+                params.append('sort', sort)
+            }
 
             const response = await fetch(
                 `/api/products?${params.toString()}`,
@@ -69,16 +77,9 @@ export default function ProductPage() {
 
             const result = await response.json()
 
-            const data = result?.data || []
-
-            if (data.length === 0) {
-                setErrorMessage('No products yet')
-                setHasMore(false)
-                return []
-            }
-
-            setErrorMessage('')
-            return data
+            // Jangan set error di sini.
+            // Fungsi ini hanya mengambil data.
+            return result?.data || []
         } catch (error) {
             console.error(error)
             setErrorMessage('Something went wrong')
@@ -100,6 +101,8 @@ export default function ProductPage() {
     }
 
     async function loadInitialProducts() {
+        setIsLoading(true)
+
         setProducts([])
         setPage(1)
         setHasMore(true)
@@ -109,12 +112,18 @@ export default function ProductPage() {
 
         if (initialProducts.length === 0) {
             setProducts([])
+            setHasMore(false)
+
+            // Baru tampilkan setelah request selesai
             setErrorMessage('No products yet')
-            return
+        } else {
+            setProducts(initialProducts)
+
+            setHasMore(initialProducts.length >= limit)
+            setErrorMessage('')
         }
 
-        setProducts(initialProducts)
-        setHasMore(initialProducts.length >= limit)
+        setIsLoading(false)
     }
 
     useEffect(() => {
@@ -128,16 +137,18 @@ export default function ProductPage() {
             } else {
                 setSearchProduct(products)
 
-                if (products.length === 0) {
+                // Jangan tampilkan "No products yet"
+                // ketika initial data masih loading.
+                if (!isLoading && products.length === 0) {
                     setErrorMessage('No products yet')
-                } else {
+                } else if (products.length > 0) {
                     setErrorMessage('')
                 }
             }
         }, 500)
 
         return () => clearTimeout(handler)
-    }, [search, products])
+    }, [search, products, isLoading])
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
@@ -163,7 +174,11 @@ export default function ProductPage() {
     }, [])
 
     const renderProducts = search ? searchProduct : products
-    const showError = errorMessage && renderProducts.length === 0
+
+    const showError =
+        !isLoading &&
+        errorMessage &&
+        renderProducts.length === 0
 
     return (
         <section className="py-20">
@@ -211,7 +226,9 @@ export default function ProductPage() {
                                 }}
                                 className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
-                                {category === 'all' ? 'Categories' : category}
+                                {category === 'all'
+                                    ? 'Categories'
+                                    : category}
 
                                 <ChevronDown
                                     size={16}
@@ -224,10 +241,21 @@ export default function ProductPage() {
                             <AnimatePresence>
                                 {openCategory && (
                                     <motion.div
-                                        initial={{ opacity: 0, y: -5 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -5 }}
-                                        transition={{ duration: 0.15 }}
+                                        initial={{
+                                            opacity: 0,
+                                            y: -5,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            y: 0,
+                                        }}
+                                        exit={{
+                                            opacity: 0,
+                                            y: -5,
+                                        }}
+                                        transition={{
+                                            duration: 0.15,
+                                        }}
                                         className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
                                         {[
@@ -243,9 +271,15 @@ export default function ProductPage() {
                                                     setCategory(cat)
                                                     setOpenCategory(false)
                                                 }}
-                                                className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${category === cat ? 'bg-gray-100' : ''}`}
+                                                className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
+                                                    category === cat
+                                                        ? 'bg-gray-100'
+                                                        : ''
+                                                }`}
                                             >
-                                                {cat === 'all' ? 'All' : cat}
+                                                {cat === 'all'
+                                                    ? 'All'
+                                                    : cat}
                                             </button>
                                         ))}
                                     </motion.div>
@@ -279,10 +313,21 @@ export default function ProductPage() {
                             <AnimatePresence>
                                 {openSort && (
                                     <motion.div
-                                        initial={{ opacity: 0, y: -5 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -5 }}
-                                        transition={{ duration: 0.15 }}
+                                        initial={{
+                                            opacity: 0,
+                                            y: -5,
+                                        }}
+                                        animate={{
+                                            opacity: 1,
+                                            y: 0,
+                                        }}
+                                        exit={{
+                                            opacity: 0,
+                                            y: -5,
+                                        }}
+                                        transition={{
+                                            duration: 0.15,
+                                        }}
                                         className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
                                         <button
@@ -291,7 +336,9 @@ export default function ProductPage() {
                                                 setOpenSort(false)
                                             }}
                                             className={`cursor-pointer block w-full text-left px-4 py-2 text-sm hover:bg-gray-100 ${
-                                                sort === '' ? 'bg-gray-100' : ''
+                                                sort === ''
+                                                    ? 'bg-gray-100'
+                                                    : ''
                                             }`}
                                         >
                                             Default
@@ -332,31 +379,39 @@ export default function ProductPage() {
                 </div>
 
                 {/* PRODUCTS */}
-                <InfiniteScroll
-                    dataLength={renderProducts.length}
-                    next={fetchMoreData}
-                    hasMore={!search && hasMore}
-                    loader={
-                        <h4 className="flex justify-center text-lg my-9 font-semibold">
+                {isLoading ? (
+                    <div className="flex justify-center my-9">
+                        <p className="text-lg font-semibold">
                             Loading...
-                        </h4>
-                    }
-                >
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                        {showError ? (
-                            <p className="col-span-4 text-center text-lg my-9 font-semibold">
-                                {errorMessage}
-                            </p>
-                        ) : (
-                            renderProducts.map((product, idx) => (
-                                <ProductCard
-                                    key={idx}
-                                    product={product}
-                                />
-                            ))
-                        )}
+                        </p>
                     </div>
-                </InfiniteScroll>
+                ) : (
+                    <InfiniteScroll
+                        dataLength={renderProducts.length}
+                        next={fetchMoreData}
+                        hasMore={!search && hasMore}
+                        loader={
+                            <h4 className="flex justify-center text-lg my-9 font-semibold">
+                                Loading...
+                            </h4>
+                        }
+                    >
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            {showError ? (
+                                <p className="col-span-4 text-center text-lg my-9 font-semibold">
+                                    {errorMessage}
+                                </p>
+                            ) : (
+                                renderProducts.map((product, idx) => (
+                                    <ProductCard
+                                        key={idx}
+                                        product={product}
+                                    />
+                                ))
+                            )}
+                        </div>
+                    </InfiniteScroll>
+                )}
             </div>
         </section>
     )
