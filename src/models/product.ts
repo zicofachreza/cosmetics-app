@@ -22,14 +22,14 @@ export default class ProductModel {
             query.category = category
         }
 
-        let sortOption: any = { createdAt: -1 }
+        let sortOption: any = { createdAt: -1, _id: -1 }
 
         if (sort === 'price_asc') {
-            sortOption = { lowestPrice: 1 }
+            sortOption = { lowestPrice: 1, _id: -1 }
         }
 
         if (sort === 'price_desc') {
-            sortOption = { lowestPrice: -1 }
+            sortOption = { lowestPrice: -1, _id: -1 }
         }
 
         const products = await collection
