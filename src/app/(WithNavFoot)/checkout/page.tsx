@@ -203,7 +203,7 @@ export default function CheckoutPage() {
                         </p>
                         <Link
                             href="/products"
-                            className="inline-block mt-7 bg-black text-white py-3 px-6 rounded-full hover:bg-gray-500"
+                            className="inline-block mt-7 bg-pink-400 text-white py-3 px-6 rounded-full hover:bg-pink-500"
                         >
                             Back to Products
                         </Link>
