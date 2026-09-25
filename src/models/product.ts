@@ -60,23 +60,23 @@ export default class ProductModel {
             query.category = category
         }
 
-        let sortOption: any = { createdAt: -1 }
+        let sortOption: any = { createdAt: -1, _id: -1 }
 
         switch (sort) {
             case 'price_asc':
-                sortOption = { lowestPrice: 1 }
+                sortOption = { lowestPrice: 1, _id: -1 }
                 break
 
             case 'price_desc':
-                sortOption = { lowestPrice: -1 }
+                sortOption = { lowestPrice: -1, _id: -1 }
                 break
 
             case 'name_asc':
-                sortOption = { name: 1 }
+                sortOption = { name: 1, _id: -1 }
                 break
 
             case 'name_desc':
-                sortOption = { name: -1 }
+                sortOption = { name: -1, _id: -1 }
                 break
         }
 
