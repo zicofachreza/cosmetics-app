@@ -68,7 +68,7 @@ export default function ReportsPage() {
                         {/* FILTER */}
                         <div className="flex flex-col md:flex-row md:items-end gap-4 mt-6">
                             {/* START DATE */}
-                            <div className="flex flex-col w-40">
+                            <div className="flex flex-col w-full sm:w-40">
                                 <label className="text-xs font-semibold mb-1">
                                     Start Date
                                 </label>
@@ -83,7 +83,7 @@ export default function ReportsPage() {
                             </div>
 
                             {/* END DATE */}
-                            <div className="flex flex-col w-40">
+                            <div className="flex flex-col w-full sm:w-40">
                                 <label className="text-xs font-semibold mb-1">
                                     End Date
                                 </label>
@@ -116,41 +116,60 @@ export default function ReportsPage() {
 
                 {/* CHART */}
                 <div className="bg-white p-6 rounded-2xl shadow mb-6">
-                    <h2 className="mb-8 text-xl font-semibold">Sales Overview</h2>
+                    <h2 className="mb-8 text-xl font-semibold">
+                        Sales Overview
+                    </h2>
 
-                    <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={data.salesData} margin={{ left: 15 }}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="date" />
-                            <YAxis />
-                            <Tooltip />
-                            <Line type="monotone" dataKey="total" />
-                        </LineChart>
-                    </ResponsiveContainer>
+                    <div className="w-full overflow-x-auto">
+                        <div className="min-w-[700px]">
+                            <ResponsiveContainer width="100%" height={300}>
+                                <LineChart
+                                    data={data.salesData}
+                                    margin={{ left: 15 }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="date" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Line type="monotone" dataKey="total" />
+                                </LineChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
                 </div>
 
                 {/* TOP PRODUCTS */}
                 <div className="bg-white p-6 rounded-2xl shadow">
-                    <h2 className="mb-4 text-xl font-semibold">Top Selling Products</h2>
+                    <h2 className="mb-4 text-xl font-semibold">
+                        Top Selling Products
+                    </h2>
 
-                    <table className="w-full text-sm">
-                        <thead>
-                            <tr className="border-b">
-                                <th className="py-2 text-left">Product</th>
-                                <th className='text-center'>Sold</th>
-                                <th className='text-right'>Revenue</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.topProducts.map((p: any, i: number) => (
-                                <tr key={i} className="border-b">
-                                    <td className="py-2 text-left">{p.name}</td>
-                                    <td className='text-center'>{p.sold}</td>
-                                    <td className='text-right'>{idr(p.revenue)}</td>
+                    <div className="overflow-x-auto">
+                        <table className="w-full min-w-[850px] text-sm">
+                            <thead>
+                                <tr className="border-b">
+                                    <th className="py-2 text-left">Product</th>
+                                    <th className="text-center">Sold</th>
+                                    <th className="text-right">Revenue</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {data.topProducts.map((p: any, i: number) => (
+                                    <tr key={i} className="border-b">
+                                        <td className="py-2 text-left">
+                                            {p.name}
+                                        </td>
+                                        <td className="text-center">
+                                            {p.sold}
+                                        </td>
+                                        <td className="text-right">
+                                            {idr(p.revenue)}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>

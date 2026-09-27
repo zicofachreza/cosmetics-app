@@ -13,14 +13,11 @@ export default function Footer() {
                     <div>
                         <div className="flex items-center gap-2 mb-4">
                             <Image
-                                src="/logo.png"
+                                src="/ik_logo_2.png"
                                 alt="GlowBeauty"
-                                width={50}
-                                height={50}
+                                width={100}
+                                height={100}
                             />
-                            <span className="text-lg font-semibold text-pink-400">
-                                Iyah Store
-                            </span>
                         </div>
 
                         <p className="text-sm text-gray-600 leading-relaxed">
@@ -175,7 +172,7 @@ export default function Footer() {
 
                         <ul className="space-y-3 text-sm text-gray-600">
                             <li className="flex items-center gap-2">
-                                📧 support@iyahstore.com
+                                📧 grosircosme19@gmail.com
                             </li>
 
                             <li className="flex items-center gap-2">
@@ -183,7 +180,7 @@ export default function Footer() {
                             </li>
 
                             <li className="flex items-center gap-2">
-                                📍 Banyumas Regency, Indonesia
+                                📍 Kebasen, Banyumas Regency
                             </li>
                         </ul>
 
@@ -199,7 +196,7 @@ export default function Footer() {
                 {/* Bottom */}
                 <div className="border-t border-pink-100 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-gray-500">
-                        © 2026 Iyah Store. All rights reserved.
+                        © 2026 IyahKosmetik. All rights reserved.
                     </p>
 
                     <div className="flex gap-6 text-sm text-gray-500">

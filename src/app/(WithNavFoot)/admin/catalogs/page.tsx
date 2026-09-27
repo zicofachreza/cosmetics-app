@@ -167,138 +167,151 @@ export default function AdminCatalogsPage() {
                     </div>
                 ) : (
                     <div className="bg-white rounded-2xl shadow overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-pink-100 text-gray-700 text-sm">
-                                <tr>
-                                    <th className="px-6 py-4 text-center">
-                                        Product
-                                    </th>
+                        <div className="overflow-x-auto">
+                            <table className="w-full min-w-[850px]">
+                                <thead className="bg-pink-100 text-gray-700 text-sm">
+                                    <tr>
+                                        <th className="px-6 py-4 text-center">
+                                            Product
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Size
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Size
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Price
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Price
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Stock
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Stock
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Action
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {products.map((product) => (
-                                    <tr
-                                        key={product._id.toString()}
-                                        className="border-t hover:bg-gray-50 text-sm"
-                                    >
-                                        {/* PRODUCT */}
-                                        <td className="px-6 py-4">
-                                            <div className="flex items-center gap-4">
-                                                <img
-                                                    src={product.thumbnail}
-                                                    alt={product.name}
-                                                    className="w-16 h-16 rounded-lg object-cover border"
-                                                />
-
-                                                <div>
-                                                    <p className="font-semibold text-gray-800">
-                                                        {product.name}
-                                                    </p>
-
-                                                    <p className="text-xs text-gray-500 mt-1">
-                                                        {product.category}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        {/* SIZE */}
-                                        <td className="px-6 py-4">
-                                            <div className="flex flex-col items-center gap-2">
-                                                {product.sizes.map((size) => (
-                                                    <span
-                                                        key={size.size}
-                                                        className="px-2 py-1 rounded bg-gray-100 text-xs font-medium"
-                                                    >
-                                                        {size.size}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </td>
-
-                                        {/* PRICE */}
-                                        <td className="px-6 py-4">
-                                            <div className="flex flex-col items-center gap-1 font-medium">
-                                                {product.sizes.map((size) => (
-                                                    <span key={size.size}>
-                                                        {idr(size.price)}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </td>
-
-                                        {/* STOCK */}
-                                        <td className="px-6 py-4">
-                                            <div className="flex flex-col items-center gap-1">
-                                                {product.sizes.map((size) => (
-                                                    <span
-                                                        key={size.size}
-                                                        className={`font-semibold ${
-                                                            size.stock === 0
-                                                                ? 'text-red-600'
-                                                                : size.stock <=
-                                                                    5
-                                                                  ? 'text-yellow-600'
-                                                                  : 'text-green-600'
-                                                        }`}
-                                                    >
-                                                        {size.stock}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </td>
-
-                                        {/* ACTION */}
-                                        <td className="px-6 py-4">
-                                            <div className="flex justify-center items-center gap-4">
-                                                <Link
-                                                    href={`/admin/catalogs/${product._id}/edit`}
-                                                    className="p-2 rounded-full hover:bg-blue-100 text-blue-500 transition"
-                                                    title="Edit"
-                                                >
-                                                    <Pencil className="w-5 h-5" />
-                                                </Link>
-
-                                                <button
-                                                    onClick={() =>
-                                                        handleDelete(
-                                                            product._id.toString(),
-                                                        )
-                                                    }
-                                                    className="p-2 rounded-full hover:bg-red-100 text-red-500 transition cursor-pointer"
-                                                    title="Delete"
-                                                >
-                                                    <Trash2 className="w-5 h-5" />
-                                                </button>
-                                            </div>
-                                        </td>
+                                        <th className="px-6 py-4 text-center">
+                                            Action
+                                        </th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+
+                                <tbody>
+                                    {products.map((product) => (
+                                        <tr
+                                            key={product._id.toString()}
+                                            className="border-t hover:bg-gray-50 text-sm"
+                                        >
+                                            {/* PRODUCT */}
+                                            <td className="px-6 py-4">
+                                                <div className="flex items-center gap-4">
+                                                    <img
+                                                        src={product.thumbnail}
+                                                        alt={product.name}
+                                                        className="w-16 h-16 rounded-lg object-cover border"
+                                                    />
+
+                                                    <div>
+                                                        <p className="font-semibold text-gray-800">
+                                                            {product.name}
+                                                        </p>
+
+                                                        <p className="text-xs text-gray-500 mt-1">
+                                                            {product.category}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+
+                                            {/* SIZE */}
+                                            <td className="px-6 py-4">
+                                                <div className="flex flex-col items-center gap-2">
+                                                    {product.sizes.map(
+                                                        (size) => (
+                                                            <span
+                                                                key={size.size}
+                                                                className="px-2 py-1 rounded bg-gray-100 text-xs font-medium"
+                                                            >
+                                                                {size.size}
+                                                            </span>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            </td>
+
+                                            {/* PRICE */}
+                                            <td className="px-6 py-4">
+                                                <div className="flex flex-col items-center gap-1 font-medium">
+                                                    {product.sizes.map(
+                                                        (size) => (
+                                                            <span
+                                                                key={size.size}
+                                                            >
+                                                                {idr(
+                                                                    size.price,
+                                                                )}
+                                                            </span>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            </td>
+
+                                            {/* STOCK */}
+                                            <td className="px-6 py-4">
+                                                <div className="flex flex-col items-center gap-1">
+                                                    {product.sizes.map(
+                                                        (size) => (
+                                                            <span
+                                                                key={size.size}
+                                                                className={`font-semibold ${
+                                                                    size.stock ===
+                                                                    0
+                                                                        ? 'text-red-600'
+                                                                        : size.stock <=
+                                                                            5
+                                                                          ? 'text-yellow-600'
+                                                                          : 'text-green-600'
+                                                                }`}
+                                                            >
+                                                                {size.stock}
+                                                            </span>
+                                                        ),
+                                                    )}
+                                                </div>
+                                            </td>
+
+                                            {/* ACTION */}
+                                            <td className="px-6 py-4">
+                                                <div className="flex justify-center items-center gap-4">
+                                                    <Link
+                                                        href={`/admin/catalogs/${product._id}/edit`}
+                                                        className="p-2 rounded-full hover:bg-blue-100 text-blue-500 transition"
+                                                        title="Edit"
+                                                    >
+                                                        <Pencil className="w-5 h-5" />
+                                                    </Link>
+
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDelete(
+                                                                product._id.toString(),
+                                                            )
+                                                        }
+                                                        className="p-2 rounded-full hover:bg-red-100 text-red-500 transition cursor-pointer"
+                                                        title="Delete"
+                                                    >
+                                                        <Trash2 className="w-5 h-5" />
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 )}
 
                 {/* PAGINATION */}
                 {products.length > 0 && (
-                    <div className="flex items-center justify-between mt-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
                         <p className="text-sm text-gray-600">
                             Showing{' '}
                             <span className="font-semibold">
@@ -315,7 +328,7 @@ export default function AdminCatalogsPage() {
                             products
                         </p>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-between sm:justify-end gap-2">
                             <button
                                 onClick={handlePrevPage}
                                 disabled={page === 1}

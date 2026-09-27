@@ -102,84 +102,86 @@ export default function OrdersPage() {
                     </div>
                 ) : (
                     <div className="bg-white rounded-2xl shadow overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-pink-100 text-gray-600 text-sm">
-                                <tr>
-                                    <th className="py-4 px-6 text-center">
-                                        Order ID
-                                    </th>
-                                    <th className="py-4 px-6 text-center">
-                                        Date
-                                    </th>
-                                    <th className="py-4 px-6 text-center">
-                                        Total
-                                    </th>
-                                    <th className="py-4 px-6 text-center">
-                                        Status
-                                    </th>
-                                    <th className="py-4 px-6 text-center">
-                                        Action
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {orders.map((order) => (
-                                    <tr
-                                        key={order.midtransOrderId}
-                                        className="border-t hover:bg-gray-50 text-sm"
-                                    >
-                                        <td className="py-4 px-6 font-mono text-center">
-                                            #
-                                            {order.midtransOrderId
-                                                .slice(-6)
-                                                .toUpperCase()}
-                                        </td>
-
-                                        <td className="py-4 px-6 text-center">
-                                            {new Date(
-                                                order.createdAt,
-                                            ).toLocaleString('id-ID', {
-                                                dateStyle: 'medium',
-                                                timeStyle: 'short',
-                                            })}
-                                        </td>
-
-                                        <td className="py-4 px-6 font-medium text-center">
-                                            Rp{' '}
-                                            {order.total.toLocaleString(
-                                                'id-ID',
-                                            )}
-                                        </td>
-
-                                        <td className="py-4 px-6 text-center">
-                                            <span
-                                                className={`px-3 py-1 rounded-full font-semibold ${getStatusColor(
-                                                    order.status,
-                                                )}`}
-                                            >
-                                                {order.status.toUpperCase()}
-                                            </span>
-                                        </td>
-
-                                        <td className="py-4 px-6 text-center">
-                                            <Link
-                                                href={`/orders/${order._id}`}
-                                                className="text-blue-600 hover:underline font-medium"
-                                            >
-                                                View Detail
-                                            </Link>
-                                        </td>
+                        <div className="overflow-x-auto">
+                            <table className="w-full min-w-[850px]">
+                                <thead className="bg-pink-100 text-gray-600 text-sm">
+                                    <tr>
+                                        <th className="py-4 px-6 text-center">
+                                            Order ID
+                                        </th>
+                                        <th className="py-4 px-6 text-center">
+                                            Date
+                                        </th>
+                                        <th className="py-4 px-6 text-center">
+                                            Total
+                                        </th>
+                                        <th className="py-4 px-6 text-center">
+                                            Status
+                                        </th>
+                                        <th className="py-4 px-6 text-center">
+                                            Action
+                                        </th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+
+                                <tbody>
+                                    {orders.map((order) => (
+                                        <tr
+                                            key={order.midtransOrderId}
+                                            className="border-t hover:bg-gray-50 text-sm"
+                                        >
+                                            <td className="py-4 px-6 font-mono text-center">
+                                                #
+                                                {order.midtransOrderId
+                                                    .slice(-6)
+                                                    .toUpperCase()}
+                                            </td>
+
+                                            <td className="py-4 px-6 text-center">
+                                                {new Date(
+                                                    order.createdAt,
+                                                ).toLocaleString('id-ID', {
+                                                    dateStyle: 'medium',
+                                                    timeStyle: 'short',
+                                                })}
+                                            </td>
+
+                                            <td className="py-4 px-6 font-medium text-center">
+                                                Rp{' '}
+                                                {order.total.toLocaleString(
+                                                    'id-ID',
+                                                )}
+                                            </td>
+
+                                            <td className="py-4 px-6 text-center">
+                                                <span
+                                                    className={`px-3 py-1 rounded-full font-semibold ${getStatusColor(
+                                                        order.status,
+                                                    )}`}
+                                                >
+                                                    {order.status.toUpperCase()}
+                                                </span>
+                                            </td>
+
+                                            <td className="py-4 px-6 text-center">
+                                                <Link
+                                                    href={`/orders/${order._id}`}
+                                                    className="text-blue-600 hover:underline font-medium"
+                                                >
+                                                    View Detail
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 )}
 
                 {/* PAGINATION */}
                 {orders.length > 0 && (
-                    <div className="flex items-center justify-between mt-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
                         <p className="text-sm text-gray-600">
                             Showing{' '}
                             <span className="font-semibold">
@@ -194,15 +196,15 @@ export default function OrdersPage() {
                             orders
                         </p>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-between sm:justify-end gap-2">
                             <button
                                 onClick={handlePrevPage}
                                 disabled={page === 1}
                                 className={`flex items-center gap-1 px-3 py-1.5 border rounded-lg text-sm ${
-                                page === 1
-                                    ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                                    : 'text-gray-700 hover:bg-gray-100 border-gray-300'
-                            }`}
+                                    page === 1
+                                        ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                                        : 'text-gray-700 hover:bg-gray-100 border-gray-300'
+                                }`}
                             >
                                 <ChevronLeft size={16} />
                                 Prev
@@ -216,10 +218,10 @@ export default function OrdersPage() {
                                 onClick={handleNextPage}
                                 disabled={page === totalPages}
                                 className={`flex items-center gap-1 px-3 py-1.5 border rounded-lg text-sm ${
-                                page === 1
-                                    ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                                    : 'text-gray-700 hover:bg-gray-100 border-gray-300'
-                            }`}
+                                    page === totalPages
+                                        ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                                        : 'text-gray-700 hover:bg-gray-100 border-gray-300'
+                                }`}
                             >
                                 Next
                                 <ChevronRight size={16} />

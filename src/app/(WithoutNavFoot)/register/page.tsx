@@ -64,27 +64,35 @@ export default function RegisterPage() {
     }
 
     return (
-        <main className="min-h-screen flex">
+        <main className="min-h-screen flex flex-col lg:flex-row">
             {/* LEFT SIDE */}
+
+            {/* MOBILE */}
+            <div className="lg:hidden w-full bg-pink-100 flex items-center justify-center py-8">
+                <Link href="/">
+                    <Image
+                        src="/ik_logo_2.png"
+                        alt="GlowBeauty"
+                        width={150}
+                        height={150}
+                        className="w-28 h-28 object-contain"
+                        priority
+                    />
+                </Link>
+            </div>
+
+            {/* DESKTOP */}
             <div className="hidden lg:flex w-1/2 bg-pink-100 items-center justify-center relative">
                 <div className="text-center px-12">
                     <Link href="/">
                         <Image
-                            src="/logo.png"
+                            src="/ik_logo_2.png"
                             alt="GlowBeauty"
-                            width={120}
-                            height={120}
+                            width={280}
+                            height={280}
                             className="mx-auto"
                         />
                     </Link>
-
-                    <h1 className="text-4xl font-bold text-gray-800 mt-6">
-                        Join GlowBeauty
-                    </h1>
-
-                    <p className="text-gray-600 mt-4 text-lg">
-                        Create your account and start your beauty journey today.
-                    </p>
                 </div>
             </div>
 

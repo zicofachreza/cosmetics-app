@@ -24,6 +24,8 @@ export default function LoginPage() {
     })
 
     const onSubmit = async (data: LoginForm) => {
+        setServerError('')
+
         const result = await handleLogin(data)
 
         if (result?.error) {
@@ -32,32 +34,46 @@ export default function LoginPage() {
     }
 
     return (
-        <main className="min-h-screen flex">
-            {/* LEFT SIDE */}
-            <div className="hidden lg:flex w-1/2 bg-pink-100 items-center justify-center relative">
+        <main className="min-h-screen flex flex-col lg:flex-row">
+            {/* =====================================================
+                LEFT SIDE / LOGO
+                ===================================================== */}
+
+            {/* MOBILE */}
+            <div className="lg:hidden w-full bg-pink-100 flex items-center justify-center py-8">
+                <Link href="/">
+                    <Image
+                        src="/ik_logo_2.png"
+                        alt="GlowBeauty"
+                        width={150}
+                        height={150}
+                        className="w-28 h-28 object-contain"
+                        priority
+                    />
+                </Link>
+            </div>
+
+            {/* DESKTOP */}
+            <div className="hidden lg:flex lg:w-1/2 bg-pink-100 items-center justify-center relative min-h-screen">
                 <div className="text-center px-12">
                     <Link href="/">
                         <Image
-                            src="/logo.png"
+                            src="/ik_logo_2.png"
                             alt="GlowBeauty"
-                            width={120}
-                            height={120}
+                            width={280}
+                            height={280}
                             className="mx-auto"
+                            priority
                         />
                     </Link>
-
-                    <h1 className="text-4xl font-bold text-gray-800 mt-6">
-                        Welcome Back
-                    </h1>
-
-                    <p className="text-gray-600 mt-4 text-lg">
-                        Sign in to continue your beauty journey with GlowBeauty.
-                    </p>
                 </div>
             </div>
 
-            {/* RIGHT SIDE */}
-            <div className="flex w-full lg:w-1/2 items-center justify-center px-6">
+            {/* =====================================================
+                RIGHT SIDE / LOGIN FORM
+                ===================================================== */}
+
+            <div className="flex w-full lg:w-1/2 items-center justify-center px-6 py-10 lg:py-0">
                 <div className="w-full max-w-md">
                     {/* HEADER */}
                     <div className="text-center mb-8">
@@ -72,23 +88,31 @@ export default function LoginPage() {
 
                     {/* SOCIAL LOGIN */}
                     <div className="flex gap-4 mb-6">
-                        <button className="flex-1 border border-gray-200 rounded-lg py-3 flex items-center justify-center gap-2 hover:bg-gray-50 transition cursor-pointer">
+                        <button
+                            type="button"
+                            className="flex-1 border border-gray-200 rounded-lg py-3 flex items-center justify-center gap-2 hover:bg-gray-50 transition cursor-pointer"
+                        >
                             <Image
                                 src="/google-logo.png"
                                 alt="Google"
                                 width={20}
                                 height={20}
                             />
+
                             <span className="text-sm font-medium">Google</span>
                         </button>
 
-                        <button className="flex-1 border border-gray-200 rounded-lg py-3 flex items-center justify-center gap-2 hover:bg-gray-50 transition cursor-pointer">
+                        <button
+                            type="button"
+                            className="flex-1 border border-gray-200 rounded-lg py-3 flex items-center justify-center gap-2 hover:bg-gray-50 transition cursor-pointer"
+                        >
                             <Image
                                 src="/facebook-logo.png"
                                 alt="Facebook"
                                 width={20}
                                 height={20}
                             />
+
                             <span className="text-sm font-medium">
                                 Facebook
                             </span>
@@ -98,10 +122,13 @@ export default function LoginPage() {
                     {/* DIVIDER */}
                     <div className="flex items-center my-6">
                         <div className="flex-1 border-t border-gray-200"></div>
+
                         <span className="px-4 text-sm text-gray-400">OR</span>
+
                         <div className="flex-1 border-t border-gray-200"></div>
                     </div>
 
+                    {/* SERVER ERROR */}
                     {serverError && (
                         <p className="text-red-500 font-medium text-sm mb-4 text-center">
                             {serverError}
@@ -115,14 +142,19 @@ export default function LoginPage() {
                     >
                         {/* EMAIL */}
                         <div>
-                            <label className="text-sm font-medium text-gray-700">
+                            <label
+                                htmlFor="email"
+                                className="text-sm font-medium text-gray-700"
+                            >
                                 Email Address
                             </label>
 
                             <input
+                                id="email"
                                 {...register('email')}
                                 type="email"
                                 placeholder="you@example.com"
+                                autoComplete="email"
                                 className="w-full mt-2 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-400 outline-none"
                             />
 
@@ -135,22 +167,32 @@ export default function LoginPage() {
 
                         {/* PASSWORD */}
                         <div>
-                            <label className="text-sm font-medium text-gray-700">
+                            <label
+                                htmlFor="password"
+                                className="text-sm font-medium text-gray-700"
+                            >
                                 Password
                             </label>
 
                             <div className="relative mt-2">
                                 <input
+                                    id="password"
                                     {...register('password')}
                                     type={showPassword ? 'text' : 'password'}
                                     placeholder="Enter your password"
-                                    className="w-full border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-400 outline-none"
+                                    autoComplete="current-password"
+                                    className="w-full border border-gray-200 rounded-lg px-4 py-3 pr-12 focus:ring-2 focus:ring-pink-400 outline-none"
                                 />
 
                                 <button
                                     type="button"
                                     onClick={() =>
                                         setShowPassword(!showPassword)
+                                    }
+                                    aria-label={
+                                        showPassword
+                                            ? 'Hide password'
+                                            : 'Show password'
                                     }
                                     className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700 cursor-pointer"
                                 >
@@ -161,6 +203,7 @@ export default function LoginPage() {
                                     )}
                                 </button>
                             </div>
+
                             {errors.password && (
                                 <p className="text-red-500 font-medium text-sm mt-1">
                                     {errors.password.message}
@@ -168,7 +211,7 @@ export default function LoginPage() {
                             )}
                         </div>
 
-                        {/* REMEMBER */}
+                        {/* REMEMBER & FORGOT PASSWORD */}
                         <div className="flex items-center justify-between text-sm">
                             <label className="flex items-center gap-2 text-gray-600 cursor-pointer">
                                 <input
@@ -180,8 +223,8 @@ export default function LoginPage() {
                             </label>
 
                             <Link
-                                href=""
-                                className="text-pink-400 hover:underline"
+                                href="/forgot-password"
+                                className="text-pink-400 hover:text-pink-500 hover:underline"
                             >
                                 Forgot password?
                             </Link>
@@ -191,7 +234,7 @@ export default function LoginPage() {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full bg-pink-400 hover:bg-pink-500 text-white py-3 rounded-lg font-medium transition cursor-pointer"
+                            className="w-full bg-pink-400 hover:bg-pink-500 disabled:bg-pink-300 text-white py-3 rounded-lg font-medium transition cursor-pointer disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? 'Loading...' : 'Sign In'}
                         </button>

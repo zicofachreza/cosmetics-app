@@ -117,16 +117,16 @@ export default async function HomePage() {
                 <div className="grid md:grid-cols-3 gap-8 mt-12">
                     {[
                         {
-                            name: 'Sophia',
+                            name: 'Alfi',
                             text: 'The skincare products completely transformed my skin. Highly recommended!',
                         },
                         {
-                            name: 'Emma',
+                            name: 'Rani',
                             text: 'Amazing quality makeup and fast shipping. I love this store!',
                         },
                         {
-                            name: 'Olivia',
-                            text: 'GlowBeauty has become my go-to place for beauty products.',
+                            name: 'Riska',
+                            text: 'IyahKosmetik has become my go-to place for beauty products.',
                         },
                     ].map((review, i) => (
                         <div
@@ -161,12 +161,12 @@ export default async function HomePage() {
                         <input
                             type="email"
                             placeholder="Enter your email"
-                            className="flex-1 px-6 py-3 outline-none"
+                            className="min-w-0 flex-1 px-4 sm:px-6 py-3 outline-none text-sm sm:text-base"
                         />
 
                         <Link
                             href=""
-                            className="flex items-center bg-pink-400 text-white px-8 hover:bg-pink-500 transition"
+                            className="shrink-0 whitespace-nowrap flex items-center justify-center bg-pink-400 text-white px-4 sm:px-8 py-3 text-sm sm:text-base hover:bg-pink-500 transition"
                         >
                             Subscribe
                         </Link>

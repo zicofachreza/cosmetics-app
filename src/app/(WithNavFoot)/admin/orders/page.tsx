@@ -140,9 +140,9 @@ export default function AdminOrdersPage() {
                         </p>
                     </div>
 
-                    <div className="bg-pink-100 p-4 rounded-xl shadow-sm mb-6 mt-6 flex items-center justify-between gap-4">
+                    <div className="bg-pink-100 p-4 rounded-xl shadow-sm mb-6 mt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         {/* SEARCH */}
-                        <div className="flex items-center bg-white text-sm w-72 px-4 py-2 rounded-full gap-2">
+                        <div className="flex items-center bg-white text-sm w-full md:w-72 px-4 py-2 rounded-full gap-2">
                             <Image
                                 src="/search.png"
                                 alt="Search"
@@ -160,10 +160,10 @@ export default function AdminOrdersPage() {
                         </div>
 
                         {/* FILTER STATUS */}
-                        <div ref={statusRef} className="relative">
+                        <div ref={statusRef} className="relative w-full sm:w-44">
                             <button
                                 onClick={() => setOpenStatus(!openStatus)}
-                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
+                                className="flex items-center justify-between w-full bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {status === ''
                                     ? 'All Status'
@@ -190,7 +190,7 @@ export default function AdminOrdersPage() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -5 }}
                                         transition={{ duration: 0.15 }}
-                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                                        className="absolute mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
                                         <button
                                             onClick={() => {
@@ -280,104 +280,106 @@ export default function AdminOrdersPage() {
                     </div>
                 ) : (
                     <div className="bg-white rounded-2xl shadow overflow-hidden">
-                        <table className="w-full">
-                            <thead className="bg-pink-100 text-gray-600 text-sm">
-                                <tr>
-                                    <th className="px-6 py-4 text-center">
-                                        Order ID
-                                    </th>
+                        <div className="overflow-x-auto">
+                            <table className="w-full min-w-[850px]">
+                                <thead className="bg-pink-100 text-gray-600 text-sm">
+                                    <tr>
+                                        <th className="px-6 py-4 text-center">
+                                            Order ID
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Customer
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Customer
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Date
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Date
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Total
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Total
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Status
-                                    </th>
+                                        <th className="px-6 py-4 text-center">
+                                            Status
+                                        </th>
 
-                                    <th className="px-6 py-4 text-center">
-                                        Action
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {orders.map((order) => (
-                                    <tr
-                                        key={order._id}
-                                        className="border-t hover:bg-gray-50 text-sm"
-                                    >
-                                        <td className="px-6 py-4 text-center">
-                                            <div className="font-mono font-medium">
-                                                #
-                                                {order.midtransOrderId
-                                                    .slice(-6)
-                                                    .toUpperCase()}
-                                            </div>
-                                        </td>
-
-                                        <td className="px-6 py-4 text-center">
-                                            <div className="font-semibold text-gray-800">
-                                                {order.userName}
-                                            </div>
-
-                                            <div className="text-sm text-gray-500">
-                                                {order.userEmail}
-                                            </div>
-                                        </td>
-
-                                        <td className="px-6 py-4 text-sm text-center">
-                                            {new Date(
-                                                order.createdAt,
-                                            ).toLocaleString('id-ID', {
-                                                dateStyle: 'medium',
-                                                timeStyle: 'short',
-                                            })}
-                                        </td>
-
-                                        <td className="px-6 py-4 font-medium text-center">
-                                            Rp{' '}
-                                            {order.total.toLocaleString(
-                                                'id-ID',
-                                            )}
-                                        </td>
-
-                                        <td className="px-6 py-4 text-center">
-                                            <span
-                                                className={`px-3 py-1 rounded-full text-sm font-semibold ${getStatusColor(
-                                                    order.status,
-                                                )}`}
-                                            >
-                                                {order.status.toUpperCase()}
-                                            </span>
-                                        </td>
-
-                                        <td className="px-6 py-4 text-center">
-                                            <Link
-                                                href={`/admin/orders/${order._id}`}
-                                                className="text-blue-600 hover:underline font-medium"
-                                            >
-                                                View Detail
-                                            </Link>
-                                        </td>
+                                        <th className="px-6 py-4 text-center">
+                                            Action
+                                        </th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+
+                                <tbody>
+                                    {orders.map((order) => (
+                                        <tr
+                                            key={order._id}
+                                            className="border-t hover:bg-gray-50 text-sm"
+                                        >
+                                            <td className="px-6 py-4 text-center">
+                                                <div className="font-mono font-medium">
+                                                    #
+                                                    {order.midtransOrderId
+                                                        .slice(-6)
+                                                        .toUpperCase()}
+                                                </div>
+                                            </td>
+
+                                            <td className="px-6 py-4 text-center">
+                                                <div className="font-semibold text-gray-800">
+                                                    {order.userName}
+                                                </div>
+
+                                                <div className="text-sm text-gray-500">
+                                                    {order.userEmail}
+                                                </div>
+                                            </td>
+
+                                            <td className="px-6 py-4 text-sm text-center">
+                                                {new Date(
+                                                    order.createdAt,
+                                                ).toLocaleString('id-ID', {
+                                                    dateStyle: 'medium',
+                                                    timeStyle: 'short',
+                                                })}
+                                            </td>
+
+                                            <td className="px-6 py-4 font-medium text-center">
+                                                Rp{' '}
+                                                {order.total.toLocaleString(
+                                                    'id-ID',
+                                                )}
+                                            </td>
+
+                                            <td className="px-6 py-4 text-center">
+                                                <span
+                                                    className={`px-3 py-1 rounded-full text-sm font-semibold ${getStatusColor(
+                                                        order.status,
+                                                    )}`}
+                                                >
+                                                    {order.status.toUpperCase()}
+                                                </span>
+                                            </td>
+
+                                            <td className="px-6 py-4 text-center">
+                                                <Link
+                                                    href={`/admin/orders/${order._id}`}
+                                                    className="text-blue-600 hover:underline font-medium"
+                                                >
+                                                    View Detail
+                                                </Link>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 )}
 
                 {/* PAGINATION */}
                 {orders.length > 0 && (
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mt-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
                         <p className="text-sm text-gray-600">
                             Showing{' '}
                             <span className="font-semibold">
@@ -392,7 +394,7 @@ export default function AdminOrdersPage() {
                             orders
                         </p>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-between sm:justify-end gap-2">
                             <button
                                 onClick={handlePrevPage}
                                 disabled={page === 1}

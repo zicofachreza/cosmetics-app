@@ -197,9 +197,9 @@ export default function ProductPage() {
                 </div>
 
                 {/* FILTER BAR */}
-                <div className="bg-pink-100 p-4 rounded-xl shadow-sm mb-10 flex items-center justify-between">
+                <div className="bg-pink-100 p-4 rounded-xl shadow-sm mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     {/* SEARCH */}
-                    <div className="flex items-center bg-white text-sm w-70 px-4 py-2 rounded-full gap-2">
+                    <div className="flex items-center bg-white text-sm w-full md:w-70 px-4 py-2 rounded-full gap-2">
                         <Image
                             src="/search.png"
                             alt="Search"
@@ -216,15 +216,15 @@ export default function ProductPage() {
                         />
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto">
                         {/* CATEGORY */}
-                        <div ref={categoryRef} className="relative">
+                        <div ref={categoryRef} className="relative w-full sm:w-44">
                             <button
                                 onClick={() => {
                                     setOpenCategory(!openCategory)
                                     setOpenSort(false)
                                 }}
-                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
+                                className="flex items-center justify-between w-full bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {category === 'all'
                                     ? 'Categories'
@@ -256,7 +256,7 @@ export default function ProductPage() {
                                         transition={{
                                             duration: 0.15,
                                         }}
-                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                                        className="absolute mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
                                         {[
                                             'all',
@@ -288,13 +288,13 @@ export default function ProductPage() {
                         </div>
 
                         {/* SORT */}
-                        <div ref={sortRef} className="relative">
+                        <div ref={sortRef} className="relative w-full sm:w-44">
                             <button
                                 onClick={() => {
                                     setOpenSort(!openSort)
                                     setOpenCategory(false)
                                 }}
-                                className="flex items-center justify-between w-44 bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
+                                className="flex items-center justify-between w-full bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {sort === 'price_asc'
                                     ? 'Price: Low to High'
@@ -328,7 +328,7 @@ export default function ProductPage() {
                                         transition={{
                                             duration: 0.15,
                                         }}
-                                        className="absolute mt-2 w-44 bg-white border border-gray-200 rounded-lg shadow-lg z-50"
+                                        className="absolute mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
                                         <button
                                             onClick={() => {
