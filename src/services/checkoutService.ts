@@ -2,7 +2,7 @@ import CartModel from '@/models/cart'
 import OrderModel from '@/models/order'
 import { snap } from '@/lib/midtrans'
 import { ObjectId } from 'mongodb'
-import { formatMidtransAddress } from '@/lib/helper'
+import { formatMidtransAddress, truncateMidtransItemName } from '@/lib/helper'
 import { ShippingInfo } from '@/types/userType'
 
 export async function checkout(userId: string, shipping: ShippingInfo) {
@@ -83,7 +83,7 @@ export async function checkout(userId: string, shipping: ShippingInfo) {
 
         item_details: cartItems.map((item) => ({
             id: item.productId.toString(),
-            name: item.product.name,
+            name: truncateMidtransItemName(item.product.name),
             quantity: item.quantity,
             price: item.price,
         })),
