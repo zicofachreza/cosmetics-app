@@ -25,31 +25,6 @@ export default function Footer() {
                             kecantikan premium yang dirancang untuk membantu Anda 
                             tampil memesona dan penuh percaya diri setiap hari.
                         </p>
-
-                        {/* Social */}
-                        <div className="flex gap-4 mt-6">
-                            <Image
-                                src="/instagram.png"
-                                alt="Instagram"
-                                width={22}
-                                height={22}
-                                className="hover:opacity-70 cursor-pointer"
-                            />
-                            <Image
-                                src="/tiktok.png"
-                                alt="TikTok"
-                                width={22}
-                                height={22}
-                                className="hover:opacity-70 cursor-pointer"
-                            />
-                            <Image
-                                src="/youtube.png"
-                                alt="Youtube"
-                                width={22}
-                                height={22}
-                                className="hover:opacity-70 cursor-pointer"
-                            />
-                        </div>
                     </div>
 
                     {/* Shop */}
