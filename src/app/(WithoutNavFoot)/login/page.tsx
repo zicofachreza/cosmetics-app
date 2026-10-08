@@ -100,7 +100,7 @@ export default function LoginPage() {
                 <Link href="/">
                     <Image
                         src="/ik_logo_2.png"
-                        alt="GlowBeauty"
+                        alt="IyahKosmetik"
                         width={150}
                         height={150}
                         className="w-28 h-28 object-contain"
@@ -116,7 +116,7 @@ export default function LoginPage() {
                     <Link href="/">
                         <Image
                             src="/ik_logo_2.png"
-                            alt="GlowBeauty"
+                            alt="IyahKosmetik"
                             width={280}
                             height={280}
                             className="mx-auto"

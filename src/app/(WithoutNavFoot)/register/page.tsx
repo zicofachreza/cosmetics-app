@@ -105,7 +105,7 @@ export default function RegisterPage() {
                 <Link href="/">
                     <Image
                         src="/ik_logo_2.png"
-                        alt="GlowBeauty"
+                        alt="IyahKosmetik"
                         width={150}
                         height={150}
                         className="w-28 h-28 object-contain"
@@ -121,7 +121,7 @@ export default function RegisterPage() {
                     <Link href="/">
                         <Image
                             src="/ik_logo_2.png"
-                            alt="GlowBeauty"
+                            alt="IyahKosmetik"
                             width={280}
                             height={280}
                             className="mx-auto"
@@ -202,7 +202,7 @@ export default function RegisterPage() {
                                     'name'
                                 )}
                                 type="text"
-                                placeholder="John Wick"
+                                placeholder="John Doe"
                                 className="w-full mt-2 border border-gray-200 rounded-lg px-4 py-3 focus:ring-2 focus:ring-pink-400 outline-none"
                             />
 
