@@ -339,7 +339,7 @@ export default function AdminCatalogsPage() {
                                 }`}
                             >
                                 <ChevronLeft size={16} />
-                                Sebelumya
+                                Sebelumnya
                             </button>
 
                             <span className="text-sm font-medium">

@@ -91,8 +91,8 @@ export default function CheckoutPage() {
         if (!firstName || !lastName || !email || !address || !phone) {
             Swal.fire({
                 icon: 'warning',
-                title: 'Incomplete Form',
-                text: 'Please fill all shipping details',
+                title: 'Formulir Tidak Lengkap',
+                text: 'Mohon lengkapi semua detail pengiriman',
                 timer: 2000,
                 showConfirmButton: false,
             })
@@ -140,8 +140,8 @@ export default function CheckoutPage() {
                     console.log('⏳ Payment pending:', result)
                     Swal.fire({
                         icon: 'info',
-                        title: 'Payment Pending',
-                        text: 'Please complete your payment',
+                        title: 'Pembayaran Tertunda',
+                        text: 'Silakan selesaikan pembayaran Anda',
                         timer: 2000,
                         showConfirmButton: false,
                     })
@@ -151,8 +151,8 @@ export default function CheckoutPage() {
                     console.error('❌ Payment failed:', result)
                     Swal.fire({
                         icon: 'error',
-                        title: 'Payment Failed',
-                        text: 'Please try again later.',
+                        title: 'Pembayaran Gagal',
+                        text: 'Silakan coba lagi nanti',
                         timer: 2000,
                         showConfirmButton: false,
                     })
@@ -162,8 +162,8 @@ export default function CheckoutPage() {
                     console.log('💤 Payment popup closed.')
                     Swal.fire({
                         icon: 'info',
-                        title: 'Payment Pending',
-                        text: 'Please complete your payment',
+                        title: 'Pembayaran Tertunda',
+                        text: 'Silakan selesaikan pembayaran Anda',
                         timer: 2000,
                         showConfirmButton: false,
                     })
@@ -187,7 +187,7 @@ export default function CheckoutPage() {
     if (loading) {
         return (
             <main className="flex py-20 justify-center min-h-screen">
-                <p className="text-lg font-semibold">Loading checkout...</p>
+                <p className="text-lg font-semibold">Memuat checkout...</p>
             </main>
         )
     }
