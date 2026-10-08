@@ -102,7 +102,7 @@ export default async function HomePage() {
                     </p>
 
                     <Link
-                        href=""
+                        href="/discount"
                         className="inline-block mt-8 bg-white text-pink-400 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition"
                     >
                         Belanja Sekarang
