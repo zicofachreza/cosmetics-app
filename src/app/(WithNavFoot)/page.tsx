@@ -2,6 +2,7 @@ import idr from '@/lib/helper'
 import ProductModel from '@/models/product'
 import Image from 'next/image'
 import Link from 'next/link'
+import NewsletterSubscribe from '../components/NewsletterSubscribe'
 
 export default async function HomePage() {
     const data = await ProductModel.getSliceProducts()
@@ -19,9 +20,9 @@ export default async function HomePage() {
                     </h1>
 
                     <p className="text-gray-600 mt-6 text-lg">
-                        Produk perawatan kulit dan kecantikan premium yang dirancang 
-                        untuk menyempurnakan kecantikan alami serta meningkatkan kepercayaan 
-                        diri Anda setiap hari.
+                        Produk perawatan kulit dan kecantikan premium yang
+                        dirancang untuk menyempurnakan kecantikan alami serta
+                        meningkatkan kepercayaan diri Anda setiap hari.
                     </p>
 
                     <div className="flex justify-center gap-4 mt-8">
@@ -95,10 +96,13 @@ export default async function HomePage() {
             {/* PROMO */}
             <section className="bg-pink-400 text-white py-20">
                 <div className="max-w-6xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold">Promo Kecantikan Oktober</h2>
+                    <h2 className="text-3xl font-bold">
+                        Promo Kecantikan Akhir Tahun
+                    </h2>
 
                     <p className="mt-4 text-lg opacity-90">
-                        Dapatkan diskon hingga 40% untuk produk kecantikan pilihan.
+                        Dapatkan diskon hingga 40% untuk produk kecantikan
+                        pilihan.
                     </p>
 
                     <Link
@@ -155,24 +159,11 @@ export default async function HomePage() {
                     </h2>
 
                     <p className="text-gray-600 mt-4">
-                        Dapatkan penawaran eksklusif, tips kecantikan, 
-                        dan akses awal ke peluncuran produk baru.
+                        Dapatkan penawaran eksklusif, tips kecantikan, dan akses
+                        awal ke peluncuran produk baru.
                     </p>
 
-                    <div className="flex mt-8 bg-white border border-pink-200 rounded-full overflow-hidden">
-                        <input
-                            type="email"
-                            placeholder="Masukkan email Anda"
-                            className="min-w-0 flex-1 px-4 sm:px-6 py-3 outline-none text-sm sm:text-base"
-                        />
-
-                        <Link
-                            href=""
-                            className="shrink-0 whitespace-nowrap flex items-center justify-center bg-pink-400 text-white px-4 sm:px-8 py-3 text-sm sm:text-base hover:bg-pink-500 transition"
-                        >
-                            Berlangganan
-                        </Link>
-                    </div>
+                    <NewsletterSubscribe />
                 </div>
             </section>
         </div>

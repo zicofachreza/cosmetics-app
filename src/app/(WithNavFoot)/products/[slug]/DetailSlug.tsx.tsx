@@ -50,7 +50,7 @@ export default function DetailClient({ product }: { product: TProduct }) {
             if (user?.role === 'admin') {
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Access Denied',
+                    title: 'Akses Ditolak',
                     text: 'Admin tidak dapat menambahkan produk ke keranjang belanja',
                     buttonsStyling: false,
                     customClass: {

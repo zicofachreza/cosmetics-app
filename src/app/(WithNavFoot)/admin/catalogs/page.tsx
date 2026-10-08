@@ -70,8 +70,8 @@ export default function AdminCatalogsPage() {
 
     const handleDelete = async (id: string) => {
         const result = await Swal.fire({
-            title: 'Delete Product?',
-            text: 'This action cannot be undone',
+            title: 'Hapus Produk?',
+            text: 'Produk yang dihapus tidak dapat dipulihkan',
             icon: 'warning',
             showCancelButton: true,
             buttonsStyling: false,
@@ -82,8 +82,8 @@ export default function AdminCatalogsPage() {
                 cancelButton:
                     'bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg cursor-pointer',
             },
-            confirmButtonText: 'Yes, delete',
-            cancelButtonText: 'Cancel',
+            confirmButtonText: 'Ya, hapus',
+            cancelButtonText: 'Batalkan',
         })
 
         if (!result.isConfirmed) return
