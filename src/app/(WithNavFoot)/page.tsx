@@ -13,13 +13,15 @@ export default async function HomePage() {
             <section className="bg-pink-100 min-h-screen flex items-center justify-center">
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 leading-tight">
-                        Discover Your
-                        <span className="text-pink-400"> Natural Glow</span>
+                        Temukan
+                        <span className="text-pink-400"> Kilau Alami </span>
+                        Anda
                     </h1>
 
                     <p className="text-gray-600 mt-6 text-lg">
-                        Premium skincare and beauty essentials designed to
-                        enhance your natural beauty and confidence every day.
+                        Produk perawatan kulit dan kecantikan premium yang dirancang 
+                        untuk menyempurnakan kecantikan alami serta meningkatkan kepercayaan 
+                        diri Anda setiap hari.
                     </p>
 
                     <div className="flex justify-center gap-4 mt-8">
@@ -27,14 +29,14 @@ export default async function HomePage() {
                             href="/products"
                             className="bg-pink-400 text-white px-8 py-3 rounded-full hover:bg-pink-500 transition"
                         >
-                            Shop Now
+                            Belanja Sekarang
                         </Link>
 
                         <Link
                             href=""
                             className="border border-pink-400 text-pink-400 px-8 py-3 rounded-full hover:bg-gray-100 transition"
                         >
-                            New Arrivals
+                            Produk Baru
                         </Link>
                     </div>
                 </div>
@@ -45,14 +47,14 @@ export default async function HomePage() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex justify-between items-center mb-10">
                         <h2 className="text-3xl font-semibold text-gray-800">
-                            Featured Products
+                            Produk
                         </h2>
 
                         <Link
                             href="/products"
                             className="text-pink-400 hover:underline"
                         >
-                            View All
+                            Lihat Semua
                         </Link>
                     </div>
 
@@ -93,17 +95,17 @@ export default async function HomePage() {
             {/* PROMO */}
             <section className="bg-pink-400 text-white py-20">
                 <div className="max-w-6xl mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-bold">Summer Beauty Sale</h2>
+                    <h2 className="text-3xl font-bold">Promo Kecantikan Oktober</h2>
 
                     <p className="mt-4 text-lg opacity-90">
-                        Get up to 40% off on selected beauty products.
+                        Dapatkan diskon hingga 40% untuk produk kecantikan pilihan.
                     </p>
 
                     <Link
                         href=""
                         className="inline-block mt-8 bg-white text-pink-400 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition"
                     >
-                        Shop the Sale
+                        Belanja Sekarang
                     </Link>
                 </div>
             </section>
@@ -111,22 +113,22 @@ export default async function HomePage() {
             {/* TESTIMONIALS */}
             <section className="max-w-7xl mx-auto px-6 py-20">
                 <h2 className="text-3xl font-semibold text-center text-gray-800">
-                    What Our Customers Say
+                    Apa Kata Pelanggan Kami
                 </h2>
 
                 <div className="grid md:grid-cols-3 gap-8 mt-12">
                     {[
                         {
                             name: 'Alfi',
-                            text: 'The skincare products completely transformed my skin. Highly recommended!',
+                            text: 'Produk perawatan kulit ini benar-benar mengubah kondisi kulit saya. Sangat direkomendasikan!',
                         },
                         {
                             name: 'Rani',
-                            text: 'Amazing quality makeup and fast shipping. I love this store!',
+                            text: 'Kualitas makeup sangat bagus dan pengiriman cepat. Toko ini tidak mengecewakan!',
                         },
                         {
                             name: 'Riska',
-                            text: 'IyahKosmetik has become my go-to place for beauty products.',
+                            text: 'IyahKosmetik telah menjadi tempat andalan saya untuk produk kecantikan.',
                         },
                     ].map((review, i) => (
                         <div
@@ -149,18 +151,18 @@ export default async function HomePage() {
             <section className="bg-pink-50 py-20">
                 <div className="max-w-3xl mx-auto text-center px-6">
                     <h2 className="text-3xl font-semibold text-gray-800">
-                        Join Our Beauty Community
+                        Bergabunglah dengan Komunitas Kecantikan IyahKosmetik
                     </h2>
 
                     <p className="text-gray-600 mt-4">
-                        Get exclusive offers, beauty tips, and early access to
-                        new product launches.
+                        Dapatkan penawaran eksklusif, tips kecantikan, 
+                        dan akses awal ke peluncuran produk baru.
                     </p>
 
                     <div className="flex mt-8 bg-white border border-pink-200 rounded-full overflow-hidden">
                         <input
                             type="email"
-                            placeholder="Enter your email"
+                            placeholder="Masukkan email Anda"
                             className="min-w-0 flex-1 px-4 sm:px-6 py-3 outline-none text-sm sm:text-base"
                         />
 
@@ -168,7 +170,7 @@ export default async function HomePage() {
                             href=""
                             className="shrink-0 whitespace-nowrap flex items-center justify-center bg-pink-400 text-white px-4 sm:px-8 py-3 text-sm sm:text-base hover:bg-pink-500 transition"
                         >
-                            Subscribe
+                            Berlangganan
                         </Link>
                     </div>
                 </div>

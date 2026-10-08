@@ -199,13 +199,13 @@ export default function CheckoutPage() {
                 {cart.length === 0 ? (
                     <div className="text-center">
                         <p className="text-gray-500 text-lg">
-                            No items to checkout
+                            Tidak ada produk untuk checkout
                         </p>
                         <Link
                             href="/products"
                             className="inline-block mt-7 bg-pink-400 text-white py-3 px-6 rounded-full hover:bg-pink-500"
                         >
-                            Back to Products
+                            Kembali ke Produk
                         </Link>
                     </div>
                 ) : (
@@ -215,12 +215,12 @@ export default function CheckoutPage() {
                             {/* Shipping */}
                             <section className="bg-white rounded-2xl shadow p-6">
                                 <h2 className="text-lg font-semibold mb-4">
-                                    Shipping Details
+                                    Detail Pengiriman
                                 </h2>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-sm mb-2">
-                                            First Name
+                                            Nama Depan
                                         </label>
                                         <input
                                             value={firstName}
@@ -234,7 +234,7 @@ export default function CheckoutPage() {
                                     </div>
                                     <div>
                                         <label className="block text-sm mb-2">
-                                            Last Name
+                                            Nama Belakang
                                         </label>
                                         <input
                                             value={lastName}
@@ -249,7 +249,7 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className="mt-4">
                                     <label className="block text-sm mb-2">
-                                        Email
+                                        Alamat Email
                                     </label>
                                     <input
                                         value={email}
@@ -261,7 +261,7 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className="mt-4">
                                     <label className="block text-sm mb-2">
-                                        Home Address
+                                        Alamat Rumah
                                     </label>
                                     <textarea
                                         value={address}
@@ -275,7 +275,7 @@ export default function CheckoutPage() {
                                 </div>
                                 <div className="mt-3">
                                     <label className="block text-sm mb-2">
-                                        Phone Number
+                                        Nomor Telepon
                                     </label>
                                     <input
                                         value={phone}
@@ -294,12 +294,11 @@ export default function CheckoutPage() {
                             {/* Payment */}
                             <section className="bg-white rounded-2xl shadow p-6">
                                 <h2 className="text-lg font-semibold mb-4">
-                                    Payment
+                                    Pembayaran
                                 </h2>
                                 <p className="text-sm text-gray-500 mb-4">
-                                    After clicking the <b>Pay Now</b> button,
-                                    you will be directed to the Midtrans payment
-                                    page.
+                                    Setelah menekan tombol <b>Bayar Sekarang</b>,
+                                    Anda akan diarahkan ke halaman pembayaran Midtrans
                                 </p>
                                 <button
                                     onClick={handlePayment}
@@ -310,7 +309,7 @@ export default function CheckoutPage() {
                                             : 'hover:bg-pink-500 cursor-pointer'
                                     }`}
                                 >
-                                    {paying ? 'Processing...' : 'Pay Now'}
+                                    {paying ? 'Memproses...' : 'Bayar Sekarang'}
                                 </button>
                             </section>
                         </div>
@@ -318,7 +317,7 @@ export default function CheckoutPage() {
                         {/* Right: Summary */}
                         <aside className="bg-pink-100 rounded-2xl p-6 h-fit">
                             <h3 className="text-lg font-semibold mb-4">
-                                Order Summary
+                                Ringkasan Pesanan
                             </h3>
                             <div className="space-y-3">
                                 {cart.map((item) => (

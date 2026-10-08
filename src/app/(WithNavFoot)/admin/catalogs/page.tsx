@@ -129,7 +129,7 @@ export default function AdminCatalogsPage() {
     if (loading) {
         return (
             <main className="flex justify-center py-20 min-h-screen">
-                <p className="text-lg font-semibold">Loading products...</p>
+                <p className="text-lg font-semibold">Memuat produk...</p>
             </main>
         )
     }
@@ -141,11 +141,11 @@ export default function AdminCatalogsPage() {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">
-                            Catalog
+                            Katalog
                         </h1>
 
                         <p className="text-gray-500 mt-2">
-                            Manage all products in your catalog
+                            Kelola semua produk dalam katalog Anda.
                         </p>
                     </div>
 
@@ -154,7 +154,7 @@ export default function AdminCatalogsPage() {
                         className="inline-flex items-center gap-2 bg-pink-400 hover:bg-pink-500 text-white px-5 py-3 rounded-xl font-medium transition mt-5"
                     >
                         <Plus size={18} />
-                        Add Product
+                        Tambah Produk
                     </Link>
                 </div>
 
@@ -162,7 +162,7 @@ export default function AdminCatalogsPage() {
                 {products.length === 0 ? (
                     <div className="bg-white rounded-2xl shadow py-20 text-center">
                         <p className="text-lg text-gray-500">
-                            No products found
+                            Tidak ada produk
                         </p>
                     </div>
                 ) : (
@@ -172,23 +172,23 @@ export default function AdminCatalogsPage() {
                                 <thead className="bg-pink-100 text-gray-700 text-sm">
                                     <tr>
                                         <th className="px-6 py-4 text-center">
-                                            Product
+                                            Produk
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Size
+                                            Ukuran
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Price
+                                            Harga
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Stock
+                                            Stok
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Action
+                                            Aksi
                                         </th>
                                     </tr>
                                 </thead>
@@ -313,7 +313,7 @@ export default function AdminCatalogsPage() {
                 {products.length > 0 && (
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
                         <p className="text-sm text-gray-600">
-                            Showing{' '}
+                            Menampilkan{' '}
                             <span className="font-semibold">
                                 {(page - 1) * pageSize + 1}
                             </span>{' '}
@@ -321,11 +321,11 @@ export default function AdminCatalogsPage() {
                             <span className="font-semibold">
                                 {Math.min(page * pageSize, totalProducts)}
                             </span>{' '}
-                            of{' '}
+                            dari{' '}
                             <span className="font-semibold">
                                 {totalProducts}
                             </span>{' '}
-                            products
+                            produk
                         </p>
 
                         <div className="flex items-center justify-between sm:justify-end gap-2">
@@ -335,15 +335,15 @@ export default function AdminCatalogsPage() {
                                 className={`flex items-center gap-1 px-3 py-2 border rounded-lg text-sm ${
                                     page === 1
                                         ? 'cursor-not-allowed text-gray-400 border-gray-200'
-                                        : 'border-gray-300 hover:bg-gray-100'
+                                        : 'border-gray-300 hover:bg-gray-100 cursor-pointer'
                                 }`}
                             >
                                 <ChevronLeft size={16} />
-                                Prev
+                                Sebelumya
                             </button>
 
                             <span className="text-sm font-medium">
-                                Page {page} of {totalPages}
+                                Halaman {page} dari {totalPages}
                             </span>
 
                             <button
@@ -352,10 +352,10 @@ export default function AdminCatalogsPage() {
                                 className={`flex items-center gap-1 px-3 py-2 border rounded-lg text-sm ${
                                     page === totalPages
                                         ? 'cursor-not-allowed text-gray-400 border-gray-200'
-                                        : 'border-gray-300 hover:bg-gray-100'
+                                        : 'border-gray-300 hover:bg-gray-100 cursor-pointer'
                                 }`}
                             >
-                                Next
+                                Selanjutnya
                                 <ChevronRight size={16} />
                             </button>
                         </div>

@@ -12,15 +12,25 @@ export type User = {
 type UserContextType = {
     user: User
     setUser: React.Dispatch<React.SetStateAction<User>>
+    loading: boolean
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const UserContext = createContext<UserContextType | null>(null)
 
 export function UserProvider({ children }: { children: ReactNode }) {
     const [user, setUser] = useState<User>(null)
+    const [loading, setLoading] = useState<boolean>(true)
 
     return (
-        <UserContext.Provider value={{ user, setUser }}>
+        <UserContext.Provider
+            value={{
+                user,
+                setUser,
+                loading,
+                setLoading,
+            }}
+        >
             {children}
         </UserContext.Provider>
     )

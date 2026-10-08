@@ -42,7 +42,7 @@ export default function ProductPage() {
 
             if (!result?.data || result.data.length === 0) {
                 setSearchProduct([])
-                setErrorMessage('Product not found')
+                setErrorMessage('Produk tidak ditemukan')
                 return
             }
 
@@ -51,7 +51,7 @@ export default function ProductPage() {
         } catch (error) {
             console.error(error)
             setSearchProduct([])
-            setErrorMessage('Something went wrong')
+            setErrorMessage('Terjadi Kesalahan')
         }
     }
 
@@ -82,7 +82,7 @@ export default function ProductPage() {
             return result?.data || []
         } catch (error) {
             console.error(error)
-            setErrorMessage('Something went wrong')
+            setErrorMessage('Terjadi kesalahan')
             return []
         }
     }
@@ -115,7 +115,7 @@ export default function ProductPage() {
             setHasMore(false)
 
             // Baru tampilkan setelah request selesai
-            setErrorMessage('No products yet')
+            setErrorMessage('Belum ada produk')
         } else {
             setProducts(initialProducts)
 
@@ -140,7 +140,7 @@ export default function ProductPage() {
                 // Jangan tampilkan "No products yet"
                 // ketika initial data masih loading.
                 if (!isLoading && products.length === 0) {
-                    setErrorMessage('No products yet')
+                    setErrorMessage('Belum ada produk')
                 } else if (products.length > 0) {
                     setErrorMessage('')
                 }
@@ -187,11 +187,11 @@ export default function ProductPage() {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">
-                            Products
+                            Produk
                         </h1>
 
                         <p className="text-gray-500 mt-2">
-                            Discover our full collection of beauty essentials
+                            Temukan koleksi lengkap produk kecantikan esensial kami.
                         </p>
                     </div>
                 </div>
@@ -211,7 +211,7 @@ export default function ProductPage() {
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                             type="text"
-                            placeholder="Search"
+                            placeholder="Cari produk"
                             className="bg-transparent outline-none flex-1"
                         />
                     </div>
@@ -227,7 +227,7 @@ export default function ProductPage() {
                                 className="flex items-center justify-between w-full bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {category === 'all'
-                                    ? 'Categories'
+                                    ? 'Kategori'
                                     : category}
 
                                 <ChevronDown
@@ -278,7 +278,7 @@ export default function ProductPage() {
                                                 }`}
                                             >
                                                 {cat === 'all'
-                                                    ? 'All'
+                                                    ? 'Semua Produk'
                                                     : cat}
                                             </button>
                                         ))}
@@ -288,7 +288,7 @@ export default function ProductPage() {
                         </div>
 
                         {/* SORT */}
-                        <div ref={sortRef} className="relative w-full sm:w-44">
+                        <div ref={sortRef} className="relative w-full sm:w-55">
                             <button
                                 onClick={() => {
                                     setOpenSort(!openSort)
@@ -297,10 +297,10 @@ export default function ProductPage() {
                                 className="flex items-center justify-between w-full bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
                                 {sort === 'price_asc'
-                                    ? 'Price: Low to High'
+                                    ? 'Harga: Rendah ke Tinggi'
                                     : sort === 'price_desc'
-                                      ? 'Price: High to Low'
-                                      : 'Sort By'}
+                                      ? 'Harga: Tinggi ke Rendah'
+                                      : 'Urutkan'}
 
                                 <ChevronDown
                                     size={16}
@@ -341,7 +341,7 @@ export default function ProductPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Default
+                                            Semula
                                         </button>
 
                                         <button
@@ -355,7 +355,7 @@ export default function ProductPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Price: Low to High
+                                            Harga: Rendah ke Tinggi
                                         </button>
 
                                         <button
@@ -369,7 +369,7 @@ export default function ProductPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Price: High to Low
+                                            Harga: Tinggi ke Rendah
                                         </button>
                                     </motion.div>
                                 )}
@@ -382,7 +382,7 @@ export default function ProductPage() {
                 {isLoading ? (
                     <div className="flex justify-center my-9">
                         <p className="text-lg font-semibold">
-                            Loading...
+                            Memuat...
                         </p>
                     </div>
                 ) : (
@@ -392,7 +392,7 @@ export default function ProductPage() {
                         hasMore={!search && hasMore}
                         loader={
                             <h4 className="flex justify-center text-lg my-9 font-semibold">
-                                Loading...
+                                Memuat...
                             </h4>
                         }
                     >

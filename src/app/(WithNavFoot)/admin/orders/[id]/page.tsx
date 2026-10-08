@@ -60,11 +60,30 @@ export default function AdminOrderDetailPage() {
         }
     }
 
+    const getStatusLabel = (status: string) => {
+        switch (status) {
+            case 'paid':
+                return 'Pembayaran Berhasil'
+
+            case 'pending':
+                return 'Pembayaran Tertunda'
+
+            case 'cancelled':
+                return 'Pembayaran Batal'
+
+            case 'failed':
+                return 'Pembayaran Gagal'
+
+            default:
+                return status
+        }
+    }
+
     if (loading) {
         return (
             <main className="flex justify-center py-20 min-h-screen">
                 <p className="text-lg font-semibold">
-                    Loading order details...
+                    Memuat detail pesanan...
                 </p>
             </main>
         )
@@ -73,7 +92,9 @@ export default function AdminOrderDetailPage() {
     if (!order) {
         return (
             <main className="flex justify-center py-20 min-h-screen">
-                <p className="text-lg text-gray-600">Order not found.</p>
+                <p className="text-lg text-gray-600">
+                    Pesanan tidak ditemukan
+                </p>
             </main>
         )
     }
@@ -85,24 +106,25 @@ export default function AdminOrderDetailPage() {
                     href="/admin/orders"
                     className="text-pink-400 hover:underline text-sm"
                 >
-                    ← Back to Orders
+                    ← Kembali ke Pesanan
                 </Link>
 
                 <div>
                     <h1 className="text-3xl font-bold text-gray-800 mt-6 mb-8">
-                        Order Details
+                        Detail Pesanan
                     </h1>
                 </div>
 
                 {/* CUSTOMER */}
                 <section className="bg-white rounded-2xl shadow p-6 mb-8">
                     <h2 className="text-xl font-semibold mb-5">
-                        Customer Information
+                        Informasi Pelanggan
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-5">
                         <div>
-                            <p className="text-sm text-gray-500">Name</p>
+                            <p className="text-sm text-gray-500">Nama</p>
+
                             <p className="font-medium">
                                 {order.userName ??
                                     `${order.shipping.firstName} ${order.shipping.lastName}`}
@@ -110,12 +132,20 @@ export default function AdminOrderDetailPage() {
                         </div>
 
                         <div>
-                            <p className="text-sm text-gray-500">Email</p>
-                            <p>{order.userEmail ?? order.shipping.email}</p>
+                            <p className="text-sm text-gray-500">
+                                Alamat Email
+                            </p>
+
+                            <p>
+                                {order.userEmail ?? order.shipping.email}
+                            </p>
                         </div>
 
                         <div>
-                            <p className="text-sm text-gray-500">Phone</p>
+                            <p className="text-sm text-gray-500">
+                                Nomor Telepon
+                            </p>
+
                             <p>{order.shipping.phone}</p>
                         </div>
                     </div>
@@ -124,12 +154,13 @@ export default function AdminOrderDetailPage() {
                 {/* SHIPPING */}
                 <section className="bg-white rounded-2xl shadow p-6 mb-8">
                     <h2 className="text-xl font-semibold mb-5">
-                        Shipping Information
+                        Informasi Pengiriman
                     </h2>
 
                     <div className="space-y-2">
                         <p>
-                            {order.shipping.firstName} {order.shipping.lastName}
+                            {order.shipping.firstName}{' '}
+                            {order.shipping.lastName}
                         </p>
 
                         <p>{order.shipping.address}</p>
@@ -143,19 +174,29 @@ export default function AdminOrderDetailPage() {
                 {/* ITEMS */}
                 <section className="bg-white rounded-2xl shadow overflow-hidden mb-8">
                     <div className="px-6 py-5">
-                        <h2 className="text-xl font-semibold">Order Items</h2>
+                        <h2 className="text-xl font-semibold">
+                            Produk Pesanan
+                        </h2>
                     </div>
 
                     <table className="w-full">
                         <thead className="text-base">
                             <tr>
-                                <th className="text-left px-6 py-3">Product</th>
+                                <th className="text-left px-6 py-3">
+                                    Produk
+                                </th>
 
-                                <th className="text-left px-6 py-3">Size</th>
+                                <th className="text-left px-6 py-3">
+                                    Ukuran
+                                </th>
 
-                                <th className="text-left px-6 py-3">Price</th>
+                                <th className="text-left px-6 py-3">
+                                    Harga
+                                </th>
 
-                                <th className="text-center px-6 py-3">Qty</th>
+                                <th className="text-center px-6 py-3">
+                                    Jumlah
+                                </th>
 
                                 <th className="text-right px-6 py-3">
                                     Subtotal
@@ -166,9 +207,13 @@ export default function AdminOrderDetailPage() {
                         <tbody>
                             {order.items.map((item, index) => (
                                 <tr key={index} className="border-t">
-                                    <td className="px-6 py-4">{item.name}</td>
+                                    <td className="px-6 py-4">
+                                        {item.name}
+                                    </td>
 
-                                    <td className="px-6 py-4">{item.size}</td>
+                                    <td className="px-6 py-4">
+                                        {item.size}
+                                    </td>
 
                                     <td className="px-6 py-4 text-left">
                                         {idr(item.price)}
@@ -190,32 +235,34 @@ export default function AdminOrderDetailPage() {
                 {/* PAYMENT */}
                 <section className="bg-pink-100 rounded-2xl shadow p-6">
                     <h2 className="text-xl font-semibold mb-5">
-                        Payment Information
+                        Informasi Pembayaran
                     </h2>
 
                     <div className="space-y-3">
                         <div className="flex justify-between">
-                            <span>Order ID</span>
+                            <span>No. Pesanan</span>
+
                             <span>{order.midtransOrderId}</span>
                         </div>
 
                         <div className="flex justify-between">
-                            <span>Created At</span>
+                            <span>Waktu Transaksi</span>
+
                             <span>
-                                {new Date(order.createdAt).toLocaleString(
-                                    'id-ID',
-                                )}
+                                {new Date(
+                                    order.createdAt,
+                                ).toLocaleString('id-ID')}
                             </span>
                         </div>
 
                         {order.expiryTime && (
                             <div className="flex justify-between">
-                                <span>Expiry</span>
+                                <span>Waktu Berakhir</span>
 
                                 <span>
-                                    {new Date(order.expiryTime).toLocaleString(
-                                        'id-ID',
-                                    )}
+                                    {new Date(
+                                        order.expiryTime,
+                                    ).toLocaleString('id-ID')}
                                 </span>
                             </div>
                         )}
@@ -224,10 +271,11 @@ export default function AdminOrderDetailPage() {
 
                         <div className="flex justify-between text-lg font-bold">
                             <span>Total</span>
+
                             <span>{idr(order.total)}</span>
                         </div>
 
-                        <div className="flex justify-between">
+                        <div className="flex justify-between items-center">
                             <span>Status</span>
 
                             <span
@@ -235,7 +283,7 @@ export default function AdminOrderDetailPage() {
                                     order.status,
                                 )}`}
                             >
-                                {order.status.toUpperCase()}
+                                {getStatusLabel(order.status)}
                             </span>
                         </div>
                     </div>

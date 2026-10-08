@@ -34,7 +34,7 @@ export async function POST(req: Request) {
         const userId = await getUserId()
         if (!userId) {
             return NextResponse.json(
-                { message: 'Please log in to add items to your bag' },
+                { message: 'Silakan masuk akun untuk menambahkan produk ke keranjang Anda' },
                 { status: 401 }
             )
         }
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
         const { productId, size, quantity } = await req.json()
         if (!productId || !size) {
             return NextResponse.json(
-                { message: 'Please select a size' },
+                { message: 'Silakan pilih ukuran' },
                 { status: 400 }
             )
         }
@@ -59,7 +59,7 @@ export async function POST(req: Request) {
         const product = await ProductModel.findById(productId)
         if (!product) {
             return NextResponse.json(
-                { message: 'Product not found' },
+                { message: 'Produk tidak ditemukan' },
                 { status: 404 }
             )
         }
@@ -88,7 +88,7 @@ export async function POST(req: Request) {
         // ❌ Jika stok tidak cukup
         if (newQty > sizeData.stock) {
             return NextResponse.json(
-                { message: `Out of stock for size ${size}` },
+                { message: `Ukuran ${size} habis` },
                 { status: 400 }
             )
         }
@@ -128,8 +128,8 @@ export async function POST(req: Request) {
 
         return NextResponse.json({
             message: existingItem
-                ? 'Quantity updated in bag'
-                : 'Product added to bag successfully',
+                ? 'Menambahkan kembali produk ke keranjang'
+                : 'Produk berhasil ditambahkan ke keranjang',
             data: finalItem, // ✅ sekarang frontend dapat item lengkap
         })
     } catch (error) {

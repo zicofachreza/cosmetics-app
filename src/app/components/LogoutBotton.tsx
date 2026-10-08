@@ -15,7 +15,7 @@ export default function LogoutButton({ onLogout }: Props) {
             onClick={handleLogout}
             className="block w-full text-left px-4 py-2 text-sm font-medium text-red-600 hover:bg-gray-100 cursor-pointer"
         >
-            Sign Out
+            Keluar
         </button>
     )
 }

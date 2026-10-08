@@ -48,7 +48,7 @@ export default function ReportsPage() {
     if (loading) {
         return (
             <div className="flex text-lg font-semibold justify-center py-20">
-                Loading report...
+                Memuat laporan...
             </div>
         )
     }
@@ -58,19 +58,19 @@ export default function ReportsPage() {
             <div className="max-w-7xl mx-auto px-6">
                 <div className="mb-10">
                     <h1 className="text-3xl font-bold text-gray-800">
-                        Sales Reports
+                        Laporan Penjualan
                     </h1>
 
                     <div className="flex flex-col mt-2 gap-4">
                         <p className="text-gray-500">
-                            Overview of your sales performance
+                            Gambaran umum kinerja penjualan Anda.
                         </p>
                         {/* FILTER */}
                         <div className="flex flex-col md:flex-row md:items-end gap-4 mt-6">
                             {/* START DATE */}
                             <div className="flex flex-col w-full sm:w-40">
                                 <label className="text-xs font-semibold mb-1">
-                                    Start Date
+                                    Tanggal Awal
                                 </label>
                                 <input
                                     type="date"
@@ -85,7 +85,7 @@ export default function ReportsPage() {
                             {/* END DATE */}
                             <div className="flex flex-col w-full sm:w-40">
                                 <label className="text-xs font-semibold mb-1">
-                                    End Date
+                                    Tanggal Akhir
                                 </label>
                                 <input
                                     type="date"
@@ -101,7 +101,7 @@ export default function ReportsPage() {
                                     onClick={fetchData}
                                     className="w-full md:w-auto bg-pink-400 text-white px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-pink-500 transition-all duration-200 shadow-sm cursor-pointer"
                                 >
-                                    Apply
+                                    Terapkan
                                 </button>
                             </div>
                         </div>
@@ -110,14 +110,14 @@ export default function ReportsPage() {
 
                 {/* STATS */}
                 <div className="grid grid-cols-2 gap-6 mb-6 text-center">
-                    <Card title="Total Orders" value={data.totalOrders} />
-                    <Card title="Revenue" value={idr(data.revenue)} />
+                    <Card title="Total Pesanan" value={data.totalOrders} />
+                    <Card title="Total Penghasilan" value={idr(data.revenue)} />
                 </div>
 
                 {/* CHART */}
                 <div className="bg-white p-6 rounded-2xl shadow mb-6">
                     <h2 className="mb-8 text-xl font-semibold">
-                        Sales Overview
+                        Grafik Penjualan
                     </h2>
 
                     <div className="w-full overflow-x-auto">
@@ -141,16 +141,16 @@ export default function ReportsPage() {
                 {/* TOP PRODUCTS */}
                 <div className="bg-white p-6 rounded-2xl shadow">
                     <h2 className="mb-4 text-xl font-semibold">
-                        Top Selling Products
+                        Produk Terlaris
                     </h2>
 
                     <div className="overflow-x-auto">
                         <table className="w-full min-w-[850px] text-sm">
                             <thead>
                                 <tr className="border-b">
-                                    <th className="py-2 text-left">Product</th>
-                                    <th className="text-center">Sold</th>
-                                    <th className="text-right">Revenue</th>
+                                    <th className="py-2 text-left">Produk</th>
+                                    <th className="text-center">Terjual</th>
+                                    <th className="text-right">Penghasilan</th>
                                 </tr>
                             </thead>
                             <tbody>

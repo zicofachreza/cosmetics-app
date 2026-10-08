@@ -1,87 +1,187 @@
 import { connectToDB } from '../lib/db'
 import bcryptjs from 'bcryptjs'
-import { z } from 'zod'
 import { comparePassword, signToken } from '@/lib/auth'
 import { LoginInput, NewUserInput } from '@/types/userType'
-
-const RegisterValidation = z.object({
-    name: z.string().nonempty('Name is required'),
-    username: z.string().nonempty('Username is required'),
-    email: z
-        .string()
-        .nonempty('Email is required')
-        .email('Invalid email format'),
-    password: z
-        .string()
-        .nonempty('Password is required')
-        .min(5, 'Password must be at least 5 characters long'),
-})
-
-const LoginValidation = z.object({
-    email: z
-        .string()
-        .nonempty('Email is required')
-        .email('Invalid email format'),
-    password: z.string().nonempty('Password is required'),
-})
 
 export default class UserModel {
     static async userCollection() {
         const db = await connectToDB()
+
         return db.collection('users')
     }
 
     static async findByEmail(email: string) {
         const collection = await this.userCollection()
+
         return collection.findOne({ email })
     }
 
     static async registerUser(newUser: NewUserInput) {
-        RegisterValidation.parse(newUser)
-
         const collection = await this.userCollection()
 
         const existingUser = await collection.findOne({
-            $or: [{ username: newUser.username }, { email: newUser.email }],
+            $or: [
+                {
+                    email: newUser.email,
+                },
+            ],
         })
 
         if (existingUser) {
-            if (existingUser.username === newUser.username)
-                throw new Error('Username already registered')
-            if (existingUser.email === newUser.email)
-                throw new Error('Email already registered')
+            if (existingUser.email === newUser.email) {
+                throw new Error('Alamat email sudah terdaftar')
+            }
         }
 
-        const hashedPassword = await bcryptjs.hash(newUser.password, 10)
+        const hashedPassword = await bcryptjs.hash(
+            newUser.password,
+            10
+        )
+
         const user = {
             ...newUser,
+
             password: hashedPassword,
-            role: 'user',
+
+            role: 'user' as const,
+
             createdAt: new Date(),
+
             updatedAt: new Date(),
         }
 
         const result = await collection.insertOne(user)
 
-        return { _id: result.insertedId, name: user.name, email: user.email }
+        return {
+            _id: result.insertedId,
+            name: user.name,
+            email: user.email,
+        }
     }
 
     static async loginUser(input: LoginInput) {
-        LoginValidation.parse(input)
-
         const user = await this.findByEmail(input.email)
-        if (!user) throw new Error('Invalid email / password')
 
-        const isPasswordValid = comparePassword(input.password, user.password)
-        if (!isPasswordValid) throw new Error('Invalid email / password')
+        if (!user) {
+            throw new Error('Email / password salah')
+        }
+
+        const isPasswordValid = comparePassword(
+            input.password,
+            user.password
+        )
+
+        if (!isPasswordValid) {
+            throw new Error('Email / password salah')
+        }
 
         const token = signToken({
             _id: user._id.toString(),
+
             email: user.email,
+
             name: user.name,
+
             role: user.role || 'user',
         })
 
         return token
+    }
+
+    static async findOrCreateGoogleUser(data: {
+        googleId: string
+        email: string
+        name: string
+    }) {
+        const collection = await this.userCollection()
+
+        /*
+         * 1. Cari user berdasarkan email
+         */
+        let user = await collection.findOne({
+            email: data.email,
+        })
+
+        /*
+         * 2. Kalau user sudah ada
+         */
+        if (user) {
+            /*
+             * Kalau belum punya googleId,
+             * hubungkan account Google ke account existing.
+             */
+            if (!user.googleId) {
+                await collection.updateOne(
+                    {
+                        _id: user._id,
+                    },
+                    {
+                        $set: {
+                            googleId: data.googleId,
+                            updatedAt: new Date(),
+                        },
+                    }
+                )
+
+                user.googleId = data.googleId
+            }
+
+            return signToken({
+                _id: user._id.toString(),
+
+                email: user.email,
+
+                name: user.name,
+
+                role: user.role || 'user',
+            })
+        }
+
+        /*
+         * 3. Google account tidak membutuhkan
+         * password lokal.
+         *
+         * Kita tetap simpan placeholder karena
+         * schema user kamu sekarang membutuhkan password.
+         */
+        const randomPassword = await bcryptjs.hash(
+            crypto.randomUUID(),
+            10
+        )
+
+        /*
+         * 5. Create user baru
+         */
+        const newUser = {
+            name: data.name,
+
+            email: data.email,
+
+            password: randomPassword,
+
+            googleId: data.googleId,
+
+            role: 'user' as const,
+
+            createdAt: new Date(),
+
+            updatedAt: new Date(),
+        }
+
+        const result = await collection.insertOne(newUser)
+
+        /*
+         * 6. Generate JWT dengan format
+         * yang sama dengan login biasa.
+         */
+        return signToken({
+            _id: result.insertedId.toString(),
+
+            email: newUser.email,
+
+            name: newUser.name,
+
+            role: newUser.role,
+        })
     }
 }

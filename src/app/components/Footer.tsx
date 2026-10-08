@@ -8,7 +8,7 @@ export default function Footer() {
         <footer className="bg-pink-50 border-t border-pink-100 mt-20">
             <div className="max-w-7xl mx-auto px-6 py-16">
                 {/* Top Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-30">
                     {/* Brand */}
                     <div>
                         <div className="flex items-center gap-2 mb-4">
@@ -21,9 +21,9 @@ export default function Footer() {
                         </div>
 
                         <p className="text-sm text-gray-600 leading-relaxed">
-                            Discover premium skincare, makeup, and beauty
-                            essentials designed to help you glow with confidence
-                            every day.
+                            Temukan produk perawatan kulit, makeup, dan kebutuhan 
+                            kecantikan premium yang dirancang untuk membantu Anda 
+                            tampil memesona dan penuh percaya diri setiap hari.
                         </p>
 
                         {/* Social */}
@@ -36,15 +36,8 @@ export default function Footer() {
                                 className="hover:opacity-70 cursor-pointer"
                             />
                             <Image
-                                src="/facebook.png"
-                                alt="Facebook"
-                                width={22}
-                                height={22}
-                                className="hover:opacity-70 cursor-pointer"
-                            />
-                            <Image
-                                src="/twitter.png"
-                                alt="Twitter"
+                                src="/tiktok.png"
+                                alt="TikTok"
                                 width={22}
                                 height={22}
                                 className="hover:opacity-70 cursor-pointer"
@@ -62,7 +55,7 @@ export default function Footer() {
                     {/* Shop */}
                     <div>
                         <h3 className="font-semibold text-gray-800 mb-4">
-                            Shop
+                            Toko
                         </h3>
 
                         <ul className="space-y-3 text-sm text-gray-600">
@@ -71,57 +64,31 @@ export default function Footer() {
                                     href=""
                                     className="hover:text-pink-500"
                                 >
-                                    New Arrivals
+                                    Produk
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href=""
+                                    href="/newArrivals"
                                     className="hover:text-pink-500"
                                 >
-                                    Skincare
+                                    Produk Baru
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href=""
+                                    href="/discount"
                                     className="hover:text-pink-500"
                                 >
-                                    Makeup
+                                    Diskon
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                    href=""
+                                    href="/wishlist"
                                     className="hover:text-pink-500"
                                 >
-                                    Haircare
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href=""
-                                    className="hover:text-pink-500"
-                                >
-                                    Fragrance
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Help */}
-                    <div>
-                        <h3 className="font-semibold text-gray-800 mb-4">
-                            Customer Care
-                        </h3>
-
-                        <ul className="space-y-3 text-sm text-gray-600">
-                            <li>
-                                <Link
-                                    href=""
-                                    className="hover:text-pink-500"
-                                >
-                                    Help Center
+                                    Favorit Saya
                                 </Link>
                             </li>
                             <li>
@@ -129,31 +96,7 @@ export default function Footer() {
                                     href="/orders"
                                     className="hover:text-pink-500"
                                 >
-                                    Order Status
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href=""
-                                    className="hover:text-pink-500"
-                                >
-                                    Shipping Info
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href=""
-                                    className="hover:text-pink-500"
-                                >
-                                    Returns
-                                </Link>
-                            </li>
-                            <li>
-                                <Link
-                                    href=""
-                                    className="hover:text-pink-500"
-                                >
-                                    Contact Us
+                                    Pesanan Saya
                                 </Link>
                             </li>
                         </ul>
@@ -162,12 +105,12 @@ export default function Footer() {
                     {/* Contact */}
                     <div>
                         <h3 className="font-semibold text-gray-800 mb-4">
-                            Get In Touch
+                            Hubungi Kami
                         </h3>
 
                         <p className="text-sm text-gray-600 mb-4">
-                            Have questions about our products or your order? Our
-                            team is here to help you.
+                            Ada pertanyaan mengenai produk atau pesanan Anda? 
+                            Tim kami siap membantu Anda.
                         </p>
 
                         <ul className="space-y-3 text-sm text-gray-600">
@@ -180,38 +123,17 @@ export default function Footer() {
                             </li>
 
                             <li className="flex items-center gap-2">
-                                📍 Kebasen, Banyumas Regency
+                                📍 Kebasen, Kabupaten Banyumas
                             </li>
                         </ul>
-
-                        <Link
-                            href=""
-                            className="inline-block mt-4 text-sm text-pink-400 hover:underline"
-                        >
-                            Contact Support →
-                        </Link>
                     </div>
                 </div>
 
                 {/* Bottom */}
-                <div className="border-t border-pink-100 mt-12 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="border-t border-pink-100 mt-12 pt-6 flex items-center justify-center">
                     <p className="text-sm text-gray-500">
-                        © 2026 IyahKosmetik. All rights reserved.
+                        © 2026 IyahKosmetik. Hak cipta dilindungi undang-undang.
                     </p>
-
-                    <div className="flex gap-6 text-sm text-gray-500">
-                        <Link href="" className="hover:text-pink-500">
-                            Privacy Policy
-                        </Link>
-
-                        <Link href="" className="hover:text-pink-500">
-                            Terms of Service
-                        </Link>
-
-                        <Link href="" className="hover:text-pink-500">
-                            Cookie Policy
-                        </Link>
-                    </div>
                 </div>
             </div>
         </footer>

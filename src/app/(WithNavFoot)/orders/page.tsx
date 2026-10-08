@@ -49,23 +49,49 @@ export default function OrdersPage() {
         switch (status) {
             case 'paid':
                 return 'bg-green-100 text-green-700'
+
             case 'pending':
                 return 'bg-yellow-100 text-yellow-700'
+
             case 'cancelled':
             case 'failed':
                 return 'bg-red-100 text-red-700'
+
             default:
                 return 'bg-gray-100 text-gray-600'
         }
     }
 
+    const getStatusLabel = (status: string) => {
+        switch (status) {
+            case 'paid':
+                return 'Pembayaran Berhasil'
+
+            case 'pending':
+                return 'Pembayaran Tertunda'
+
+            case 'cancelled':
+                return 'Pembayaran Batal'
+
+            case 'failed':
+                return 'Pembayaran Gagal'
+
+            default:
+                return status
+        }
+    }
+
     const handlePrevPage = () => setPage((p) => Math.max(1, p - 1))
-    const handleNextPage = () => setPage((p) => Math.min(totalPages, p + 1))
+
+    const handleNextPage = () =>
+        setPage((p) => Math.min(totalPages, p + 1))
 
     if (loading) {
         return (
             <main className="flex py-20 justify-center min-h-screen">
-                <p className="text-lg font-semibold">Loading orders...</p>
+                <p className="text-lg font-semibold">
+                    Memuat pesanan...
+                </p>
             </main>
         )
     }
@@ -77,11 +103,11 @@ export default function OrdersPage() {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">
-                            My Orders
+                            Pesanan Saya
                         </h1>
 
                         <p className="text-gray-500 mt-2">
-                            View and manage your order history
+                            Lihat dan kelola riwayat pesanan Anda.
                         </p>
                     </div>
                 </div>
@@ -90,14 +116,14 @@ export default function OrdersPage() {
                 {orders.length === 0 ? (
                     <div className="text-center py-20 bg-white rounded-2xl shadow">
                         <p className="text-gray-500 text-lg">
-                            You don’t have any orders yet
+                            Anda belum memiliki pesanan
                         </p>
 
                         <Link
                             href="/products"
                             className="inline-block mt-7 bg-pink-400 text-white py-3 px-6 rounded-full hover:bg-pink-500 transition"
                         >
-                            Start Shopping
+                            Mulai Belanja
                         </Link>
                     </div>
                 ) : (
@@ -107,19 +133,23 @@ export default function OrdersPage() {
                                 <thead className="bg-pink-100 text-gray-600 text-sm">
                                     <tr>
                                         <th className="py-4 px-6 text-center">
-                                            Order ID
+                                            No. Pesanan
                                         </th>
+
                                         <th className="py-4 px-6 text-center">
-                                            Date
+                                            Tanggal
                                         </th>
+
                                         <th className="py-4 px-6 text-center">
                                             Total
                                         </th>
+
                                         <th className="py-4 px-6 text-center">
                                             Status
                                         </th>
+
                                         <th className="py-4 px-6 text-center">
-                                            Action
+                                            Aksi
                                         </th>
                                     </tr>
                                 </thead>
@@ -159,7 +189,9 @@ export default function OrdersPage() {
                                                         order.status,
                                                     )}`}
                                                 >
-                                                    {order.status.toUpperCase()}
+                                                    {getStatusLabel(
+                                                        order.status,
+                                                    )}
                                                 </span>
                                             </td>
 
@@ -168,7 +200,7 @@ export default function OrdersPage() {
                                                     href={`/orders/${order._id}`}
                                                     className="text-blue-600 hover:underline font-medium"
                                                 >
-                                                    View Detail
+                                                    Lihat Detail
                                                 </Link>
                                             </td>
                                         </tr>
@@ -183,7 +215,7 @@ export default function OrdersPage() {
                 {orders.length > 0 && (
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
                         <p className="text-sm text-gray-600">
-                            Showing{' '}
+                            Menampilkan{' '}
                             <span className="font-semibold">
                                 {(page - 1) * pageSize + 1}
                             </span>{' '}
@@ -191,9 +223,11 @@ export default function OrdersPage() {
                             <span className="font-semibold">
                                 {Math.min(page * pageSize, totalOrders)}
                             </span>{' '}
-                            of{' '}
-                            <span className="font-semibold">{totalOrders}</span>{' '}
-                            orders
+                            dari{' '}
+                            <span className="font-semibold">
+                                {totalOrders}
+                            </span>{' '}
+                            pesanan
                         </p>
 
                         <div className="flex items-center justify-between sm:justify-end gap-2">
@@ -203,15 +237,15 @@ export default function OrdersPage() {
                                 className={`flex items-center gap-1 px-3 py-1.5 border rounded-lg text-sm ${
                                     page === 1
                                         ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                                        : 'text-gray-700 hover:bg-gray-100 border-gray-300'
+                                        : 'text-gray-700 hover:bg-gray-100 border-gray-300 cursor-pointer'
                                 }`}
                             >
                                 <ChevronLeft size={16} />
-                                Prev
+                                Sebelumnya
                             </button>
 
                             <span className="text-sm font-medium text-gray-700">
-                                Page {page} of {totalPages}
+                                Halaman {page} dari {totalPages}
                             </span>
 
                             <button
@@ -220,10 +254,10 @@ export default function OrdersPage() {
                                 className={`flex items-center gap-1 px-3 py-1.5 border rounded-lg text-sm ${
                                     page === totalPages
                                         ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                                        : 'text-gray-700 hover:bg-gray-100 border-gray-300'
+                                        : 'text-gray-700 hover:bg-gray-100 border-gray-300 cursor-pointer'
                                 }`}
                             >
-                                Next
+                                Selanjutnya
                                 <ChevronRight size={16} />
                             </button>
                         </div>

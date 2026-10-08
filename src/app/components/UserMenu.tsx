@@ -91,7 +91,7 @@ export default function UserMenu({
                                         : 'text-gray-700 hover:bg-gray-100'
                                 }`}
                             >
-                                My Orders
+                                Pesanan Saya
                             </Link>
                         )}
 
@@ -109,7 +109,7 @@ export default function UserMenu({
                                             : 'text-gray-700 hover:bg-gray-100'
                                     }`}
                                 >
-                                    Catalog
+                                    Katalog
                                 </Link>
 
                                 <Link
@@ -121,7 +121,7 @@ export default function UserMenu({
                                             : 'text-gray-700 hover:bg-gray-100'
                                     }`}
                                 >
-                                    Orders
+                                    Pesanan
                                 </Link>
 
                                 <Link
@@ -133,7 +133,7 @@ export default function UserMenu({
                                             : 'text-gray-700 hover:bg-gray-100'
                                     }`}
                                 >
-                                    Reports
+                                    Laporan
                                 </Link>
                             </>
                         )}

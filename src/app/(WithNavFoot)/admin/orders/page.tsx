@@ -109,6 +109,44 @@ export default function AdminOrdersPage() {
         }
     }
 
+    const getStatusLabel = (status: string) => {
+        switch (status) {
+            case 'paid':
+                return 'Pembayaran Berhasil'
+
+            case 'pending':
+                return 'Pembayaran Tertunda'
+
+            case 'cancelled':
+                return 'Pembayaran Batal'
+
+            case 'failed':
+                return 'Pembayaran Gagal'
+
+            default:
+                return status
+        }
+    }
+
+    const getFilterStatusLabel = (status: string) => {
+        switch (status) {
+            case 'paid':
+                return 'Pembayaran Berhasil'
+
+            case 'pending':
+                return 'Pembayaran Tertunda'
+
+            case 'cancelled':
+                return 'Pembayaran Batal'
+
+            case 'failed':
+                return 'Pembayaran Gagal'
+
+            default:
+                return 'Semua Status'
+        }
+    }
+
     const handlePrevPage = () => {
         setPage((prev) => Math.max(prev - 1, 1))
     }
@@ -120,7 +158,7 @@ export default function AdminOrdersPage() {
     if (loading) {
         return (
             <main className="flex justify-center py-20 min-h-screen">
-                <p className="text-lg font-semibold">Loading orders...</p>
+                <p className="text-lg font-semibold">Memuat pesanan...</p>
             </main>
         )
     }
@@ -132,11 +170,11 @@ export default function AdminOrdersPage() {
                 <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-4">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">
-                            Orders
+                            Pesanan
                         </h1>
 
                         <p className="text-gray-500 mt-2">
-                            Manage all customer orders
+                            Kelola semua pesanan pelanggan.
                         </p>
                     </div>
 
@@ -152,7 +190,7 @@ export default function AdminOrdersPage() {
 
                             <input
                                 type="text"
-                                placeholder="Search Customer"
+                                placeholder="Cari Pelanggan"
                                 value={searchInput}
                                 onChange={(e) => setSearchInput(e.target.value)}
                                 className="bg-transparent outline-none flex-1"
@@ -165,15 +203,7 @@ export default function AdminOrdersPage() {
                                 onClick={() => setOpenStatus(!openStatus)}
                                 className="flex items-center justify-between w-full bg-white px-4 py-2 rounded-full text-sm cursor-pointer"
                             >
-                                {status === ''
-                                    ? 'All Status'
-                                    : status === 'paid'
-                                      ? 'Paid'
-                                      : status === 'pending'
-                                        ? 'Pending'
-                                        : status === 'failed'
-                                          ? 'Failed'
-                                          : 'Cancelled'}
+                                {getFilterStatusLabel(status)}
 
                                 <ChevronDown
                                     size={16}
@@ -192,6 +222,7 @@ export default function AdminOrdersPage() {
                                         transition={{ duration: 0.15 }}
                                         className="absolute mt-2 w-full bg-white border border-gray-200 rounded-lg shadow-lg z-50"
                                     >
+                                        {/* SEMUA STATUS */}
                                         <button
                                             onClick={() => {
                                                 setStatus('')
@@ -204,9 +235,10 @@ export default function AdminOrdersPage() {
                                                     : ''
                                             }`}
                                         >
-                                            All Status
+                                            Semua Status
                                         </button>
 
+                                        {/* SUDAH BAYAR */}
                                         <button
                                             onClick={() => {
                                                 setStatus('paid')
@@ -219,9 +251,10 @@ export default function AdminOrdersPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Paid
+                                            Sudah Bayar
                                         </button>
 
+                                        {/* BELUM BAYAR */}
                                         <button
                                             onClick={() => {
                                                 setStatus('pending')
@@ -234,9 +267,10 @@ export default function AdminOrdersPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Pending
+                                            Belum Bayar
                                         </button>
 
+                                        {/* PEMBAYARAN GAGAL */}
                                         <button
                                             onClick={() => {
                                                 setStatus('failed')
@@ -249,9 +283,10 @@ export default function AdminOrdersPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Failed
+                                            Pembayaran Gagal
                                         </button>
 
+                                        {/* PEMBAYARAN BATAL */}
                                         <button
                                             onClick={() => {
                                                 setStatus('cancelled')
@@ -264,7 +299,7 @@ export default function AdminOrdersPage() {
                                                     : ''
                                             }`}
                                         >
-                                            Cancelled
+                                            Pembayaran Batal
                                         </button>
                                     </motion.div>
                                 )}
@@ -276,7 +311,9 @@ export default function AdminOrdersPage() {
                 {/* EMPTY */}
                 {orders.length === 0 ? (
                     <div className="bg-white rounded-2xl shadow py-20 text-center">
-                        <p className="text-lg text-gray-500">No orders found</p>
+                        <p className="text-lg text-gray-500">
+                            Tidak ada pesanan
+                        </p>
                     </div>
                 ) : (
                     <div className="bg-white rounded-2xl shadow overflow-hidden">
@@ -285,15 +322,15 @@ export default function AdminOrdersPage() {
                                 <thead className="bg-pink-100 text-gray-600 text-sm">
                                     <tr>
                                         <th className="px-6 py-4 text-center">
-                                            Order ID
+                                            No. Pesanan
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Customer
+                                            Pelanggan
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Date
+                                            Tanggal
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
@@ -305,7 +342,7 @@ export default function AdminOrdersPage() {
                                         </th>
 
                                         <th className="px-6 py-4 text-center">
-                                            Action
+                                            Aksi
                                         </th>
                                     </tr>
                                 </thead>
@@ -357,7 +394,9 @@ export default function AdminOrdersPage() {
                                                         order.status,
                                                     )}`}
                                                 >
-                                                    {order.status.toUpperCase()}
+                                                    {getStatusLabel(
+                                                        order.status,
+                                                    )}
                                                 </span>
                                             </td>
 
@@ -366,7 +405,7 @@ export default function AdminOrdersPage() {
                                                     href={`/admin/orders/${order._id}`}
                                                     className="text-blue-600 hover:underline font-medium"
                                                 >
-                                                    View Detail
+                                                    Lihat Detail
                                                 </Link>
                                             </td>
                                         </tr>
@@ -381,7 +420,7 @@ export default function AdminOrdersPage() {
                 {orders.length > 0 && (
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-6">
                         <p className="text-sm text-gray-600">
-                            Showing{' '}
+                            Menampilkan{' '}
                             <span className="font-semibold">
                                 {(page - 1) * pageSize + 1}
                             </span>{' '}
@@ -389,9 +428,11 @@ export default function AdminOrdersPage() {
                             <span className="font-semibold">
                                 {Math.min(page * pageSize, totalOrders)}
                             </span>{' '}
-                            of{' '}
-                            <span className="font-semibold">{totalOrders}</span>{' '}
-                            orders
+                            dari{' '}
+                            <span className="font-semibold">
+                                {totalOrders}
+                            </span>{' '}
+                            pesanan
                         </p>
 
                         <div className="flex items-center justify-between sm:justify-end gap-2">
@@ -401,15 +442,15 @@ export default function AdminOrdersPage() {
                                 className={`flex items-center gap-1 px-3 py-2 rounded-lg border text-sm transition ${
                                     page === 1
                                         ? 'border-gray-200 text-gray-400 cursor-not-allowed'
-                                        : 'border-gray-300 hover:bg-gray-100'
+                                        : 'border-gray-300 hover:bg-gray-100 cursor-pointer'
                                 }`}
                             >
                                 <ChevronLeft size={16} />
-                                Prev
+                                Sebelumnya
                             </button>
 
                             <span className="text-sm font-medium text-gray-700 px-2">
-                                Page {page} of {totalPages}
+                                Halaman {page} dari {totalPages}
                             </span>
 
                             <button
@@ -418,10 +459,10 @@ export default function AdminOrdersPage() {
                                 className={`flex items-center gap-1 px-3 py-2 rounded-lg border text-sm transition ${
                                     page === totalPages
                                         ? 'border-gray-200 text-gray-400 cursor-not-allowed'
-                                        : 'border-gray-300 hover:bg-gray-100'
+                                        : 'border-gray-300 hover:bg-gray-100 cursor-pointer'
                                 }`}
                             >
-                                Next
+                                Selanjutnya
                                 <ChevronRight size={16} />
                             </button>
                         </div>

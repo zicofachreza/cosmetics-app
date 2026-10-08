@@ -203,14 +203,14 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
         ========================== */}
             <div className="bg-gray-50 rounded-2xl p-6 border">
                 <h2 className="text-xl font-semibold text-gray-800 mb-6">
-                    Product Information
+                    Informasi Produk
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Product Name */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Product Name
+                            Nama Produk
                         </label>
 
                         <input
@@ -242,7 +242,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                     {/* Category */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Category
+                            Kategori
                         </label>
 
                         <select
@@ -251,7 +251,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                             className="w-full rounded-xl border border-gray-300 px-4 py-3 bg-white focus:outline-none focus:ring-2 focus:ring-pink-400"
                             required
                         >
-                            <option value="">Select Category</option>
+                            <option value="">Pilih Kategori</option>
                             <option value="Makeup">Makeup</option>
                             <option value="Skincare">Skincare</option>
                             <option value="Haircare">Haircare</option>
@@ -262,14 +262,14 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                     {/* Excerpt */}
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Excerpt
+                            Jenis Produk
                         </label>
 
                         <input
                             type="text"
                             value={excerpt}
                             onChange={(e) => setExcerpt(e.target.value)}
-                            placeholder="Short description"
+                            placeholder="Skincare Sunscreen"
                             className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-pink-400"
                             required
                         />
@@ -278,14 +278,14 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                     {/* Description */}
                     <div className="md:col-span-2">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Description
+                            Deskripsi Produk
                         </label>
 
                         <textarea
                             rows={6}
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Write the complete product description"
+                            placeholder="Tuliskan deskripsi produk secara lengkap"
                             className="w-full rounded-xl border border-gray-300 px-4 py-3 resize-none focus:outline-none focus:ring-2 focus:ring-pink-400"
                             required
                         />
@@ -298,13 +298,13 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
         ========================== */}
             <div className="bg-gray-50 rounded-2xl p-6 border">
                 <h2 className="text-xl font-semibold text-gray-800 mb-6">
-                    Images
+                    Foto Produk
                 </h2>
 
                 {/* Thumbnail */}
                 <div className="mb-8">
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Thumbnail URL
+                        Foto Utama Produk
                     </label>
 
                     <input
@@ -329,7 +329,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <label className="text-sm font-medium text-gray-700">
-                            Product Images
+                            Foto Produk Lainnya
                         </label>
 
                         <button
@@ -337,7 +337,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                             onClick={addImage}
                             className="px-4 py-2 rounded-lg bg-pink-400 text-white hover:bg-pink-500 transition cursor-pointer"
                         >
-                            + Add Image
+                            + Tambah Foto
                         </button>
                     </div>
 
@@ -371,7 +371,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                 {images.some((img) => img.trim() !== '') && (
                     <div className="mt-8">
                         <p className="text-sm font-medium text-gray-700 mb-3">
-                            Preview
+                            Pratinjau
                         </p>
 
                         <div className="flex flex-wrap gap-4">
@@ -395,11 +395,11 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
         ========================== */}
             <div className="bg-gray-50 rounded-2xl p-6 border">
                 <h2 className="text-xl font-semibold text-gray-800 mb-6">
-                    Tags
+                    Tag
                 </h2>
 
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Product Tags
+                    Tag Produk
                 </label>
 
                 <input
@@ -411,7 +411,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                 />
 
                 <p className="text-xs text-gray-500 mt-2">
-                    Separate each tag with a comma (,).
+                    Pisahkan setiap tag dengan tanda koma. (,).
                 </p>
             </div>
 
@@ -421,7 +421,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
             <div className="bg-gray-50 rounded-2xl p-6 border">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-xl font-semibold text-gray-800">
-                        Product Sizes
+                        Ukuran Produk
                     </h2>
 
                     <button
@@ -429,7 +429,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                         onClick={addSize}
                         className="px-4 py-2 rounded-lg bg-pink-400 text-white hover:bg-pink-500 transition cursor-pointer"
                     >
-                        + Add Size
+                        + Tambah Ukuran
                     </button>
                 </div>
 
@@ -443,7 +443,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                                 {/* Size */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Size
+                                        Ukuran
                                     </label>
 
                                     <input
@@ -465,7 +465,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                                 {/* Price */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Price
+                                        Harga
                                     </label>
 
                                     <input
@@ -488,7 +488,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                                 {/* Stock */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Stock
+                                        Stok
                                     </label>
 
                                     <input
@@ -540,7 +540,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                     disabled={loading}
                     className="px-6 py-3 rounded-xl border border-gray-300 text-gray-700 hover:bg-gray-100 transition disabled:opacity-50 cursor-pointer"
                 >
-                    Cancel
+                    Batalkan
                 </button>
 
                 <button
@@ -550,11 +550,11 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                 >
                     {loading
                         ? mode === 'create'
-                            ? 'Saving...'
-                            : 'Updating...'
+                            ? 'Menyimpan...'
+                            : 'Memperbarui...'
                         : mode === 'create'
-                          ? 'Save Product'
-                          : 'Update Product'}
+                          ? 'Simpan Produk'
+                          : 'Perbarui Product'}
                 </button>
             </div>
         </form>

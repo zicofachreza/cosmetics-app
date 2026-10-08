@@ -3,10 +3,10 @@ import { ObjectId } from 'mongodb'
 export type TUser = {
     _id?: ObjectId
     name?: string
-    username: string
     email: string
     password: string
     role?: 'user' | 'admin'
+    googleId?: string
 }
 
 export type NewUserInput = Omit<TUser, '_id'>
@@ -27,14 +27,12 @@ export type PageProps = {
 
 export interface FormData {
     name: string
-    username: string
     email: string
     password: string
 }
 
 export interface ErrorMessages {
     name?: string
-    username?: string
     email?: string
     password?: string
     general?: string

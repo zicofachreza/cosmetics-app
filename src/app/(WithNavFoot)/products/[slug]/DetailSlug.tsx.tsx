@@ -51,7 +51,7 @@ export default function DetailClient({ product }: { product: TProduct }) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Access Denied',
-                    text: 'Admin cannot add products to the shopping bag',
+                    text: 'Admin tidak dapat menambahkan produk ke keranjang belanja',
                     buttonsStyling: false,
                     customClass: {
                         confirmButton:
@@ -62,7 +62,7 @@ export default function DetailClient({ product }: { product: TProduct }) {
             }
 
             if (!selectedSize) {
-                setSizeError('Please select a size')
+                setSizeError('Silakan pilih ukuran')
                 return
             }
 
@@ -95,7 +95,7 @@ export default function DetailClient({ product }: { product: TProduct }) {
                     href="/products"
                     className="text-pink-400 hover:underline text-sm"
                 >
-                    ← Back to All Products
+                    ← Kembali ke Semua Produk
                 </Link>
 
                 {/* Layout */}
@@ -126,7 +126,7 @@ export default function DetailClient({ product }: { product: TProduct }) {
                         {/* Size Selector */}
                         <div>
                             <label className="block font-semibold text-gray-700 mb-4">
-                                Select Size
+                                Pilih Ukuran
                             </label>
 
                             <div className="flex flex-wrap gap-2">
@@ -156,13 +156,13 @@ export default function DetailClient({ product }: { product: TProduct }) {
                             onClick={handleAddToBag}
                             className="w-full mt-8 bg-pink-400 text-white py-3 rounded-full font-semibold hover:bg-pink-500 transition cursor-pointer"
                         >
-                            Add to Bag
+                            Masukkan Keranjang
                         </button>
 
                         {/* Product Description */}
                         <div className="mt-10">
                             <h3 className="font-semibold text-gray-800 mb-2 mt-4">
-                                Product Description
+                                Deskripsi Produk
                             </h3>
 
                             <p className="text-gray-600 leading-relaxed">

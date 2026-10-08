@@ -50,7 +50,7 @@ export async function PUT(
         // ❌ Kalau stok tidak cukup
         if (quantity > sizeData.stock) {
             return NextResponse.json(
-                { message: `Out of stock` },
+                { message: `Stok habis` },
                 { status: 400 }
             )
         }

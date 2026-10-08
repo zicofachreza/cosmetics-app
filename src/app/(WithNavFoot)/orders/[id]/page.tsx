@@ -43,7 +43,7 @@ export default function OrderDetailPage() {
         if (!order?.snapToken) {
             Swal.fire({
                 icon: 'error',
-                title: 'Snap token not found',
+                title: 'Snap token tidak ditemukan',
                 timer: 2000,
                 showConfirmButton: false,
             })
@@ -57,34 +57,37 @@ export default function OrderDetailPage() {
                 await fetchOrder()
                 setPaying(false)
             },
+
             onPending: async () => {
                 await fetchOrder()
 
                 Swal.fire({
                     icon: 'info',
-                    title: 'Payment Pending',
-                    text: 'Please complete your payment',
+                    title: 'Pembayaran Belum Selesai',
+                    text: 'Silakan selesaikan pembayaran Anda',
                     timer: 2000,
                     showConfirmButton: false,
                 })
 
                 setPaying(false)
             },
+
             onClose: () => {
                 Swal.fire({
                     icon: 'info',
-                    title: 'Payment Pending',
-                    text: 'Please complete your payment',
+                    title: 'Pembayaran Belum Selesai',
+                    text: 'Silakan selesaikan pembayaran Anda',
                     timer: 2000,
                     showConfirmButton: false,
                 })
 
                 setPaying(false)
             },
+
             onError: () => {
                 Swal.fire({
                     icon: 'error',
-                    title: 'Payment failed',
+                    title: 'Pembayaran Gagal',
                     timer: 2000,
                     showConfirmButton: false,
                 })
@@ -96,14 +99,14 @@ export default function OrderDetailPage() {
 
     const handleCancelPayment = async () => {
         const result = await Swal.fire({
-            title: 'Cancel Payment',
-            text: 'Are you sure you want to cancel this payment?',
+            title: 'Batalkan Pembayaran',
+            text: 'Apakah Anda yakin ingin membatalkan pembayaran ini?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#ec4899',
             cancelButtonColor: '#6b7280',
-            confirmButtonText: 'Yes, Cancel',
-            cancelButtonText: 'Back',
+            confirmButtonText: 'Ya, Batalkan',
+            cancelButtonText: 'Kembali',
         })
 
         if (!result.isConfirmed) return
@@ -123,8 +126,8 @@ export default function OrderDetailPage() {
 
             Swal.fire({
                 icon: 'success',
-                title: 'Payment Cancelled',
-                text: 'Your payment has been successfully cancelled',
+                title: 'Pembayaran Dibatalkan',
+                text: 'Pembayaran Anda berhasil dibatalkan',
                 timer: 2000,
                 showConfirmButton: false,
             })
@@ -133,7 +136,7 @@ export default function OrderDetailPage() {
 
             Swal.fire({
                 icon: 'error',
-                title: 'Failed to cancel payment',
+                title: 'Gagal Membatalkan Pembayaran',
                 timer: 2000,
                 showConfirmButton: false,
             })
@@ -159,36 +162,39 @@ export default function OrderDetailPage() {
                     await fetchOrder()
                     setPaying(false)
                 },
+
                 onPending: async () => {
                     await fetchOrder()
 
                     Swal.fire({
                         icon: 'info',
-                        title: 'Payment Pending',
-                        text: 'Please complete your payment',
+                        title: 'Pembayaran Belum Selesai',
+                        text: 'Silakan selesaikan pembayaran Anda',
                         timer: 2000,
                         showConfirmButton: false,
                     })
 
                     setPaying(false)
                 },
+
                 onClose: async () => {
                     await fetchOrder()
 
                     Swal.fire({
                         icon: 'info',
-                        title: 'Payment Pending',
-                        text: 'Please complete your payment',
+                        title: 'Pembayaran Belum Selesai',
+                        text: 'Silakan selesaikan pembayaran Anda',
                         timer: 2000,
                         showConfirmButton: false,
                     })
 
                     setPaying(false)
                 },
+
                 onError: () => {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Payment failed',
+                        title: 'Pembayaran Gagal',
                         timer: 2000,
                         showConfirmButton: false,
                     })
@@ -201,7 +207,7 @@ export default function OrderDetailPage() {
 
             Swal.fire({
                 icon: 'error',
-                title: 'Failed to create new payment',
+                title: 'Gagal Membuat Pembayaran Baru',
                 timer: 2000,
                 showConfirmButton: false,
             })
@@ -214,7 +220,7 @@ export default function OrderDetailPage() {
         return (
             <main className="flex py-20 justify-center min-h-screen">
                 <p className="text-lg font-semibold">
-                    Loading order details...
+                    Memuat detail pesanan...
                 </p>
             </main>
         )
@@ -223,7 +229,9 @@ export default function OrderDetailPage() {
     if (!order) {
         return (
             <main className="flex py-20 justify-center min-h-screen">
-                <p className="text-lg text-gray-600">Order not found.</p>
+                <p className="text-lg text-gray-600">
+                    Pesanan tidak ditemukan
+                </p>
             </main>
         )
     }
@@ -232,17 +240,40 @@ export default function OrderDetailPage() {
         switch (status) {
             case 'paid':
                 return 'bg-green-100 text-green-700'
+
             case 'pending':
                 return 'bg-yellow-100 text-yellow-700'
+
             case 'cancelled':
             case 'failed':
                 return 'bg-red-100 text-red-700'
+
             default:
                 return 'bg-gray-100 text-gray-600'
         }
     }
 
+    const getStatusLabel = (status: string) => {
+        switch (status) {
+            case 'paid':
+                return 'Pembayaran Berhasil'
+
+            case 'pending':
+                return 'Pembayaran Tertunda'
+
+            case 'cancelled':
+                return 'Pembayaran Batal'
+
+            case 'failed':
+                return 'Pembayaran Gagal'
+
+            default:
+                return status
+        }
+    }
+
     const isPending = order.status === 'pending'
+
     const isExpired =
         order.expiryTime && new Date(order.expiryTime) < new Date()
 
@@ -253,22 +284,26 @@ export default function OrderDetailPage() {
                     href="/orders"
                     className="text-pink-400 hover:underline text-sm"
                 >
-                    ← Back to Orders
+                    ← Kembali ke Pesanan Saya
                 </Link>
 
                 <h1 className="text-3xl font-bold text-gray-800 mb-8 mt-6">
-                    Order Details
+                    Detail Pesanan
                 </h1>
 
+                {/* ORDER STATUS */}
                 <section className="bg-white rounded-2xl shadow p-6 mb-8 mt-6">
                     <div className="flex justify-between items-center mb-4">
-                        <h2 className="text-xl font-semibold">Order ID</h2>
+                        <h2 className="text-xl font-semibold">
+                            No. Pesanan
+                        </h2>
+
                         <span
                             className={`px-4 py-1 rounded-full text-sm font-semibold ${getStatusColor(
                                 order.status,
                             )}`}
                         >
-                            {order.status.toUpperCase()}
+                            {getStatusLabel(order.status)}
                         </span>
                     </div>
 
@@ -277,28 +312,38 @@ export default function OrderDetailPage() {
                     </p>
 
                     <p className="text-gray-500 text-sm">
-                        Ordered on{' '}
+                        Dipesan pada{' '}
                         {new Date(order.createdAt).toLocaleString('id-ID')}
                     </p>
                 </section>
 
+                {/* SHIPPING */}
                 <section className="bg-white rounded-2xl shadow p-6 mb-8">
                     <h2 className="text-xl font-semibold mb-4">
-                        Shipping Information
+                        Informasi Pengiriman
                     </h2>
+
                     <div className="space-y-2">
                         <p className="text-gray-700">
-                            {order.shipping.firstName} {order.shipping.lastName}
+                            {order.shipping.firstName}{' '}
+                            {order.shipping.lastName}
                         </p>
+
                         <p className="text-gray-700">
                             {order.shipping.address}
                         </p>
-                        <p className="text-gray-700">{order.shipping.phone}</p>
+
+                        <p className="text-gray-700">
+                            {order.shipping.phone}
+                        </p>
                     </div>
                 </section>
 
+                {/* PRODUCTS */}
                 <section className="bg-pink-100 rounded-2xl shadow p-6 mb-8">
-                    <h2 className="text-xl font-semibold mb-4">Items</h2>
+                    <h2 className="text-xl font-semibold mb-4">
+                        Produk
+                    </h2>
 
                     <div className="space-y-3">
                         {order.items.map((item, idx) => (
@@ -307,7 +352,7 @@ export default function OrderDetailPage() {
                                 className="flex justify-between text-sm"
                             >
                                 <span>
-                                    {item.name} (Size {item.size}) ×{' '}
+                                    {item.name} (Ukuran {item.size}) ×{' '}
                                     {item.quantity}
                                 </span>
 
@@ -320,13 +365,15 @@ export default function OrderDetailPage() {
 
                     <div className="flex justify-between font-semibold">
                         <span>Total</span>
+
                         <span>{idr(order.total)}</span>
                     </div>
                 </section>
 
+                {/* PAYMENT ACTION */}
                 {order.status === 'paid' ? (
                     <p className="text-green-600 font-semibold mb-6">
-                        ✅ Payment completed
+                        ✅ Pembayaran Selesai
                     </p>
                 ) : isPending && !isExpired ? (
                     <div className="flex items-center justify-between">
@@ -339,7 +386,7 @@ export default function OrderDetailPage() {
                                     : 'hover:bg-pink-500 cursor-pointer'
                             }`}
                         >
-                            Cancel Payment
+                            Batalkan Pembayaran
                         </button>
 
                         <button
@@ -351,7 +398,9 @@ export default function OrderDetailPage() {
                                     : 'hover:bg-pink-500 cursor-pointer'
                             }`}
                         >
-                            {paying ? 'Processing...' : 'Continue Payment'}
+                            {paying
+                                ? 'Memproses...'
+                                : 'Lanjutkan Pembayaran'}
                         </button>
                     </div>
                 ) : (
@@ -364,7 +413,7 @@ export default function OrderDetailPage() {
                                 : 'hover:bg-pink-500 cursor-pointer'
                         }`}
                     >
-                        {paying ? 'Processing...' : 'Pay Again'}
+                        {paying ? 'Memproses...' : 'Bayar Kembali'}
                     </button>
                 )}
             </div>

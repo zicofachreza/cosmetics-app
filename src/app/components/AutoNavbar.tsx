@@ -7,17 +7,12 @@ import UserMenu from './UserMenu'
 import { CartContext } from './CartContext'
 import { useUser } from './UserContext'
 
-type AutoNavbarProps = {
-    initialAuth: boolean
-}
-
-export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
+export default function AutoNavbar() {
     const [show, setShow] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
-    const [authorized, setAuthorized] = useState(initialAuth)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-    const { user, setUser } = useUser()
+    const { user, setUser, loading, setLoading } = useUser()
 
     const cartCtx = useContext(CartContext)
 
@@ -31,9 +26,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
         const handleScroll = () => {
             const currentScrollY = window.scrollY
 
-            setShow(
-                !(currentScrollY > lastScrollY && currentScrollY > 80)
-            )
+            setShow(!(currentScrollY > lastScrollY && currentScrollY > 80))
 
             setLastScrollY(currentScrollY)
         }
@@ -49,12 +42,6 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
     // Get current user
     // =========================
     useEffect(() => {
-        if (!initialAuth) {
-            setAuthorized(false)
-            setUser(null)
-            return
-        }
-
         const fetchUser = async () => {
             try {
                 const res = await fetch('/api/me', {
@@ -71,22 +58,20 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                         email: data.email,
                         role: data.role,
                     })
-
-                    setAuthorized(true)
                 } else {
                     setUser(null)
-                    setAuthorized(false)
                 }
             } catch (error) {
                 console.error('Error fetching user:', error)
 
                 setUser(null)
-                setAuthorized(false)
+            } finally {
+                setLoading(false)
             }
         }
 
         fetchUser()
-    }, [initialAuth, setUser])
+    }, [setUser, setLoading])
 
     // =========================
     // Sync authentication
@@ -101,7 +86,6 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
             }
 
             if (event.data === 'auth:logout') {
-                setAuthorized(false)
                 setUser(null)
             }
         }
@@ -126,7 +110,6 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                 return
             }
 
-            setAuthorized(false)
             setUser(null)
             setMobileMenuOpen(false)
 
@@ -159,7 +142,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                 Announcement Bar
             ========================= */}
             <div className="bg-pink-50 text-center text-sm py-2 text-pink-700 font-medium">
-                ✨ Free Shipping for Orders Above Rp 500.000
+                ✨ Gratis Ongkos Kirim untuk Pesanan di Atas Rp 500.000
             </div>
 
             {/* =========================
@@ -189,30 +172,27 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                             href="/products"
                             className="relative hover:text-pink-500 transition group"
                         >
-                            Products
-
+                            Produk
                             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
                         </Link>
                     </li>
 
                     <li>
                         <Link
-                            href=""
+                            href="/newArrivals"
                             className="relative hover:text-pink-500 transition group"
                         >
-                            New Arrivals
-
+                            Produk Baru
                             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
                         </Link>
                     </li>
 
                     <li>
                         <Link
-                            href=""
+                            href="/discount"
                             className="relative hover:text-pink-500 transition group"
                         >
-                            Sale
-
+                            Diskon
                             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
                         </Link>
                     </li>
@@ -224,7 +204,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                 <div className="flex items-center gap-5">
                     {/* Wishlist */}
                     <Link
-                        href=""
+                        href="/wishlist"
                         onClick={closeMobileMenu}
                         className="relative"
                     >
@@ -260,10 +240,12 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                         Desktop User / Login
                     ========================= */}
                     <div className="hidden md:block">
-                        {authorized ? (
+                        {loading ? (
+                            <div className="w-20 h-9" />
+                        ) : user ? (
                             <UserMenu
-                                userName={user?.name ?? ''}
-                                role={user?.role ?? 'user'}
+                                userName={user.name}
+                                role={user.role}
                                 onLogout={handleLogout}
                             />
                         ) : (
@@ -271,7 +253,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                                 href="/login"
                                 className="bg-pink-400 hover:bg-pink-500 text-white text-sm px-5 py-2 rounded-lg transition"
                             >
-                                Sign In
+                                Masuk
                             </Link>
                         )}
                     </div>
@@ -281,9 +263,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                     ========================= */}
                     <button
                         type="button"
-                        onClick={() =>
-                            setMobileMenuOpen((prev) => !prev)
-                        }
+                        onClick={() => setMobileMenuOpen((prev) => !prev)}
                         className="md:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8"
                         aria-label="Toggle mobile menu"
                         aria-expanded={mobileMenuOpen}
@@ -332,7 +312,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                         onClick={closeMobileMenu}
                         className="block py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 px-3 rounded-lg transition"
                     >
-                        Products
+                        Produk
                     </Link>
 
                     {/* New Arrivals */}
@@ -341,7 +321,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                         onClick={closeMobileMenu}
                         className="block py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 px-3 rounded-lg transition"
                     >
-                        New Arrivals
+                        Produk Baru
                     </Link>
 
                     {/* Sale */}
@@ -350,7 +330,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                         onClick={closeMobileMenu}
                         className="block py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 px-3 rounded-lg transition"
                     >
-                        Sale
+                        Diskon
                     </Link>
 
                     {/* Divider */}
@@ -359,7 +339,11 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                     {/* =========================
                         MOBILE USER SECTION
                     ========================= */}
-                    {authorized ? (
+                    {loading ? (
+                        <div className="px-3 py-4">
+                            <div className="h-12 rounded-lg bg-gray-100 animate-pulse" />
+                        </div>
+                    ) : user ? (
                         <div className="px-3 py-2">
                             {/* User Information */}
                             <div className="flex items-center gap-3 py-3">
@@ -373,14 +357,13 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                                 <div className="min-w-0">
                                     <p className="text-sm font-semibold text-gray-800 truncate">
                                         Hi,{' '}
-                                        {user?.name?.split(' ')[0] ??
-                                            'User'}
+                                        {user.name?.split(' ')[0] ?? 'User'}
                                     </p>
 
                                     <p className="text-xs text-gray-500 capitalize">
-                                        {user?.role === 'admin'
-                                            ? 'Administrator'
-                                            : 'Customer'}
+                                        {user.role === 'admin'
+                                            ? 'Admin'
+                                            : 'Pelanggan'}
                                     </p>
                                 </div>
                             </div>
@@ -390,25 +373,25 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                             ========================= */}
                             <div className="space-y-1">
                                 {/* Regular User */}
-                                {user?.role !== 'admin' && (
+                                {user.role !== 'admin' && (
                                     <Link
                                         href="/orders"
                                         onClick={closeMobileMenu}
                                         className="block w-full px-3 py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 rounded-lg transition"
                                     >
-                                        My Orders
+                                        Pesanan Saya
                                     </Link>
                                 )}
 
                                 {/* Admin */}
-                                {user?.role === 'admin' && (
+                                {user.role === 'admin' && (
                                     <>
                                         <Link
                                             href="/admin/catalogs"
                                             onClick={closeMobileMenu}
                                             className="block w-full px-3 py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 rounded-lg transition"
                                         >
-                                            Catalog
+                                            Etalase
                                         </Link>
 
                                         <Link
@@ -416,7 +399,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                                             onClick={closeMobileMenu}
                                             className="block w-full px-3 py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 rounded-lg transition"
                                         >
-                                            Orders
+                                            Pesanan
                                         </Link>
 
                                         <Link
@@ -424,7 +407,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                                             onClick={closeMobileMenu}
                                             className="block w-full px-3 py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 rounded-lg transition"
                                         >
-                                            Reports
+                                            Laporan
                                         </Link>
                                     </>
                                 )}
@@ -435,7 +418,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                                     onClick={handleLogout}
                                     className="w-full text-left px-3 py-3 text-sm font-medium text-red-600 hover:bg-red-50 rounded-lg transition"
                                 >
-                                    Logout
+                                    Keluar
                                 </button>
                             </div>
                         </div>
@@ -448,7 +431,7 @@ export default function AutoNavbar({ initialAuth }: AutoNavbarProps) {
                             onClick={closeMobileMenu}
                             className="block text-center bg-pink-400 hover:bg-pink-500 text-white text-sm font-medium px-5 py-3 rounded-lg transition"
                         >
-                            Sign In
+                            Masuk
                         </Link>
                     )}
                 </div>

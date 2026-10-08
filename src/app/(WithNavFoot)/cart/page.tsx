@@ -95,7 +95,7 @@ export default function CartPage() {
     if (loading) {
         return (
             <div className="flex py-20 justify-center min-h-screen">
-                <p className="text-lg font-semibold">Loading cart...</p>
+                <p className="text-lg font-semibold">Memuat keranjang...</p>
             </div>
         )
     }
@@ -109,20 +109,20 @@ export default function CartPage() {
     return (
         <section className="py-20">
             <div className="max-w-7xl mx-auto px-6">
-                <h1 className="text-3xl font-bold text-gray-800">Bag</h1>
+                <h1 className="text-3xl font-bold text-gray-800">Keranjang</h1>
                 <div className="flex flex-col lg:flex-row gap-10 mt-12">
                     {/* Cart Items */}
                     <div className="flex-1 space-y-6">
                         {cart.length === 0 ? (
                             <div>
                                 <p className="text-gray-500 text-lg">
-                                    There are no items in your bag
+                                    Tidak ada produk di keranjang Anda
                                 </p>
                                 <Link
                                     href="/products"
                                     className="inline-block bg-pink-400 text-white py-3 px-6 mt-4 rounded-full hover:bg-pink-500"
                                 >
-                                    Continue Shopping
+                                    Lanjut Belanja
                                 </Link>
                             </div>
                         ) : (
@@ -146,7 +146,7 @@ export default function CartPage() {
                                             {item.product.name}
                                         </h2>
                                         <p className="text-gray-600">
-                                            Size: {item.size}
+                                            Ukuran: {item.size}
                                         </p>
                                         <p className="font-semibold">
                                             {idr(item.price)}
@@ -204,13 +204,13 @@ export default function CartPage() {
 
                     {/* Summary */}
                     <div className="w-full lg:w-1/3 bg-pink-100 p-6 rounded-lg h-fit">
-                        <h2 className="text-lg font-semibold mb-4">Summary</h2>
+                        <h2 className="text-lg font-semibold mb-4">Ringkasan Pesanan</h2>
                         <div className="flex justify-between mb-2">
-                            <span>Total Items:</span>
+                            <span>Total Produk:</span>
                             <span>{totalItems}</span>
                         </div>
                         <div className="flex justify-between mb-8 font-semibold">
-                            <span>Total Price:</span>
+                            <span>Total Harga:</span>
                             <span>Rp {totalPrice.toLocaleString('id-ID')}</span>
                         </div>
 
