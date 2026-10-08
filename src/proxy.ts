@@ -16,6 +16,7 @@ export async function proxy(request: NextRequest) {
         }
 
         if (
+            pathname.startsWith('/wishlist') ||
             pathname.startsWith('/cart') ||
             pathname.startsWith('/orders') ||
             pathname.startsWith('/checkout')
@@ -56,6 +57,7 @@ export const config = {
     matcher: [
         '/products/:path*',
         '/login',
+        '/wishlist',
         '/cart',
         '/orders/:path*',
         '/checkout',
