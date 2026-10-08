@@ -317,7 +317,7 @@ export default function AutoNavbar() {
 
                     {/* New Arrivals */}
                     <Link
-                        href=""
+                        href="/newArrivals"
                         onClick={closeMobileMenu}
                         className="block py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 px-3 rounded-lg transition"
                     >
@@ -326,7 +326,7 @@ export default function AutoNavbar() {
 
                     {/* Sale */}
                     <Link
-                        href=""
+                        href="/discount"
                         onClick={closeMobileMenu}
                         className="block py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 px-3 rounded-lg transition"
                     >
@@ -391,7 +391,7 @@ export default function AutoNavbar() {
                                             onClick={closeMobileMenu}
                                             className="block w-full px-3 py-3 text-sm font-medium text-gray-700 hover:text-pink-500 hover:bg-pink-50 rounded-lg transition"
                                         >
-                                            Etalase
+                                            Katalog
                                         </Link>
 
                                         <Link

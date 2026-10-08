@@ -34,7 +34,7 @@ export default async function HomePage() {
                         </Link>
 
                         <Link
-                            href=""
+                            href="/newArrivals"
                             className="border border-pink-400 text-pink-400 px-8 py-3 rounded-full hover:bg-gray-100 transition"
                         >
                             Produk Baru
