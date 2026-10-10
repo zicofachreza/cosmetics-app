@@ -122,7 +122,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
                 Swal.fire({
                     icon: 'success',
-                    title: 'Success',
+                    title: 'Sukses',
                     text: json.message || 'Item added to cart',
                     timer: 2000,
                     showConfirmButton: false,
