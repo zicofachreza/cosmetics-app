@@ -70,7 +70,7 @@ export default function ReportsPage() {
                             {/* START DATE */}
                             <div className="flex flex-col w-full sm:w-40">
                                 <label className="text-xs font-semibold mb-1">
-                                    Tanggal Awal
+                                    Dari Tanggal
                                 </label>
                                 <input
                                     type="date"
@@ -85,7 +85,7 @@ export default function ReportsPage() {
                             {/* END DATE */}
                             <div className="flex flex-col w-full sm:w-40">
                                 <label className="text-xs font-semibold mb-1">
-                                    Tanggal Akhir
+                                    Sampai Tanggal
                                 </label>
                                 <input
                                     type="date"

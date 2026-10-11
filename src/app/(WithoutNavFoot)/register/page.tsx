@@ -69,7 +69,7 @@ export default function RegisterPage() {
             await Swal.fire({
                 icon: 'success',
 
-                title: 'Success',
+                title: 'Sukses',
 
                 text: result.message,
 
