@@ -23,7 +23,7 @@ export async function cancelOrder(orderId: string, userId: string) {
         const auth = Buffer.from(serverKey + ':').toString('base64')
 
         await fetch(
-            `https://api.sandbox.midtrans.com/v2/${order.midtransOrderId}/cancel`,
+            `https://api.midtrans.com/v2/${order.midtransOrderId}/cancel`,
             {
                 method: 'POST',
                 headers: {

@@ -6,11 +6,13 @@ import { useContext, useEffect, useState } from 'react'
 import UserMenu from './UserMenu'
 import { CartContext } from './CartContext'
 import { useUser } from './UserContext'
+import { usePathname } from 'next/navigation'
 
 export default function AutoNavbar() {
     const [show, setShow] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const pathname = usePathname()
 
     const { user, setUser, loading, setLoading } = useUser()
 
@@ -167,35 +169,36 @@ export default function AutoNavbar() {
                     Desktop Menu
                 ========================= */}
                 <ul className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-700">
-                    <li>
-                        <Link
-                            href="/products"
-                            className="relative hover:text-pink-500 transition group"
-                        >
-                            Produk
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
-                        </Link>
-                    </li>
+                    {[
+                        { label: 'Produk', href: '/products' },
+                        { label: 'Produk Baru', href: '/newArrivals' },
+                        { label: 'Diskon', href: '/discount' },
+                    ].map((item) => {
+                        const isActive = pathname === item.href
 
-                    <li>
-                        <Link
-                            href="/newArrivals"
-                            className="relative hover:text-pink-500 transition group"
-                        >
-                            Produk Baru
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
-                        </Link>
-                    </li>
+                        return (
+                            <li key={item.href}>
+                                <Link
+                                    href={item.href}
+                                    className={`relative transition group ${
+                                        isActive
+                                            ? 'text-pink-500'
+                                            : 'hover:text-pink-500'
+                                    }`}
+                                >
+                                    {item.label}
 
-                    <li>
-                        <Link
-                            href="/discount"
-                            className="relative hover:text-pink-500 transition group"
-                        >
-                            Diskon
-                            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-pink-500 transition-all group-hover:w-full" />
-                        </Link>
-                    </li>
+                                    <span
+                                        className={`absolute left-0 -bottom-1 h-[2px] bg-pink-500 transition-all duration-300 ${
+                                            isActive
+                                                ? 'w-full'
+                                                : 'w-0 group-hover:w-full'
+                                        }`}
+                                    />
+                                </Link>
+                            </li>
+                        )
+                    })}
                 </ul>
 
                 {/* =========================
@@ -270,17 +273,13 @@ export default function AutoNavbar() {
                     >
                         <span
                             className={`block w-6 h-0.5 bg-gray-700 transition-transform duration-300 ${
-                                mobileMenuOpen
-                                    ? 'translate-y-2 rotate-45'
-                                    : ''
+                                mobileMenuOpen ? 'translate-y-2 rotate-45' : ''
                             }`}
                         />
 
                         <span
                             className={`block w-6 h-0.5 bg-gray-700 transition-opacity duration-300 ${
-                                mobileMenuOpen
-                                    ? 'opacity-0'
-                                    : 'opacity-100'
+                                mobileMenuOpen ? 'opacity-0' : 'opacity-100'
                             }`}
                         />
 
@@ -356,8 +355,7 @@ export default function AutoNavbar() {
 
                                 <div className="min-w-0">
                                     <p className="text-sm font-semibold text-gray-800 truncate">
-                                        Hi,{' '}
-                                        {user.name?.split(' ')[0] ?? 'User'}
+                                        Hi, {user.name?.split(' ')[0] ?? 'User'}
                                     </p>
 
                                     <p className="text-xs text-gray-500 capitalize">
