@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'id.pinterest.com',
+                hostname: 'i.pinimg.com',
                 pathname: '/**',
             },
         ],
