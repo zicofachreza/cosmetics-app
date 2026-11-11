@@ -1,7 +1,7 @@
 import { Props, TProduct } from '@/types/productType'
 import { Metadata } from 'next'
-import DetailClient from './DetailSlug.tsx.js'
 import ProductModel from '@/models/product'
+import DetailClient from './DetailSlug.tsx'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params
