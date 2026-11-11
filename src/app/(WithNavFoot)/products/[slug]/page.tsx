@@ -1,6 +1,6 @@
 import { Props, TProduct } from '@/types/productType'
 import { Metadata } from 'next'
-import DetailClient from './DetailSlug.tsx'
+import DetailClient from './DetailSlug.tsx.js'
 import ProductModel from '@/models/product'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

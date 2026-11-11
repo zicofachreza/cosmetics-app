@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
                 hostname: 'assets.unileversolutions.com',
                 pathname: '/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'id.pinterest.com',
+                pathname: '/**',
+            },
         ],
     },
 }
