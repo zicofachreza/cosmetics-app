@@ -141,7 +141,7 @@ export async function POST(request: Request) {
         return NextResponse.json(
             {
                 message:
-                    'The product has been added successfully',
+                    'Produk telah ditambahkan ke katalog',
             },
             {
                 status: 201,

@@ -101,7 +101,7 @@ export default function AdminCatalogsPage() {
 
             await Swal.fire({
                 icon: 'success',
-                title: 'Product Deleted!',
+                title: 'Produk Berhasil Dihapus!',
                 text: data.message,
                 timer: 2000,
                 showConfirmButton: false,

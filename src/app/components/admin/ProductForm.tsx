@@ -174,7 +174,9 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
             await Swal.fire({
                 icon: 'success',
                 title:
-                    mode === 'create' ? 'Product Created' : 'Product Updated',
+                    mode === 'create'
+                        ? 'Produk Berhasil Dibuat!'
+                        : 'Produk Berhasil Diperbarui!',
                 text: result.message,
                 timer: 2000,
                 showConfirmButton: false,
@@ -472,6 +474,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                                         type="number"
                                         min={0}
                                         value={size.price}
+                                        onFocus={(e) => e.target.select()}
                                         onChange={(e) =>
                                             handleSizeChange(
                                                 index,
@@ -495,6 +498,7 @@ export default function ProductForm({ mode, initialData }: ProductFormProps) {
                                         type="number"
                                         min={0}
                                         value={size.stock}
+                                        onFocus={(e) => e.target.select()}
                                         onChange={(e) =>
                                             handleSizeChange(
                                                 index,

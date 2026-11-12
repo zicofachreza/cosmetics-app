@@ -166,7 +166,7 @@ export async function PUT(
         }
 
         return NextResponse.json({
-            message: 'Your changes have been saved successfully',
+            message: 'Perubahan data produk telah disimpan',
         })
     } catch (error) {
         console.error(error)
@@ -222,7 +222,7 @@ export async function DELETE(
         }
 
         return NextResponse.json({
-            message: 'The product has been permanently removed',
+            message: 'Produk telah dihapus secara permanen',
         })
     } catch (error) {
         console.error(error)
